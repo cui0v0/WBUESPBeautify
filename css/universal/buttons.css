@@ -1,0 +1,100 @@
+.button{
+	width: unset!important;
+	font-size: 1rem;
+	background-image: none;
+	background-color: var(--primary-theme-blue);
+	border: var(--primary-theme-blue);
+	border-radius: 20px;
+	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+	font-family: "HarmonyOS_Medium";
+	padding: 5px 10px 5px 15px;
+	position: relative;
+	letter-spacing: 5px;
+	text-align: center;
+	height: min-content;
+    &.disabled,&.disabled:hover{
+        box-shadow: none;
+        cursor: no-drop;
+        filter: brightness(0.6);
+    }
+    &#btn_back{
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+.Nsb_r_title div .button{
+	left:0;
+	transform: none;
+	margin: 0.5rem 0.5rem 0;
+}
+.Nsb_r_title button{
+	left: 50%;
+	transform: translateX(-50%);
+}
+form .buttons{
+	left: 50%;
+	transform: translateX(-50%);
+    position: relative;
+	display: inline-block;
+}
+
+.Nsb_r_list a{
+	background-color: var(--primary-theme-blue);
+	border: var(--primary-theme-blue);
+	border-radius: 20px;
+	box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.3);
+	font-family: "HarmonyOS_Medium";
+	padding: 3px 0;
+	position: relative;
+	text-align: center;
+	color: #fff;
+	display: list-item;
+}
+.Nsb_r_list a:hover, .button:hover{
+	filter: brightness(0.8);
+	transition-duration: 0.3s;
+	box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.7);
+	text-decoration:none;
+}
+
+.Nsb_r_list_fy4 {
+	background: none;
+    & a {
+        width: 3em;
+        text-align: center;
+        background: var(--primary-theme-blue);
+        margin: 0 0.1em;
+        border-radius: 2em;
+        color: #fff;
+        font-weight: bold;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+        -webkit-user-select: none;
+        user-select: none;
+    }
+    & .disabled {
+        filter: brightness(0.6);
+        box-shadow: none;
+        cursor: no-drop;
+    }
+    &
+    .dataTable .button#button1,.dataTable .button#button2{
+        left: 27%;
+    }
+}
+.centerButton{
+	position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: -0.5rem 0 0.5rem 0;
+}
+.SimScale{
+	font-size: 1.8rem;
+    height: 1.6rem;
+    width: 1.6rem!important;
+    line-height: 0;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0.25rem;
+}

@@ -1,0 +1,69 @@
+.iconfont {
+	position: absolute;
+    font-size: 75px;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 15px;
+}
+.icon-xuanke,.icon-yonghu {
+    font-size: 75px;
+    top: 80px;
+}
+.icon-yonghu{
+	left: 22.5%!important;	
+	position: absolute;
+	transform: translateX(-240%);
+	cursor: pointer;
+    &:hover{
+        filter: brightness(0.75);
+        transform: translate(-240%,1px);
+        transition-duration: 0.3s;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+}
+.block1,.block2,.block3,.block4,.block5,.block6,.block7,.block8,.block9,.block10,.block11,.block12{
+    box-shadow: 0px 4px 4px rgba(0,0,0,0.3);
+    border-radius: 0.5rem;
+}
+.block1text{
+    width:auto;
+    height: auto;
+    position: relative;
+    text-align: center;
+    left: 50%;
+    top: 42%;
+	color:#fff;
+    transform: translate(-30%,-90%);
+}
+.block1tex,.block2tex{
+    -webkit-user-select: none;
+    user-select: none;left:0px;
+    position: relative;
+    top: 12.5rem;
+    text-align: center;
+    color:#fff;
+}
+.block3tex,.block4tex,.block5tex,.block6tex{
+    left:50%;
+    position: absolute;
+    top: 6.25rem;
+    text-align: center;
+    transform: translateX(-50%);
+}
+.block7tex,.block8tex,.block9tex,.block10tex,.block11tex,.block12tex{
+    left:50%;
+    transform: translateX(-50%);
+    position: absolute;
+    top: 6rem;
+    text-align: center;
+    width: max-content;
+}
+.block2:hover,.block3:hover,.block4:hover,.block5:hover,.block6:hover,.block7:hover,.block8:hover,.block9:hover,.block10:hover,.block11:hover,.block12:hover{
+    transition: all 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
+	box-shadow: 0px 1px 2px rgba(0,0,0,0.7);
+	transform: translateY(2px);
+	filter: brightness(0.75);
+}
+.block1 img,.block2 img,.block3 img,.block4 img,.block5 img,.block6 img,.block7 img,.block8 img,.block9 img,.block10 img,.block11 img,.block12 img,.block1app,.block1pc{
+	visibility: hidden;
+}

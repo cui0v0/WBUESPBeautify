@@ -1,0 +1,11 @@
+.Nsb_rights {
+	height: max-content;
+	line-height: normal;
+}
+.info{
+	text-align: center;
+	color: #000;
+    & .heart{
+        color: #ff0081;
+    }
+}
