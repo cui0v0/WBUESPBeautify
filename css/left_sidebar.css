@@ -23,7 +23,7 @@
         padding: 6px 0;
         font-size: 17px;
         font-weight: bold;
-        background-color: var(--primary-theme-blue);
+        background-color: var(--primary-theme-color);
         border-radius: 1rem 1rem 0 0;
         box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.3);
         color: #fff;
@@ -44,21 +44,21 @@
         &:hover {
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             border-radius: 1em;
-            background: #7AB7FE;
+            background: var(--tertiary-theme-color);
             color: #fff;
             margin-top: 1px;
             margin-bottom: -1px;
         }
     }
     & .Nsb_l_list_now {
-        background: var(--secondary-theme-blue);
+        background: var(--secondary-theme-color);
         color: #fff;
         padding: 4px 0;
         box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
         &:hover {
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             border-radius: 15px;
-            background: #A6D3FE;
+            background: var(--tertiary-theme-color);
         }
     }
 }

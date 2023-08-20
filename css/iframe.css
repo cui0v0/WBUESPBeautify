@@ -5,8 +5,8 @@ div#SimPageOutline{
     position: relative;
     left: 50%;
     transform: translateX(-50%);
-    border: 0.5rem solid var(--primary-theme-blue);
-	background-color: var(--primary-theme-blue);
+    border: 0.5rem solid var(--primary-theme-color);
+	background-color: var(--primary-theme-color);
     border-top: 0;
     border-radius: 1rem;
     box-shadow: 0px 3px 5px 2px rgba(0, 0, 0, 0.3);
@@ -29,7 +29,7 @@ iframe#SimPage{
     position: relative;
     left: 50%;
     transform: translateX(-50%);
-    border: 0.5rem solidvar(--primary-theme-blue);
+    border: 0.5rem solidvar(--primary-theme-color);
     border-radius: 1rem;
     box-shadow: 0px 3px 5px 2px rgba(0, 0, 0, 0.3);
     }
@@ -40,14 +40,14 @@ iframe#SimPage{
         position: relative;
         left: 50%;
         transform: translateX(-50%);
-        border: 0.5rem solidvar(--primary-theme-blue);
+        border: 0.5rem solidvar(--primary-theme-color);
         border-radius: 1rem;
         box-shadow: 0px 3px 5px 2px rgba(0, 0, 0, 0.3);
         width: 68rem!important;
     }
 }
 .toolbar{
-	background: var(--primary-theme-blue)!important;
+	background: var(--primary-theme-color)!important;
     border-radius: 0 0 1rem 1rem;
     box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.3);
 	height: 2.5rem;
@@ -86,7 +86,7 @@ div.closeButton{
     line-height: 2rem;
     color: #FFF;
     font-size: 1.15rem;
-    background: var(--secondary-theme-blue);
+    background: var(--secondary-theme-color);
     font-weight: normal;
     font-family: "HarmonyOS_Medium";
     text-align: center;
@@ -107,21 +107,21 @@ textarea#xmms {
 	width: 93.5%!important;
     position: relative;
     margin: 0 2rem;
-    border: 0.2rem solid var(--secondary-theme-blue);
+    border: 0.2rem solid var(--secondary-theme-color);
     border-radius: 1rem;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
     &:focus-visible {
-        outline: 0.2rem solid var(--primary-theme-blue);
+        outline: 0.2rem solid var(--primary-theme-color);
         box-shadow: 0px 7px 4px rgba(0, 0, 0, 0.3);
     }
 }
 textarea[style],textarea[type=text]{
 	position: relative;
-    border: 0.2rem solid var(--secondary-theme-blue);
+    border: 0.2rem solid var(--secondary-theme-color);
     border-radius: 1rem;
     box-shadow: rgba(0, 0, 0, 0.3) 0px 2px 4px;
     &:hover{
-        outline: 0.2rem solid var(--primary-theme-blue);
+        outline: 0.2rem solid var(--primary-theme-color);
         box-shadow: 0px 7px 4px rgba(0, 0, 0, 0.3);
     }
 }

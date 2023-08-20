@@ -1,8 +1,8 @@
 @media (prefers-color-scheme: dark) {
 	:root{
-		--primary-theme-blue: hsl(217 99% 40%);
-		--secondary-theme-blue: hsl(215 99% 50%);
-		--tertiary-theme-blue:hsl(212 85% 60%);
+		--primary-theme-color: hsl(217 99% 40%);
+		--secondary-theme-color: hsl(215 99% 50%);
+		--tertiary-theme-color:hsl(212 85% 60%);
 		--background-gray:#333;
 		--dark-background-gray:hsl(0 0% 10% / 1);
 		--gray: hsl(0 0% 80%);
@@ -12,10 +12,10 @@
 		background-color: #111111;
 	}
 	.button,.Nsb_l_list h4,.Nsb_menu_pw, .Nsb_menu,.Nsb_top_menu ul,.Nsb_menu a:hover {
-		background-color: var(--primary-theme-blue);
+		background-color: var(--primary-theme-color);
 	}
 	.Nsb_layout_r .Nsb_r_list td, #dataList td {
-		border: solid 0.05rem var(--primary-theme-blue);
+		border: solid 0.05rem var(--primary-theme-color);
 		color: var(--gray);
 		box-shadow: 0px 3px 3px rgb(255 255 255 / 20%);
 	}
@@ -32,34 +32,34 @@
 	}
 	[id].kbcontent, [id].kbcontent1 {
 		color: #fff;
-		background: var(--secondary-theme-blue);
+		background: var(--secondary-theme-color);
 	}
 	.Nsb_layout_r .Nsb_r_list .Nsb_r_list_thb, #dataList .Nsb_r_list_thb {
-		background: var(--primary-theme-blue);
+		background: var(--primary-theme-color);
 		box-shadow: 0px 4px 5px rgb(255 255 255 / 30%);
 		color:var(--lighter-gray);
 	}
 	.Nsb_r_list_fy2 input {
-		border: 2px solid var(--primary-theme-blue);
-		background-color: var(--tertiary-theme-blue);
+		border: 2px solid var(--primary-theme-color);
+		background-color: var(--tertiary-theme-color);
 		color:var(--lighter-gray);
 		&:hover,&:focus-visible{
-			outline:2px solid var(--primary-theme-blue);
-			background-color: var(--secondary-theme-blue);
+			outline:2px solid var(--primary-theme-color);
+			background-color: var(--secondary-theme-color);
 		}
 		&:focus-visible{
-			outline:3px solid var(--primary-theme-blue);
+			outline:3px solid var(--primary-theme-color);
 		}
 	}
 	/* .Nsb_r_list a,.Nsb_r_list a:hover,.button,.button:hover{
-		border: var(--primary-theme-blue);
-		background: var(--primary-theme-blue);
+		border: var(--primary-theme-color);
+		background: var(--primary-theme-color);
 	} */
 	.Nsb_l_list .Nsb_l_list_now,.Nsb_top_menu,#kbtable th{
-		background-color: var(--secondary-theme-blue);
+		background-color: var(--secondary-theme-color);
 	}
 	.Nsb_l_list a:hover{
-		background: var(--tertiary-theme-blue);
+		background: var(--tertiary-theme-color);
 		color:#fff;
 	}
 	.Nsb_l_list .Nsb_l_list_now:hover{
@@ -76,11 +76,11 @@
 		box-shadow: 0px 3px 5px rgb(255 255 255 / 30%)
 	}
 	#kbtable td {
-		border: solid 0.05rem var(--secondary-theme-blue);
+		border: solid 0.05rem var(--secondary-theme-color);
 		color: var(--gray);
 	}
 	.SimSelect {
-		border: 2px solid var(--secondary-theme-blue);
+		border: 2px solid var(--secondary-theme-color);
 		background-color: var(--background-gray);
 		color: var(--gray);
 	}
@@ -98,18 +98,18 @@
 		box-shadow: 0px 2px 4px rgb(255 255 255 / 30%);
 	}
 	input.SimInput, .inputnormal {
-		background-color: var(--secondary-theme-blue);
-		border: 2px solid var(--primary-theme-blue);
+		background-color: var(--secondary-theme-color);
+		border: 2px solid var(--primary-theme-color);
 		color: var(--lighter-gray);
 		&:focus-visible{
-			outline: 3px solid var(--primary-theme-blue);
+			outline: 3px solid var(--primary-theme-color);
 		}
 		&:hover{
-			outline: 2px solid var(--primary-theme-blue);
+			outline: 2px solid var(--primary-theme-color);
 		}
 	}
 	.Nsb_pw #fcenter {
-		border: 0.5rem solid var(--primary-theme-blue);
+		border: 0.5rem solid var(--primary-theme-color);
 		box-shadow: 0px 3px 5px 2px rgb(255 255 255 / 30%);
 	}
 	.Nsb_layout_l {
