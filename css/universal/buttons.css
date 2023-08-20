@@ -5,26 +5,33 @@
 	background-color: var(--primary-theme-color);
 	border: var(--primary-theme-color);
 	border-radius: 20px;
-	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
-	font-family: "HarmonyOS_Medium";
+	box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.4);
 	padding: 5px 10px 5px 15px;
 	position: relative;
 	letter-spacing: 5px;
 	text-align: center;
+    text-decoration:none;
 	height: min-content;
+    transition: 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
+    transition-property: filter,box-shadow,transform;
     &.disabled,&.disabled:hover{
         box-shadow: none;
         cursor: no-drop;
         filter: brightness(0.6);
+        transform: none;
     }
     &#btn_back{
         left: 50%;
-        transform: translateX(-50%);
+        translate: -50%;
+    }
+    &.centerButton{
+        left: 50%;
+        translate: -50%;
+        margin: -0.5rem 0 0.5rem 0;
     }
 }
 .Nsb_r_title div .button{
 	left:0;
-	transform: none;
 	margin: 0.5rem 0.5rem 0;
 }
 .Nsb_r_title button{
@@ -43,18 +50,21 @@ form .buttons{
 	border: var(--primary-theme-color);
 	border-radius: 20px;
 	box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.3);
-	font-family: "HarmonyOS_Medium";
 	padding: 3px 0;
 	position: relative;
 	text-align: center;
 	color: #fff;
 	display: list-item;
+    transition: 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
+    transition-property: filter,box-shadow,transform;
 }
 .Nsb_r_list a:hover, .button:hover{
+    text-decoration:none;
 	filter: brightness(0.8);
-	transition-duration: 0.3s;
 	box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.7);
-	text-decoration:none;
+    transform: translateY(0.5px);
+    transition: 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
+    transition-property: filter,box-shadow,transform;
 }
 
 .Nsb_r_list_fy4 {
@@ -76,16 +86,9 @@ form .buttons{
         box-shadow: none;
         cursor: no-drop;
     }
-    &
-    .dataTable .button#button1,.dataTable .button#button2{
+    &.dataTable .button#button1,&.dataTable .button#button2{
         left: 27%;
     }
-}
-.centerButton{
-	position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-    margin: -0.5rem 0 0.5rem 0;
 }
 .SimScale{
 	font-size: 1.8rem;

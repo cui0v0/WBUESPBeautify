@@ -25,7 +25,7 @@
         font-weight: bold;
         background-color: var(--primary-theme-color);
         border-radius: 1rem 1rem 0 0;
-        box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.3);
+        box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.3);
         color: #fff;
         background-image: none;
         width: inherit;
@@ -41,24 +41,30 @@
         text-align: center;
         position: relative;
         width: inherit;
+        transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        transition-property: border-radius,background,color,transform,box-shadow;
         &:hover {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             border-radius: 1em;
             background: var(--tertiary-theme-color);
+            box-shadow: inset 0px 2px 6px 1px rgb(0 0 0 / 30%);
             color: #fff;
-            margin-top: 1px;
-            margin-bottom: -1px;
+            transform: translateY(0.75px);
+            transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition-property: border-radius,background,color,transform,box-shadow;
         }
     }
     & .Nsb_l_list_now {
         background: var(--secondary-theme-color);
         color: #fff;
         padding: 4px 0;
-        box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+        transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        transition-property: border-radius,background,box-shadow;
         &:hover {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             border-radius: 15px;
             background: var(--tertiary-theme-color);
+            transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition-property: border-radius,background,box-shadow;
         }
     }
 }

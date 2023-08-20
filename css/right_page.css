@@ -55,12 +55,15 @@
     font-size: 1rem;
     border-radius: 1.5em;
     background-image: none;
+    transition: 0.3s cubic-bezier(0.39, 0.58, 0.57, 1);
+    transition-property: transform,background-color,border;
     &:hover,&:focus-visible{
         outline: none;
         border: 2px solid var(--primary-theme-color);
         background-color:var(--secondary-theme-color);
-        transition: all 0.3s cubic-bezier(0.39, 0.58, 0.57, 1);
         transform: scale(1.02);
+        transition: 0.3s cubic-bezier(0.39, 0.58, 0.57, 1);
+        transition-property: transform,background-color,border;
     }
 }
 .Nsb_r_list_fy{
@@ -88,10 +91,6 @@
     .thb_b_l.thb_b_r{
         border-radius: 0 0 1rem 1rem;
     }
-}
-
-table.dataTable tbody tr td {
-    padding-left: 0px!important;
 }
 
 #Form1[action] div{

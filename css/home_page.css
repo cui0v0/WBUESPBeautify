@@ -14,16 +14,19 @@
 	position: absolute;
 	transform: translateX(-240%);
 	cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
     &:hover{
         filter: brightness(0.75);
         transform: translate(-240%,1px);
         transition-duration: 0.3s;
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        transition: all 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
     }
 }
 .block1,.block2,.block3,.block4,.block5,.block6,.block7,.block8,.block9,.block10,.block11,.block12{
     box-shadow: 0px 4px 4px rgba(0,0,0,0.3);
     border-radius: 0.5rem;
+    transition: 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
+    transition-property: filter,transform,box-shadow;
 }
 .block1text{
     width:auto;
@@ -59,10 +62,11 @@
     width: max-content;
 }
 .block2:hover,.block3:hover,.block4:hover,.block5:hover,.block6:hover,.block7:hover,.block8:hover,.block9:hover,.block10:hover,.block11:hover,.block12:hover{
-    transition: all 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
 	box-shadow: 0px 1px 2px rgba(0,0,0,0.7);
 	transform: translateY(2px);
 	filter: brightness(0.75);
+    transition: 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
+    transition-property: filter,transform,box-shadow;
 }
 .block1 img,.block2 img,.block3 img,.block4 img,.block5 img,.block6 img,.block7 img,.block8 img,.block9 img,.block10 img,.block11 img,.block12 img,.block1app,.block1pc{
 	visibility: hidden;

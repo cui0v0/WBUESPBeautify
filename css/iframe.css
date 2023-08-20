@@ -29,7 +29,7 @@ iframe#SimPage{
     position: relative;
     left: 50%;
     transform: translateX(-50%);
-    border: 0.5rem solidvar(--primary-theme-color);
+    border: 0.5rem solid var(--primary-theme-color);
     border-radius: 1rem;
     box-shadow: 0px 3px 5px 2px rgba(0, 0, 0, 0.3);
     }
@@ -40,7 +40,7 @@ iframe#SimPage{
         position: relative;
         left: 50%;
         transform: translateX(-50%);
-        border: 0.5rem solidvar(--primary-theme-color);
+        border: 0.5rem solid var(--primary-theme-color);
         border-radius: 1rem;
         box-shadow: 0px 3px 5px 2px rgba(0, 0, 0, 0.3);
         width: 68rem!important;
@@ -72,13 +72,14 @@ div.closeButton{
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
 	-webkit-user-select: none;
 	user-select: none;
+    transition: 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
+    transition-property: filter,box-shadow,transform;
     &:hover{
-        transition-duration: 0.3s;
-        transform: translateY(1px);
+        transform: translateY(0.75px);
         box-shadow: 0 1px 2px rgba(0, 0, 0, 0.7);
-        background: #B71D23;
-        color: #d5d5d5;
-        line-height: 2rem;
+        filter: brightness(0.7);
+        transition: 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
+        transition-property: filter,box-shadow,transform;
     }
 }
 .toolstitle {
@@ -88,7 +89,6 @@ div.closeButton{
     font-size: 1.15rem;
     background: var(--secondary-theme-color);
     font-weight: normal;
-    font-family: "HarmonyOS_Medium";
     text-align: center;
     box-shadow: 0 4px 7px 0px rgba(0, 0, 0, 0.3);
 }
@@ -110,9 +110,13 @@ textarea#xmms {
     border: 0.2rem solid var(--secondary-theme-color);
     border-radius: 1rem;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+    transition: 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
+    transition-property: box-shadow,outline;
     &:focus-visible {
         outline: 0.2rem solid var(--primary-theme-color);
         box-shadow: 0px 7px 4px rgba(0, 0, 0, 0.3);
+        transition: 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
+        transition-property: box-shadow,outline;
     }
 }
 textarea[style],textarea[type=text]{
@@ -120,8 +124,12 @@ textarea[style],textarea[type=text]{
     border: 0.2rem solid var(--secondary-theme-color);
     border-radius: 1rem;
     box-shadow: rgba(0, 0, 0, 0.3) 0px 2px 4px;
+    transition: 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
+    transition-property: box-shadow,outline;
     &:hover{
         outline: 0.2rem solid var(--primary-theme-color);
         box-shadow: 0px 7px 4px rgba(0, 0, 0, 0.3);
+        transition: 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
+        transition-property: box-shadow,outline;
     }
 }
