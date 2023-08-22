@@ -215,9 +215,9 @@ input.SimScaleInput.SimInput{
 input.SimInput,.inputnormal{
     width: 200px!important;
     text-align: center;
-    border: 2px solid var(--secondary-theme-color);
+    border: 2px solid var(--primary-theme-color);
     border-radius: 1.5em;
-    background-color: #A6D3FE;
+    background-color: var(--tertiary-theme-color);
     text-shadow: 0px 0px 4px rgba(0,0,0,0.7);
     color: #fff;
     font-size: 1rem;

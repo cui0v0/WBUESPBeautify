@@ -59,12 +59,12 @@
         padding: 4px 0;
         box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
         transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        transition-property: border-radius,background,box-shadow;
+        transition-property: border-radius,background,box-shadow,transform;
         &:hover {
             border-radius: 15px;
             background: var(--tertiary-theme-color);
             transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            transition-property: border-radius,background,box-shadow;
+            transition-property: border-radius,background,box-shadow,transform;
         }
     }
 }
