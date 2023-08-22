@@ -48,7 +48,7 @@
             background: var(--tertiary-theme-color);
             box-shadow: inset 0px 2px 6px 1px rgb(0 0 0 / 30%);
             color: #fff;
-            transform: translateY(0.75px);
+            transform: translateY(0.5px);
             transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             transition-property: border-radius,background,color,transform,box-shadow;
         }
