@@ -29,9 +29,14 @@
 .Nsb_menu_pw {
 	box-shadow: 0px 5px 6px rgba(0, 0, 0, 0.3);
 }
+.Nsb_top{
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
+    align-items: center;
+}
 .Nsb_top_menu {
-    position: absolute;
-    top: 33%;
+    position: relative;
 	background-color: var(--secondary-theme-color);
     border-radius: 20px;
 	box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.3);
