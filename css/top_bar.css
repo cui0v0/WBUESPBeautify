@@ -85,3 +85,13 @@
 .Nsb_top_menu span, .Nsb_top_menu_id img{
 	visibility: hidden;
 }
+.SimTopBanner{
+    background-image: url(https://raw.githubusercontent.com/cui0v0/shorttimeweb/master/dji_fly_20230721_181000_390_1689934214383_photo.jpg);
+    margin: 0!important;
+    padding: 0 2rem;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: -490px;
+    background-attachment: fixed;
+    background-position-x: center;
+}

@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         WBUESPBeautify
 // @namespace    http://tampermonkey.net/
-// @version      0.8.103
+// @version      0.8.104
 // @description  WBUESP美化
 // @author       Simprole
 // @match        http://jw.wbu.edu.cn/jsxsd/*
@@ -646,6 +646,10 @@
         if($(".Nsb_layout_l")[0].childElementCount <=1){
             $(".Nsb_layout_l")[0].style.display = "none";
         }
+    }
+    //top banner decoration
+    if($(".Nsb_pw")[0]){
+        $(".Nsb_pw")[0].classList.add("SimTopBanner");
     }
     //main page info fix
     if(document.getElementsByClassName("Nsb_pw")[2]&&document.getElementById("btn_back")){
