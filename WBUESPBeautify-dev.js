@@ -95,7 +95,6 @@
             document.getElementById("SimPageOutline").remove();
         }
     }
-
         // experimental code
         if($(".Nsb_layout_r")[0]){
             let SimTop = document.createElement("a");
