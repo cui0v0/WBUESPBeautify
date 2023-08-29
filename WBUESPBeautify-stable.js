@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         WBUESPBeautify
 // @namespace    http://tampermonkey.net/
-// @version      0.8.100
+// @version      0.8.98
 // @description  WBUESP美化
 // @author       Simprole
 // @match        http://jw.wbu.edu.cn/jsxsd/*
