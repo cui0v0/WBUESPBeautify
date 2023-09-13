@@ -50,7 +50,70 @@
     $("body").append($('<script>function JsMod(htmlurl,tmpWidth,tmpHeight){let inPage = document.createElement("iframe");;inPage.id = "SimPage";let SimPage = document.createElement("div");SimPage.id = "SimPageOutline";let toolbar = document.createElement("div");toolbar.innerHTML=\'<a href="javascript:closeIframe();" class="closeButton"><div class="closeButton">×</div></a>\';SimPage.appendChild(toolbar);SimPage.appendChild(inPage);if(!document.getElementById("SimPage")){if(document.getElementById("dataList")){let dataList = document.getElementById("dataList");dataList.after(SimPage);dataList.style = "display:none;";}if(document.getElementsByClassName("Nsb_r_list Nsb_table")[0].id!="dataList"){let table = document.getElementsByClassName("Nsb_r_list Nsb_table")[0];table.after(SimPage);table.style = "display:none;";}htmlurl=getRandomUrl(htmlurl);inPage.src = htmlurl;}}</script>'));
     //closeIframe
     $("body").append($('<script>function closeIframe(){if(!document.getElementById("SimPage")&&window.parent.document.getElementById("SimPage")){let parent = window.parent;if(parent.document.getElementById("dataList")){parent.document.getElementById("dataList").style = "";}if(parent.document.getElementsByClassName("Nsb_r_list Nsb_table")[0].id!="dataList"){parent.document.getElementsByClassName("Nsb_r_list Nsb_table")[0].style = "";}parent.document.getElementById("SimPageOutline").remove();}else if(document.getElementsByClassName("Nsb_r_list Nsb_table")[0]&&document.getElementById("SimPage")){if(document.getElementById("dataList")){document.getElementById("dataList").style = "";}if(document.getElementsByClassName("Nsb_r_list Nsb_table")[0].id!="dataList"){document.getElementsByClassName("Nsb_r_list Nsb_table")[0].style = "";}document.getElementById("SimPageOutline").remove();}}</script>'));
+    
+    document.addEventListener("DOMContentLoaded",function(){
+        let link = document.querySelectorAll("link");
+        for(let i=1;i<=link.length;i++){
+            let targetHref;
+            if(link[i-1].getAttribute("href")=="/jsxsd/framework/images/common.css"){
+                targetHref = "https://gitee.com/dmaker/simpage/raw/master/MirrorLibFiles/common.css";
+                link[i-1].parentElement.replaceChild(createLink(targetHref),link[i-1]);
+            }
+            //link[i-1].remove();
+        }
+        // document.querySelectorAll("link").forEach(function(link){
+        //     link.remove();
+        // });
+    },{once:true});
 
+    $(document).ready(function(){
+        let link = document.querySelectorAll("link");
+        for(let i=1;i<=link.length;i++){
+            let targetHref;
+            if(link[i-1].getAttribute("href")=="/jsxsd/framework/images/common.css"){
+                targetHref = "https://gitee.com/dmaker/simpage/raw/master/MirrorLibFiles/common.css";
+                link[i-1].parentElement.replaceChild(createLink(targetHref),link[i-1]);
+            }
+            //link[i-1].remove();
+        }
+    });
+
+    $(document).ready(function(){
+        let link = document.querySelectorAll("link");
+        for(let i=1;i<=link.length;i++){
+            let targetHref;
+            switch(link[i-1].href){
+                case "/jsxsd/framework/images/common.css":{
+                    targetHref = "https://gitee.com/dmaker/simpage/raw/master/MirrorLibFiles/common.css";
+                    link[i-1].parentElement.replaceChild(createLink(targetHref),link[i-1]);
+                    break;
+                }
+            }
+        }
+        let script = document.querySelectorAll("script[src]");
+        for(let i=1;i<=script.length;i++){
+            let targetSrc;
+            if(script[i-1].src=="/jsxsd/js/jquery-min.js"){
+                targetSrc = "https://libs.baidu.com/jquery/2.0.0/jquery.min.js";
+                // script[i-1].parentElement.replaceChild(createScript(targetSrc),script[i-1]);
+                script[i-1].remove();
+                script[i-1].parentElement.appendChild(createScript(targetSrc));
+            }
+            // switch(script[i-1].src){
+            //     case "/jsxsd/js/jquery-min.js":{
+            //         targetSrc = "https://libs.baidu.com/jquery/2.0.0/jquery.min.js";
+            //         script[i-1].parentElement.replaceChild(createScript(targetSrc),script[i-1])
+            //         break;
+            //     }
+            // }
+        }
+    });
+
+    function createScript(src) {
+        let jsElm = document.createElement("script");
+        jsElm.src = src;
+        return jsElm;
+    }
     //iframe former lib
     function JsMod(htmlurl,tmpWidth,tmpHeight){
         let inPage = document.createElement("iframe");;
@@ -124,27 +187,31 @@
                 if(score[i-1].parentElement.nextElementSibling.innerHTML!=0){
                     let subjectJson = {};
                     subjectJson.subject = score[i-1].parentElement.previousElementSibling.innerText;
-                    if(parseFloat(score[i-1].innerHTML)){
+                    if(score[i-1].innerText=='0'){
+                        subjectJson.score = 0;
+                    }else if(parseFloat(score[i-1].innerText)){
                         subjectJson.score = parseFloat(score[i-1].innerText);
                     }else{
                         switch(score[i-1].innerText){
-                            case "优": subjectJson.score = 100; break;
-                            case "良": subjectJson.score = 75; break;
+                            case "优": subjectJson.score = 90; break;
+                            case "良": subjectJson.score = 80; break;
+                            case "中": subjectJson.score = 70; break;
+                            case "合格": subjectJson.score = 60; break;
+                            case "及格": subjectJson.score = 60; break;
+                            case "不合格": subjectJson.score = 40; break;
                         }
                     }
                     subjectJson.credit = parseFloat(score[i-1].parentElement.nextElementSibling.innerText);
-                    subjectJson.grade = subjectJson.score/10 - 5;
                     subjects.push(subjectJson);
                 }
             }
-            console.log("subjects:");
             console.log(subjects);
             for(var num in subjects){
                 totalCredits += subjects[num].credit;
-                temp += subjects[num].credit*subjects[num].grade;
+                temp += subjects[num].credit*subjects[num].score;
             }
             console.log(totalCredits);
-            gpa=temp/totalCredits;
+            gpa=(temp/totalCredits)*0.7;
             console.log("平均学分绩点GPA: "+gpa);
         }
             // if(subjectJson.score>=90&&subjectJson.score<=100){
