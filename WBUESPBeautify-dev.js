@@ -181,24 +181,21 @@
         if($("title")[0].innerHTML=='学生个人考试成绩'){
             let subjects = [];
             let score = $("#dataList")[0].getElementsByTagName("a");
-            let length = score.length;
             let temp = 0,gpa = 0,totalCredits= 0;
-            for(let i =1;i<=length;i++){
+            for(let i =1;i<=score.length;i++){
                 if(score[i-1].parentElement.nextElementSibling.innerHTML!=0){
                     let subjectJson = {};
                     subjectJson.subject = score[i-1].parentElement.previousElementSibling.innerText;
-                    if(score[i-1].innerText=='0'){
-                        subjectJson.score = 0;
-                    }else if(parseFloat(score[i-1].innerText)){
+                    if(parseFloat(score[i-1].innerText)){
                         subjectJson.score = parseFloat(score[i-1].innerText);
                     }else{
                         switch(score[i-1].innerText){
                             case "优": subjectJson.score = 90; break;
                             case "良": subjectJson.score = 80; break;
                             case "中": subjectJson.score = 70; break;
-                            case "合格": subjectJson.score = 60; break;
                             case "及格": subjectJson.score = 60; break;
-                            case "不合格": subjectJson.score = 40; break;
+                            case "不及格": subjectJson.score = 40; break;
+                            case "0": subjectJson.score = 0; break;
                         }
                     }
                     subjectJson.credit = parseFloat(score[i-1].parentElement.nextElementSibling.innerText);
@@ -210,9 +207,8 @@
                 totalCredits += subjects[num].credit;
                 temp += subjects[num].credit*subjects[num].score;
             }
-            console.log(totalCredits);
             gpa=(temp/totalCredits)*0.7;
-            console.log("平均学分绩点GPA: "+gpa);
+            console.log("课程学习成绩："+gpa);
         }
             // if(subjectJson.score>=90&&subjectJson.score<=100){
             //     subjectJson.grade = 4;
