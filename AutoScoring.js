@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         WBUTeachersEvaluator
 // @namespace    http://tampermonkey.net/
-// @version      0.1
+// @version      0.2
 // @description  WBU自动教学评价
 // @author       Simprole
 // @match        http://jw.wbu.edu.cn/jsxsd/*
@@ -26,6 +26,17 @@
                     }
                 }
             })
+        }
+        if(document.querySelector("script[language=javascript]")){
+            document.querySelectorAll("script[language=javascript]").forEach((e)=>{
+                if(e.innerHTML.indexOf("alert('保存成功');")!=-1){
+                    if(window.parent.parent.document.querySelector("#SimPage")){
+                        window.parent.parent.refresh();
+                    }else{
+                        window.parent.refresh();
+                    }
+                }
+            });
         }
         if(document.querySelector("td.toolstitle")){
             if(document.querySelector("td.toolstitle").innerHTML=='学生评教'){

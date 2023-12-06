@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         WBUESPBeautify
 // @namespace    http://tampermonkey.net/
-// @version      0.9.0
+// @version      0.9.1
 // @description  WBUESP美化
 // @author       Simprole
 // @match        http://jw.wbu.edu.cn/jsxsd/*
@@ -273,7 +273,6 @@
             }
             length = $(".kbcontent1").length;
             for(let i=1;i<=length;i++){
-                let similarity = 0;
                 classLists = classLists_eg.cloneNode(true);
                 kbcontent1 = $(".kbcontent1")[i-1];
                 if(!kbsort[kbcontent1.childNodes[0].data]){
@@ -293,6 +292,9 @@
                         }
                     }
                     if(similarity>4){
+                        if(!kbsort[kbc1Children[initalIndex].childNodes[0].data]){
+                            kbsort[kbc1Children[initalIndex].childNodes[0].data] = randomColorPick();
+                        }
                         tempJson = kbsort[kbc1Children[initalIndex].childNodes[0].data];
                         kbc1Children[initalIndex].id = "SimStackTop";
                         hslDarker = "hsl(" + tempJson.hue + ", " + tempJson.sat + "%, " + (tempJson.light - 8) + "%)";

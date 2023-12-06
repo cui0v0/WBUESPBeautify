@@ -116,7 +116,7 @@
     }
     //iframe former lib
     function JsMod(htmlurl,tmpWidth,tmpHeight){
-        let inPage = document.createElement("iframe");;
+        let inPage = document.createElement("iframe");
         inPage.id = "SimPage";
         let SimPage = document.createElement("div");
         SimPage.id = "SimPageOutline";
@@ -137,6 +137,18 @@
             }
             htmlurl=getRandomUrl(htmlurl);
             inPage.src = htmlurl;
+            inPage.addEventListener('load',e=>{
+                let SimPageContent = document.querySelector("#SimPage").contentWindow;
+                if(SimPageContent.document.getElementsByClassName("button")[0]){
+                    let button = SimPageContent.document.querySelectorAll("button");
+                    button.forEach((e)=>{
+                        if(e.attributes.onclick.value == "window.close();"){
+                            e.attributes.removeNamedItem("onclick");
+                            e.addEventListener("click", closeIframe);
+                        }
+                    })
+                }
+            })
         }
     }
 
@@ -481,6 +493,9 @@
                         }
                     }
                     if(similarity>4){
+                        if(!kbsort[kbc1Children[initalIndex].childNodes[0].data]){
+                            kbsort[kbc1Children[initalIndex].childNodes[0].data] = randomColorPick();
+                        }
                         tempJson = kbsort[kbc1Children[initalIndex].childNodes[0].data];
                         kbc1Children[initalIndex].id = "SimStackTop";
                         hslDarker = "hsl(" + tempJson.hue + ", " + tempJson.sat + "%, " + (tempJson.light - 8) + "%)";
