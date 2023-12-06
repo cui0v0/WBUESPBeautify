@@ -50,16 +50,18 @@
             console.log("学期平均成绩："+gpa);
             window.alert("学期平均成绩："+gpa);
         }
-        if($("title")[0].innerHTML=='学生个人考试成绩'){
-            if(!window.parent.document.getElementById("SimPage")){
-                let calcBtn = document.createElement("input");
-                calcBtn.setAttribute("value","计算学期平均成绩");
-                calcBtn.setAttribute("type","button");
-                calcBtn.classList.add("button");
-                calcBtn.id = "SimBtn";
-                calcBtn.style.cssText = "position: fixed;bottom: 1rem;z-index: 100;right: 1rem;"
-                calcBtn.addEventListener("click",calculate);
-                document.body.appendChild(calcBtn);
+        if($("title")[0]){
+            if($("title")[0].innerHTML=='学生个人考试成绩'){
+                if(!window.parent.document.getElementById("SimPage")){
+                    let calcBtn = document.createElement("input");
+                    calcBtn.setAttribute("value","计算学期平均成绩");
+                    calcBtn.setAttribute("type","button");
+                    calcBtn.classList.add("button");
+                    calcBtn.id = "SimBtn";
+                    calcBtn.style.cssText = "position: fixed;bottom: 1rem;z-index: 100;right: 1rem;"
+                    calcBtn.addEventListener("click",calculate);
+                    document.body.appendChild(calcBtn);
+                }
             }
         }
     });

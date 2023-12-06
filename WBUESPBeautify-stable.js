@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         WBUESPBeautify
 // @namespace    http://tampermonkey.net/
-// @version      0.8.98
+// @version      0.9.0
 // @description  WBUESP美化
 // @author       Simprole
 // @match        http://jw.wbu.edu.cn/jsxsd/*
@@ -45,11 +45,42 @@
     $("body").append($('<style id="SimTopBarCSS">.Nsb_menu_pw,.Nsb_menu {height: 41px;line-height: 41px;background-color: var(--primary-theme-color);background-image:none;left: 50%;position: relative;transform: translateX(-50%);}.Nsb_menu a {color: #fff;font-weight: normal;border-radius: 2px;transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);transition-property: border-radius,transform,filter,background-color,box-shadow;&:hover{background-position: none;background-color: var(--primary-theme-color);background-image:none;height: 40px;filter: brightness(0.7);transform: translateY(0.75px);border-radius: 20px;box-shadow: inset 0px 3px 5px 0px rgba(0, 0, 0, 0.3);transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);transition-property: box-shadow,border-radius,transform,filter,background-color,;}}.Nsb_menu_pw {box-shadow: 0px 5px 6px rgba(0, 0, 0, 0.3);}.Nsb_top{display: flex;justify-content: flex-end;flex-direction: row;align-items: center;}.Nsb_top_menu {position: relative;background-color: var(--secondary-theme-color);border-radius: 20px;box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.3);& ul{border:none;background: var(--primary-theme-color);border-radius: 20px;padding: 3px;box-shadow: -1px 0px 3px rgba(0, 0, 0, 0.3);}}.Nsb_top_menu_nc {height: inherit;font-size: 1em;line-height: 2em;padding: 0 0.75em 0 1em;color: #fff;-webkit-user-select: none;user-select: none;cursor: pointer;transition: 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);transition-property: transform,filter;&:hover{filter: brightness(0.8);transform: translateY(1px);transition: 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);transition-property: transform,filter;}}.menu_cn{& a {padding: 0 2em;font-size: 1.0625em;}& ul{left: 50%;position: relative;transform: translateX(-50%);width: max-content;}}.Nsb_top_logo {left: 0px;}.Nsb_menu_li_now{background: none;}.Nsb_menu_li_h span {background: url(../framework/images/Nsb_menu_h.gif) 0 -15px}.Nsb_top_menu span, .Nsb_top_menu_id img{visibility: hidden;}</style>'));
     //iframe code
     $("body").append($('<script>function JsMod(htmlurl,tmpWidth,tmpHeight){let inPage = document.createElement("iframe");;inPage.id = "SimPage";let SimPage = document.createElement("div");SimPage.id = "SimPageOutline";let toolbar = document.createElement("div");toolbar.innerHTML=\'<a href="javascript:closeIframe();" class="closeButton"><div class="closeButton">×</div></a>\';SimPage.appendChild(toolbar);SimPage.appendChild(inPage);if(!document.getElementById("SimPage")){if(document.getElementById("dataList")){let dataList = document.getElementById("dataList");dataList.after(SimPage);dataList.style = "display:none;";}if(document.getElementsByClassName("Nsb_r_list Nsb_table")[0].id!="dataList"){let table = document.getElementsByClassName("Nsb_r_list Nsb_table")[0];table.after(SimPage);table.style = "display:none;";}htmlurl=getRandomUrl(htmlurl);inPage.src = htmlurl;}}</script>'));
-    //closeIframe
+    //closeIframe code
     $("body").append($('<script>function closeIframe(){if(!document.getElementById("SimPage")&&window.parent.document.getElementById("SimPage")){let parent = window.parent;if(parent.document.getElementById("dataList")){parent.document.getElementById("dataList").style = "";}if(parent.document.getElementsByClassName("Nsb_r_list Nsb_table")[0].id!="dataList"){parent.document.getElementsByClassName("Nsb_r_list Nsb_table")[0].style = "";}parent.document.getElementById("SimPageOutline").remove();}else if(document.getElementsByClassName("Nsb_r_list Nsb_table")[0]&&document.getElementById("SimPage")){if(document.getElementById("dataList")){document.getElementById("dataList").style = "";}if(document.getElementsByClassName("Nsb_r_list Nsb_table")[0].id!="dataList"){document.getElementsByClassName("Nsb_r_list Nsb_table")[0].style = "";}document.getElementById("SimPageOutline").remove();}}</script>'));
 
     if(document.getElementById("kc")){
         document.getElementById("kc").remove();
+    }
+    //修复评教页面宽度不为100%
+    document.body.style.width = "100%";
+    //去除前后方括号
+    if(document.querySelector("td a[href]")){
+        document.querySelectorAll("td a[href]").forEach(function(e){
+            if(e.previousSibling){
+                if(e.previousSibling.nodeValue){
+                    let value = e.previousSibling.nodeValue.replaceAll("\t","");
+                    value = value.replaceAll("\n","");
+                    value = value.replaceAll(" ","");
+                    if(value=="["){
+                        e.previousSibling.remove();
+                    }
+                }
+            }
+            if(e.nextSibling){
+                if(e.nextSibling.nodeValue){
+                    let value = e.nextSibling.nodeValue.replaceAll("\t","");
+                    value = value.replaceAll("\n","");
+                    value = value.replaceAll(" ","");
+                    if(value=="]["){
+                        e.nextSibling.after(document.createElement("br"));
+                        e.nextSibling.remove();
+                    }
+                    if(value=="]"||e.nextSibling.nodeValue=="]\n\t\t\t\t\n\t\t\t\t"){
+                        e.nextSibling.remove();
+                    }
+                }
+            }
+        })
     }
     //reset preset width
     if($("#dataList")[0]){
@@ -547,15 +578,21 @@
         if($("textarea").length<2&&$("textarea")[0]){
             $("table")[0].className = "textform";
         }
-        if(document.getElementsByClassName("button")[0]){
-            let button = document.getElementsByClassName("button");
-            let length = button.length;
-            for(let i=1;i<=length;i++){
-                if(button[i-1].attributes.onclick.value == "window.close();"){
-                    button[i-1].attributes.removeNamedItem("onclick");
-                    button[i-1].addEventListener("click", closeIframe);
+    }
+    if(document.querySelector(".toolstitle")){
+        waitForLoading(".button").then(()=>{
+            let button = document.querySelectorAll(".button");
+            button.forEach((e)=>{
+                if(e.attributes.onclick.value.indexOf("window.close()")!=-1){
+                    e.attributes.removeNamedItem("onclick");
+                    e.addEventListener("click", closeIframe);
                 }
-            }
+            })
+        });
+    }
+    async function waitForLoading(targetSelector){
+        while(true){
+            if(document.querySelector(targetSelector)) break;
         }
     }
     //setup homepage icons
