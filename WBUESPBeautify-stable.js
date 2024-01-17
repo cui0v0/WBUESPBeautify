@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         WBUESPBeautify
 // @namespace    http://tampermonkey.net/
-// @version      0.9.1
+// @version      0.9.2
 // @description  WBUESP美化
 // @author       Simprole
 // @match        http://jw.wbu.edu.cn/jsxsd/*
@@ -291,7 +291,7 @@
                             similarity++;
                         }
                     }
-                    if(similarity>4){
+                    if(similarity>2){
                         if(!kbsort[kbc1Children[initalIndex].childNodes[0].data]){
                             kbsort[kbc1Children[initalIndex].childNodes[0].data] = randomColorPick();
                         }
@@ -582,15 +582,17 @@
         }
     }
     if(document.querySelector(".toolstitle")){
-        waitForLoading(".button").then(()=>{
-            let button = document.querySelectorAll(".button");
-            button.forEach((e)=>{
-                if(e.attributes.onclick.value.indexOf("window.close()")!=-1){
-                    e.attributes.removeNamedItem("onclick");
-                    e.addEventListener("click", closeIframe);
-                }
-            })
-        });
+        if(!document.querySelector("table#dataList")){
+            waitForLoading(".button").then(()=>{
+                let button = document.querySelectorAll(".button");
+                button.forEach((e)=>{
+                    if(e.attributes.onclick.value.indexOf("window.close()")!=-1){
+                        e.attributes.removeNamedItem("onclick");
+                        e.addEventListener("click", closeIframe);
+                    }
+                })
+            });
+        }
     }
     async function waitForLoading(targetSelector){
         while(true){
