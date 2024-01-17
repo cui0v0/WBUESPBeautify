@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         WBUESPBeautify
 // @namespace    http://tampermonkey.net/
-// @version      0.9.2
+// @version      0.9.3
 // @description  WBUESP美化
 // @author       Simprole
 // @match        http://jw.wbu.edu.cn/jsxsd/*
@@ -583,15 +583,17 @@
     }
     if(document.querySelector(".toolstitle")){
         if(!document.querySelector("table#dataList")){
-            waitForLoading(".button").then(()=>{
-                let button = document.querySelectorAll(".button");
-                button.forEach((e)=>{
-                    if(e.attributes.onclick.value.indexOf("window.close()")!=-1){
-                        e.attributes.removeNamedItem("onclick");
-                        e.addEventListener("click", closeIframe);
-                    }
-                })
-            });
+            if(document.querySelector("input")){
+                waitForLoading(".button").then(()=>{
+                    let button = document.querySelectorAll(".button");
+                    button.forEach((e)=>{
+                        if(e.attributes.onclick.value.indexOf("window.close()")!=-1){
+                            e.attributes.removeNamedItem("onclick");
+                            e.addEventListener("click", closeIframe);
+                        }
+                    })
+                });
+            }
         }
     }
     async function waitForLoading(targetSelector){
