@@ -56,6 +56,16 @@
     }
 }
 
+#kbtable.vertical{
+    -webkit-writing-mode: vertical-lr;
+    -moz-writing-mode: vertical-lr;
+    -ms-writing-mode: tb-lr;
+    writing-mode: vertical-lr;
+    & td{
+        writing-mode: horizontal-tb;;
+    }
+}
+
 [id].kbcontent,[id].kbcontent1{
 	background: var(--secondary-theme-color);
     border-radius: 1rem;
@@ -104,6 +114,10 @@ table.display{
     & tr.even{
         background-color: var(--tertiary-theme-color);
     }
+}
+
+table#Table2[width]{
+    padding:0 6rem;
 }
 
 .Nsb_table,.display{

@@ -41,12 +41,13 @@ body,div,dl,dt,p,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,
 .Nsb_menu a span:hover{
 	filter: brightness(0.8);
 }
-.Nsb_top_menu {
-    position: absolute;
-    top: 33%;
-	background-color: var(--secondary-theme-blue);
-    border-radius: 20px;
-	box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.3);
+.Nsb_top {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+    right: 0;
+    width: -webkit-fill-available;
 }
 .Nsb_top_menu ul {
 	border:none;
@@ -93,9 +94,9 @@ body,div,dl,dt,p,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,
     transform: translateX(-50%);
     width: max-content;
 }
-.Nsb_top_logo {
+/* .Nsb_top_logo {
 	left: 0px;
-}
+} */
 .Nsb_rights {
 	height: max-content;
 	line-height: normal;

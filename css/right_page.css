@@ -1,14 +1,12 @@
 .Nsb_layout_r {
-    padding: 2rem 0 0rem 0rem;
-    margin: 0 0 3rem -11.25rem!important;
-    left: 57%;
-    transform: translateX(-50%);
-    float: left;
-    position: relative;
+    flex-grow: 0.7;
+    margin-left:0px!important;
+    padding: auto;
     .Nsb_table{
         border-collapse: separate;
         position: relative;
         transform-origin: top!important;
+        width: -webkit-fill-available!important;
     }
     .Nsb_r_list{
         .Nsb_r_list_thb{
@@ -37,9 +35,6 @@
             box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.3);
             font-size: 1rem;
             word-break: keep-all;
-        }
-        &.Nsb_table{
-            width: 68rem!important;
         }
     }
 }

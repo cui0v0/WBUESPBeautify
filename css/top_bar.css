@@ -1,4 +1,4 @@
-.Nsb_menu_pw,.Nsb_menu {
+.Nsb_menub_menu_pw,.Nsb_menu {
 	height: 41px;
 	line-height: 41px;
     background-color: var(--primary-theme-color);
@@ -7,10 +7,16 @@
     position: relative;
     transform: translateX(-50%);
 }
+.Nsb_menu li,.Nsb_menu a{
+    display: inline-flex;
+    width: inherit;
+    justify-content: center;
+}
 .Nsb_menu a {
 	color: #fff;
 	font-weight: normal;
 	border-radius: 2px;
+    word-break: keep-all;
     transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     transition-property: border-radius,transform,filter,background-color,box-shadow;
     &:hover{
@@ -29,23 +35,40 @@
 .Nsb_menu_pw {
 	box-shadow: 0px 5px 6px rgba(0, 0, 0, 0.3);
 }
-.Nsb_top{
-    display: flex;
-    justify-content: flex-end;
-    flex-direction: row;
-    align-items: center;
-}
-.Nsb_top_menu {
-    position: relative;
-	background-color: var(--secondary-theme-color);
-    border-radius: 20px;
-	box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.3);
-    & ul{
-        border:none;
-        background: var(--primary-theme-color);
+.Nsb_pw {
+    .Nsb_top{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: inherit;
+    }
+    .Nsb_top_menu {
+        background-color: var(--secondary-theme-color);
         border-radius: 20px;
-        padding: 3px;
-        box-shadow: -1px 0px 3px rgba(0, 0, 0, 0.3);
+        box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.3);
+        right: auto;
+        top: auto;
+        min-width: max-content;
+        & ul{
+            border:none;
+            background: var(--primary-theme-color);
+            border-radius: 20px;
+            padding: 3px;
+            box-shadow: -1px 0px 3px rgba(0, 0, 0, 0.3);
+        }
+    }
+    .Nsb_top_logo, .Nsb_top_menu {
+        position: relative;
+    }
+    #divFirstMenuClass{
+        background-color: var(--primary-theme-color);
+        background-image: none;
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        justify-content: space-evenly;
+        width: inherit;
+        height: inherit;
     }
 }
 .Nsb_top_menu_nc {
@@ -68,18 +91,15 @@
 }
 .menu_cn{
     & a {
-        padding: 0 2em;
-        font-size: 1.0625em;
+        font-size: 1rem;
     }
-    & ul{
-        left: 50%;
-        position: relative;
-        transform: translateX(-50%);
-        width: max-content;
+    & ul {
+        display: inline-flex;
+        flex-direction: row;
+        width: -webkit-fill-available;
+        margin: 0 12rem;
+        min-width: max-content;
     }
-}
-.Nsb_top_logo {
-	left: 0px;
 }
 .Nsb_menu_li_now{
 	background: none;
