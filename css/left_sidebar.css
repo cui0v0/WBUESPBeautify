@@ -73,6 +73,7 @@
 }
 
 .Nsb_l_list.narrow_patch{
+min-width:max-content;
     & a{
         padding: 4px 1rem;
     }
