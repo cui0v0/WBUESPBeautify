@@ -3,6 +3,7 @@
     border-collapse: separate;
     position: relative;
     transform-origin: top!important;
+    padding: 0 3rem;
     & th{
         background: var(--secondary-theme-color);
         border: none;
