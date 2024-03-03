@@ -9,7 +9,7 @@
     padding-bottom: 0.5rem;
     flex-grow: 0.1;
     align-items: center;
-    width: inherit;
+    min-width: max-content;
     display: inline-flex;
     flex-direction: column;
     flex-wrap: nowrap;
