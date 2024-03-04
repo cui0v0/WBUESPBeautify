@@ -89,24 +89,8 @@
         let rate = kbtableWidth/actualWidth;
         if(rate<1){
             document.querySelector("#kbtable").style.zoom = rate.toFixed(2)-0.1;
-            console.log(rate);
+            // console.log(rate);
         }
-    }
-    if(document.getElementById("kbtable")){
-        let table = document.getElementById("kbtable");
-        if(table.border == '1'){
-            table.border = '0';
-        }
-        let tr = table.getElementsByTagName("tr");
-        let th = tr[0].getElementsByTagName("th");
-        th[0].className += " thb_t_l";
-        th[th.length-1].className += " thb_t_r";
-
-        let tr_c = tr[tr.length-1].children;
-        tr_c[0].className += " thb_b_l";
-        tr_c[tr_c.length-1].className += " thb_b_r";
-        rateOptimize();
-        svgReplacement(table);
     }
     if(document.querySelector("#LeftMenu1_divChildMenu")){
         let leftMenu = document.querySelector("#LeftMenu1_divChildMenu")
@@ -869,6 +853,22 @@
                 }
             }
         }
+    }
+    if(document.getElementById("kbtable")){
+        let table = document.getElementById("kbtable");
+        if(table.border == '1'){
+            table.border = '0';
+        }
+        let tr = table.getElementsByTagName("tr");
+        let th = tr[0].getElementsByTagName("th");
+        th[0].className += " thb_t_l";
+        th[th.length-1].className += " thb_t_r";
+
+        let tr_c = tr[tr.length-1].children;
+        tr_c[0].className += " thb_b_l";
+        tr_c[tr_c.length-1].className += " thb_b_r";
+        rateOptimize();
+        svgReplacement(table);
     }
     //fix a width
     if($("*[name='zyxzForm']")[0]){
