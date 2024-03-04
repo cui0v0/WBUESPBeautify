@@ -42,14 +42,14 @@
     -webkit-user-select: none;
     user-select: none;left:0px;
     position: relative;
-    top: 12.5rem;
+    top: 75%;
     text-align: center;
     color:#fff;
 }
 .block3tex,.block4tex,.block5tex,.block6tex{
     left:50%;
     position: absolute;
-    top: 6.25rem;
+    top: 75%;
     text-align: center;
     transform: translateX(-50%);
 }
@@ -57,7 +57,7 @@
     left:50%;
     transform: translateX(-50%);
     position: absolute;
-    top: 6rem;
+    top: 75%;
     text-align: center;
     width: max-content;
 }
