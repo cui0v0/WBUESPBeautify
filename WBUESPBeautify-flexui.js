@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         WBUESPBeautify-Dev-FlexUI
 // @namespace    http://tampermonkey.net/
-// @version      0.9.130
+// @version      0.9.131
 // @description  WBUESP美化
 // @author       Simprole
 // @match        http://jw.wbu.edu.cn/jsxsd/*
@@ -68,6 +68,7 @@
             arrow.appendChild(arrow_text);
             leftMenu.appendChild(arrow);
             arrow.addEventListener("click",sidebarActions);
+            document.querySelector(".Nsb_pw_main").style["justify-content"] = "center";
         }
     }
     function svgReplacement(table){
