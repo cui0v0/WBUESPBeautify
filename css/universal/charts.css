@@ -30,12 +30,16 @@
         height: 2rem;
         font-weight: normal;
         text-align: center;
+        word-break: keep-all;
     }
 }
 
 #kbtable{
 	border-collapse: separate;
 	transform-origin: 0 0;
+    display: inline-flex;
+    align-items: center;
+    flex-direction: column;
     & th{
         background: var(--secondary-theme-color);
         border: none;
@@ -45,6 +49,7 @@
         font-size: 1rem;
         padding: 0.5rem;
         box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.3);
+        word-break: keep-all;
     }
     & th[width="70"][height="28"]{
         word-break: break-all;

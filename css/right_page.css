@@ -1,7 +1,8 @@
 .Nsb_layout_r {
     flex-grow: 0.7;
     margin-left:0px!important;
-    padding: auto;
+    padding: 0;
+    max-width: inherit;
     .Nsb_table{
         border-collapse: separate;
         position: relative;
@@ -23,7 +24,6 @@
             background: var(--secondary-theme-color);
             border: none;
             color: #fff;
-            width: min-content;
             line-height: initial;
             font-size: 1rem;
             padding: 0 0.5rem;
@@ -36,6 +36,14 @@
             font-size: 1rem;
             word-break: keep-all;
         }
+    }
+    & div[align=center] center{
+        display: inline-flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: space-evenly;
+        width: -webkit-fill-available;
     }
 }
 .Nsb_r_list_fy2 input {

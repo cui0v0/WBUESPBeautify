@@ -13,6 +13,51 @@
     display: inline-flex;
     flex-direction: column;
     flex-wrap: nowrap;
+    max-width: 15%;
+    &.sidebar{
+        z-index: 100;
+        background-color: white;
+        left: 0;
+        align-items: center;
+        position: fixed;
+        max-width: 7rem;
+        transform: translateY(-50%);
+        top: 50%;
+        transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        transition-property: left, filter, box-shadow;
+        &.folded{
+            left:-7.1rem;
+        }
+        & .arrow{
+            position: absolute;
+            left: 7rem;
+            top: 50%;
+            transform: translateY(-50%);
+            padding: 1rem 0.5rem;
+            background-color: var(--primary-theme-color);
+            border-radius: 0 0.8rem 0.8rem 0;
+            color: #ffffff;
+            font-weight: bolder;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition-property: border-radius, transform, filter, box-shadow;
+            &:hover{
+                filter: brightness(0.7);
+                transform: translateY(-48%);
+            }
+            & div.text{
+                transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                transition-property: transform;
+                font-size: 1.2rem;
+                user-select: none;
+                &.reverted{
+                    transform: rotateZ(180deg);
+                }
+            }
+        }
+    }
 }
 .Nsb_l_list {
     & ul {

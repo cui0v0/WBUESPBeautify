@@ -28,9 +28,9 @@
     flex-direction: row;
     align-items: baseline;
     justify-content: space-between;
-    margin: 2rem 6rem;
-    width: auto;
+    margin: 2rem 7rem;
     height: inherit;
+    max-width: -webkit-fill-available;
 }
 .Nsb_pw_page {
     width: inherit;

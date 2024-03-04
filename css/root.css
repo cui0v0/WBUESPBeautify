@@ -3,6 +3,7 @@
 	--secondary-theme-color: hsl(214.55deg 98.8% 67.25%);;
     --tertiary-theme-color:hsl(209 98% 70%);
     --hover_darken_color:brightness(0.75);
+	--sidebar_width:10rem;
 }
 body,div,dl,dt,p,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,select,blockquote,th,td,a,span,div {
 	padding:0;
