@@ -1,6 +1,7 @@
 .Nsb_rights {
 	height: max-content;
 	line-height: normal;
+	width: inherit;
 }
 .info{
 	text-align: center;
@@ -8,4 +9,12 @@
     & .heart{
         color: #ff0081;
     }
+}
+#Footer1_divCopyright{
+	text-align: center;
+    position: absolute;
+    display: inline-flex;
+    width: inherit;
+    bottom: 0;
+    flex-direction: column;
 }

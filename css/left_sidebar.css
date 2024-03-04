@@ -89,12 +89,3 @@
 .Nsb_l_list_top {
 	height: 0;
 }
-.Nsb_pw_main{
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: space-around;
-    margin: 2rem 6rem;
-    width: auto;
-    height: inherit;
-}

@@ -23,6 +23,15 @@
 		text-align: center;
 	}
 }
+.Nsb_pw_main{
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: space-between;
+    margin: 2rem 6rem;
+    width: auto;
+    height: inherit;
+}
 .Nsb_pw_page {
     width: inherit;
     display: flex;
