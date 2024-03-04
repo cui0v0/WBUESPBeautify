@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         WBUESPBeautify-Dev-FlexUI
 // @namespace    http://tampermonkey.net/
-// @version      0.9.131
+// @version      0.9.132
 // @description  WBUESP美化
 // @author       Simprole
 // @match        http://jw.wbu.edu.cn/jsxsd/*
@@ -89,8 +89,11 @@
         let kbtableWidth = document.querySelector("#kbtable").clientWidth;
         let rate = kbtableWidth/actualWidth;
         if(rate<1){
-            document.querySelector("#kbtable").style.zoom = rate.toFixed(2)-0.1;
-            if(rate<=0.6) document.querySelector("#kbtable").style.zoom = 0.6;
+            if(rate<=0.65){
+                document.querySelector("#kbtable").style.zoom = 0.6;
+            }else{
+                document.querySelector("#kbtable").style.zoom = rate.toFixed(2)-0.05;
+            }
         }
         console.log(rate);
     }
