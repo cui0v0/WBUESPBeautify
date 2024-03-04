@@ -38,7 +38,6 @@
 	border-collapse: separate;
 	transform-origin: 0 0;
     display: inline-flex;
-    align-items: center;
     flex-direction: column;
     & th{
         background: var(--secondary-theme-color);
@@ -68,7 +67,14 @@
         line-height: normal;
     }
 }
-
+body{
+    & #kbtable{
+        align-items: flex-start;
+    }
+    & .Nsb_layout_r #kbtable{
+        align-items: center;
+    }
+}
 #kbtable.vertical{
     -webkit-writing-mode: vertical-lr;
     -moz-writing-mode: vertical-lr;
