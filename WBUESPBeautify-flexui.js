@@ -24,7 +24,7 @@
     //external icons
     GM_addStyle(GM_getResourceText("icon"));
     //root css
-    $("body").append($('<style id="SimRootCSS">:root{--primary-theme-color: hsl(216.99deg 99.1% 56.67%);--secondary-theme-color: hsl(214.55deg 98.8% 67.25%);;--tertiary-theme-color:hsl(209 98% 70%);--hover_darken_color:brightness(0.75);--sidebar_width:10rem;}body,div,dl,dt,p,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,select,blockquote,th,td,a,span,div {padding:0;margin:0;font-size: 15px;font-family: "HarmonyOS_Medium"!important;}html{scroll-behavior: smooth;}</style>'));
+    $("body").append($('<style id="SimRootCSS">:root{--primary-theme-color: hsl(216.99deg 99.1% 56.67%);--secondary-theme-color: hsl(214.55deg 98.8% 67.25%);;--tertiary-theme-color:hsl(209 98% 70%);--hover_darken_color:brightness(0.75);--sidebar_width:10rem;}body,div,dl,dt,p,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,select,blockquote,th,td,a,span,div {padding:0;margin:0;font-size: 15px;font-family: "HarmonyOS_Medium"!important;}html{scroll-behavior: smooth;}.display_none{display: none!important;}</style>'));
     //universal buttons css
     $("body").append($('<style id="SimUniButtonsCSS">.button,center a[style][href],#dataView.dataTable td[class] a[style]{width: unset!important;font-size: 1rem;background-image: none;color: #fff!important;;background-color: var(--primary-theme-color);border: var(--primary-theme-color);border-radius: 20px;box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.4);padding: 5px 10px 5px 15px;position: relative;letter-spacing: 5px;text-align: center;text-decoration:none!important;height: min-content;transition: 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);transition-property: filter,box-shadow,transform;&.disabled,&.disabled:hover{box-shadow: none;cursor: no-drop;filter: brightness(0.6);transform: none;}&#btn_back{left: 50%;translate: -50%;}&.centerButton{left: 50%;translate: -50%;margin: -0.5rem 0 0.5rem 0;}}.Nsb_r_title div .button{left:0;margin: 0.5rem 0.5rem 0;}.Nsb_r_title button{left: 50%;transform: translateX(-50%);}form .buttons{left: 50%;transform: translateX(-50%);position: relative;display: inline-block;}.Nsb_r_list a{background-color: var(--primary-theme-color);border: var(--primary-theme-color);border-radius: 20px;box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.3);padding: 3px 0;position: relative;text-align: center;color: #fff;display: list-item;transition: 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);transition-property: filter,box-shadow,transform;}.Nsb_r_list a:hover, .button:hover, center a[style][href]:hover,#dataView.dataTable td[class] a[style]:hover{text-decoration:none;filter: brightness(0.8);box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.7);transform: translateY(0.5px);transition: 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);transition-property: filter,box-shadow,transform;}.Nsb_r_list_fy4 {background: none;& a {width: 3em;text-align: center;background: var(--primary-theme-color);margin: 0 0.1em;border-radius: 2em;color: #fff;font-weight: bold;box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);-webkit-user-select: none;user-select: none;}& .disabled {filter: brightness(0.6);box-shadow: none;cursor: no-drop;}&.dataTable .button#button1,&.dataTable .button#button2{left: 27%;}}.SimScale{font-size: 1.8rem;height: 1.6rem;width: 1.6rem!important;line-height: 0;border-radius: 100%;display: flex;align-items: center;justify-content: center;margin: 0.25rem;}</style>'));
     //universal charts css
@@ -320,8 +320,29 @@
                 if(tr.rowIndex>0&&colSpan>1){
                     tr.children[colSpan-1].style["border-right"] = "dotted 0.2rem var(--primary-theme-color)";
                 }
-            })
+            });
         })
+    }
+    function ctrlButtonSetup(){
+        document.querySelectorAll("#kbtable th").forEach((e)=>{
+            if(e.innerText.includes("星期")){
+                e.addEventListener("click",((day)=>{
+                    day = day.currentTarget;
+                    if(day.cellIndex>=1){
+                        let startIndex = (day.cellIndex-1)*day.colSpan + 1;
+                        let endIndex = startIndex + day.colSpan - 1;
+                        day.classList.toggle("display_none");
+                        document.querySelectorAll("#kbtable tr").forEach((tr)=>{
+                            for(let i = startIndex;i<=endIndex;i++){
+                                if(tr.children[i].nodeName == "TD"){
+                                    tr.children[i].classList.toggle("display_none");
+                                }
+                            }
+                        });
+                    }
+                }));
+            }
+        });
     }
         if($(".kbcontent1")[0]){
         let kbcontent,kbcontent1;
@@ -434,6 +455,7 @@
             fixKBBottom("kbcontent1");
             setupScalingPanel();
             scheduleDaysDivision();
+            ctrlButtonSetup();
         }else{
             //remove zoom button and text
             $("#sfFD")[0].style.display = "none";

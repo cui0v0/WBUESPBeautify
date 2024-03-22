@@ -14,3 +14,6 @@ body,div,dl,dt,p,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,
 html{
 	scroll-behavior: smooth;
 }
+.display_none{
+	display: none!important;
+}
