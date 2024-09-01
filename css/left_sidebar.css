@@ -28,6 +28,10 @@
         top: 50%;
         transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         transition-property: left, filter, box-shadow;
+        border-radius: 0 1rem 1rem 0;
+        & h4{
+            border-radius: 0 1rem 0 0;
+        }
         &.folded{
             left: var(--sidebar-shrink-width);
         }

@@ -96,6 +96,7 @@
 	&.rightPage{
 		opacity: 1;
 		position: relative;
+        margin-top: -1rem;
 		.SimScaleText{
 			opacity: 1;
 			transform: 0;
