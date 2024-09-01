@@ -1,14 +1,15 @@
 :root{
 	--primary-theme-color: hsl(216.99deg 99.1% 56.67%);
 	--secondary-theme-color: hsl(214.55deg 98.8% 67.25%);;
-    --tertiary-theme-color:hsl(209 98% 70%);
+    --tertiary-theme-color:hsl(207 90% 60%);
     --hover_darken_color:brightness(0.75);
 	--sidebar_width:10rem;
+	--title-extra-length:20rem;
 }
 body,div,dl,dt,p,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,select,blockquote,th,td,a,span,div {
 	padding:0;
 	margin:0;
-	font-size: 15px;
+	font-size: 1rem;
 	font-family: "HarmonyOS_Medium"!important;
 }
 html{
@@ -16,4 +17,7 @@ html{
 }
 .display_none{
 	display: none!important;
+}
+.mobile{
+	padding: 0!important;
 }

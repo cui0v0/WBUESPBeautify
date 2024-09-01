@@ -1,36 +1,32 @@
 .Nsb_pw, .Nsb_pw_main {
 	width: inherit;
     .Nsb_r_title {
-        font-size: 1.25rem;
+        font-size: 1.4rem;
         font-weight: bold;
         color: #000;
         height: max-content;
         line-height: 1.5em;
-        text-shadow: 0px 2px 3px rgba(0, 0, 0, 0.4);
-        letter-spacing: 1px;
+        letter-spacing: 0.1rem;
         margin: 0.5rem 0 0.5rem 0;
         text-align: center;
     }
-    .Nsb_layout_r .Nsb_r_title {
-		font-size: 1.25rem;
-		font-weight: bold;
-		color: #000;
-		height: max-content;
-		line-height: 1.5em;
-		text-shadow: 0px 2px 3px rgba(0, 0, 0, 0.4);
-		letter-spacing: 1px;
-		margin: 0 0 0.5em 0;
-		text-align: center;
-	}
+}
+.Nsb_pw{
+    & .Nsb_top{
+        height: 6rem;
+    }
 }
 .Nsb_pw_main{
     display: flex;
     flex-direction: row;
     align-items: baseline;
-    justify-content: space-between;
-    margin: 2rem 7rem;
+    justify-content: center;
+    margin: 0.5rem auto;
     height: inherit;
-    max-width: -webkit-fill-available;
+    max-width: 1280px;
+    &.mobile{
+        margin: 1rem auto!important;
+    }
 }
 .Nsb_pw_page {
     width: inherit;
@@ -210,4 +206,98 @@ input.SimInput{
 	border-radius: 20px;
 	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
 	color: #fff;
+}
+.SimGrid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin-top: 0.5rem;
+    position: relative;
+    padding: 0 2rem;
+    gap: 0.8rem;
+    font-size: 1rem!important;
+    color: white;
+    justify-content: center;
+    grid-auto-flow: dense;
+    &.mobile{
+        grid-template-columns: repeat(2, 1fr);
+        justify-content: start;
+    }
+    & .grid{
+        background-color: var(--secondary-theme-color);
+        box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.3);
+        border-radius: 1rem;
+        padding: 0.5rem 1rem;
+        transition-duration: 0.3s;
+        transition-property: transform,background-color,box-shadow;
+        transition-timing-function: ease-out;
+        & .top{
+            display: inline-flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            width: -webkit-fill-available;
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem!important;
+            overflow: hidden;
+            & .title{
+                font-size: 1.3rem;
+                white-space: nowrap;
+                max-width: 20rem;
+                &.wide{
+                    position: relative;
+                    transition-duration: 0.5s;
+                    transform: translateX(0px);
+                    transition-property: transform,margin-left;
+                    transition-timing-function: linear;
+                    margin-left: 0;
+                }
+            }
+            & .score{
+                font-size: 1.3rem;
+                z-index: 2;
+                padding-left: 0.5rem;
+                background-color: var(--secondary-theme-color);
+                transition-property: background-color;
+                transition-duration: 0.3s;
+                transition-timing-function: ease-out;
+            }
+        }
+        &.hover,&:hover{
+            cursor: pointer;
+            transform: scale(1.035);
+            background-color: var(--primary-theme-color);
+            box-shadow: 0px 3px 8px 1px rgb(0 0 0 / 35%);
+            & .top .title.wide{
+                transform: translateX(var(--title-extra-length));
+                margin-left:-100%;
+            }
+            & .top .score{
+                background-color: var(--primary-theme-color);
+            }
+        }
+        & .bottom{
+            display: inline-grid;
+            justify-content: space-between;
+            align-items: center;
+            width: -webkit-fill-available;
+            align-content: center;
+            grid-template-columns: repeat(2, 1fr);
+            justify-items: stretch;
+            gap: 0.3rem 1rem;
+            & div.sub{
+                display: inline-grid;
+                align-items: center;
+                width: -webkit-fill-available;
+                grid-template-columns: repeat(2, 1fr);
+                & .text{
+                    font-size: 1rem;
+                    word-break: keep-all;
+                    &:last-child{
+                        text-align: right;
+                        margin-left: 0.5rem;
+                    }
+                }
+            }
+        }
+    }
 }

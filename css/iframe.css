@@ -57,6 +57,8 @@ a.closeButton{
 	left: 0.5rem;
     position: relative;
 	cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
 }
 div.closeButton{
 	font-size: 2.2rem;

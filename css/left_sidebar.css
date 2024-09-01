@@ -1,3 +1,6 @@
+:root{
+    --sidebar-shrink-width: -7.1rem；
+}
 .Nsb_r_list_tdfy {
 	border: none;
 }
@@ -26,7 +29,7 @@
         transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         transition-property: left, filter, box-shadow;
         &.folded{
-            left:-7.1rem;
+            left: var(--sidebar-shrink-width);
         }
         & .arrow{
             position: absolute;

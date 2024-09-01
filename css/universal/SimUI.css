@@ -1,0 +1,95 @@
+#SimUI{
+    display: flex;
+    z-index: 100;
+    position: absolute;
+    top: 50%;
+    background-color: var(--secondary-theme-color);
+    border-radius: 1rem;
+    width: inherit;
+    color: white;
+    padding: 1rem 2rem;
+    max-width: 20rem;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    & .top{
+        display: inline-flex;
+        width: -webkit-fill-available;
+        align-items: center;
+        & .title{
+            letter-spacing: 0.1rem;
+            font-size: 1.6rem;
+            margin: 0.5rem 0;
+            width: -webkit-fill-available;
+            text-align: center;
+        }
+        & .close_btn{
+            position: absolute;
+            right: 0;
+            margin-top: -1.71rem;
+            padding: 0 0.3rem;
+            padding-bottom: 0.4rem;
+            font-size: 3rem;
+            border-radius: 0 1rem 1rem 0;
+            line-height: 3rem;
+            background-color: #ff3939;
+            border-radius: 0 1rem;
+            box-shadow: none;
+            user-select: none;
+            font-weight: bold;
+        }
+    }
+    & .pickPanel, .scorePanel{
+        display: inline-flex;
+        margin-top: 2rem;
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+        font-size: 1.2rem;
+        & span{
+            text-align: center;
+            margin-bottom: 0.3rem;
+        }
+        & .semester_pick{
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2rem;
+            display: inline-flex;
+            & .semester{
+                font-size: 1.2rem;
+                margin-left: 0.5rem;
+            }
+            & svg.icon{
+                cursor:pointer;
+            }
+        }
+    }
+    & .scorePanel{
+        margin-bottom: 2rem;
+        & span{
+            font-size: 1.2rem;
+        }
+        & .score{
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+    }
+    & .button{
+        margin-top: 2rem;
+        font-size: 1.2rem;
+        padding: 0.3rem 0.5rem;
+    }
+}
+.mask{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background: #000;
+    left: 0;
+    top: 0;
+    z-index: 99;
+    opacity: .85 !important;
+}
