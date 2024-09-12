@@ -128,6 +128,9 @@
                 dataList.after(SimPage);
                 dataList.style = "display:none;";
             }
+            if(document.querySelector(".SimGrid")){
+                document.querySelector(".SimGrid").style = "display:none;";
+            }
             if(document.getElementsByClassName("Nsb_r_list Nsb_table")[0].id!="dataList"){
                 let table = document.getElementsByClassName("Nsb_r_list Nsb_table")[0];
                 table.after(SimPage);
@@ -135,7 +138,7 @@
             }
             htmlurl=getRandomUrl(htmlurl);
             inPage.src = htmlurl;
-            inPage.addEventListener('load',e=>{
+            inPage.addEventListener('load',()=>{
                 let SimPageContent = document.querySelector("#SimPage").contentWindow;
                 if(SimPageContent.document.getElementsByClassName("button")[0]){
                     let button = SimPageContent.document.querySelectorAll("button");
@@ -156,6 +159,9 @@
             if(parent.document.getElementById("dataList")){
                 parent.document.getElementById("dataList").style = "";
             }
+            if(parent.document.querySelector(".SimGrid")){
+                parent.document.querySelector(".SimGrid").style = "";
+            }
             if(parent.document.getElementsByClassName("Nsb_r_list Nsb_table")[0].id!="dataList"){
                 parent.document.getElementsByClassName("Nsb_r_list Nsb_table")[0].style = "";
             }
@@ -163,6 +169,9 @@
         }else if(document.getElementsByClassName("Nsb_r_list Nsb_table")[0]&&document.getElementById("SimPage")){
             if(document.getElementById("dataList")){
                 document.getElementById("dataList").style = "";
+            }
+            if(document.querySelector(".SimGrid")){
+                document.querySelector(".SimGrid").style = "";
             }
             if(document.getElementsByClassName("Nsb_r_list Nsb_table")[0].id!="dataList"){
                 document.getElementsByClassName("Nsb_r_list Nsb_table")[0].style = "";

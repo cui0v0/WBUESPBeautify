@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         WBUESPPlus
 // @namespace    http://tampermonkey.net/
-// @version      0.9.900
+// @version      1.0
 // @description  WBU教务平台Plus
 // @author       Simprole
 // @match        http://jw.wbu.edu.cn/jsxsd/*
