@@ -41,32 +41,6 @@
             font-weight: bold;
         }
     }
-    & .pickPanel, .scorePanel{
-        display: inline-flex;
-        margin-top: 2rem;
-        flex-direction: column;
-        text-align: center;
-        align-items: center;
-        font-size: 1.2rem;
-        & span{
-            text-align: center;
-            margin-bottom: 0.3rem;
-        }
-        & .semester_pick{
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-            font-size: 1.2rem;
-            display: inline-flex;
-            & .semester{
-                font-size: 1.2rem;
-                margin-left: 0.5rem;
-            }
-            & svg.icon{
-                cursor:pointer;
-            }
-        }
-    }
     & .scorePanel{
         margin-bottom: 2rem;
         & span{
@@ -80,7 +54,91 @@
     & .button{
         margin-top: 2rem;
         font-size: 1.2rem;
-        padding: 0.3rem 0.5rem;
+        padding: 0.3rem 0.7rem 0.3rem 0.5rem;;
+    }
+}
+.SimWindow{
+    transition-duration: 0.3s;
+    transition-timing-function: ease-out;
+    transition-property: all;
+    &.fullscreen{
+        position: fixed!important;
+        width: 96%!important;
+        height: -webkit-fill-available!important;
+        top: 0%;
+        z-index: 1000!important;
+        margin: 1rem 0!important;
+    }
+}
+.pickPanel, .scorePanel{
+    display: inline-flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    font-size: 1.2rem;
+    margin-top: 2rem;
+    & span{
+        text-align: center;
+        margin-bottom: 0.3rem;
+    }
+    & .picker_option{
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.2rem;
+        display: inline-flex;
+        & .text{
+            font-size: 1.2rem;
+            margin-left: 0.5rem;
+        }
+        & svg.icon{
+            cursor:pointer;
+        }
+    }
+}
+.filter_panel{
+    display: flex;
+    flex-direction: column;
+    border-radius: 1rem;
+    position: absolute;
+    margin-left: 0.5rem;
+    z-index: 50;
+    background-color: var(--secondary-theme-color);
+    color: white;
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.4);
+    opacity: 50%;
+    transition: opacity 0.3s ease-out;
+    & .inner{
+        display: inline-flex;
+        flex-direction: row;
+        margin-top: 0.2rem;
+        & .pickPanel{
+            margin-top: 0;
+            margin-bottom: 0.2rem;
+            padding: 0 0.2rem;;
+            min-width: 6rem;
+        }
+    }
+    &:hover,&:focus{
+        opacity: 100%;
+    }
+}
+.noresult{
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: bold;
+    padding: 1rem;
+    width: inherit;
+    margin: 0 2rem;
+    border: solid 0.05rem var(--secondary-theme-color);
+    box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.3);
+    border-radius: 0 0 1rem 1rem;
+    color: #000;
+    &.grid_form{
+        border-radius: 1rem;
+        letter-spacing: 0.05rem;
+        background-color: var(--secondary-theme-color);
+        color:#fff;
     }
 }
 .mask{
@@ -92,4 +150,5 @@
     top: 0;
     z-index: 99;
     opacity: .85 !important;
+    transition: 0.5s opacity ease-out;
 }

@@ -302,3 +302,19 @@ input.SimInput{
         }
     }
 }
+body.SimHalf{
+    display: flex;
+    flex-direction: column;
+}
+.SimName{
+    color: white;
+    padding: 0.2rem;
+}
+.SimNameDisplay{
+    display: flex;
+    flex-direction: row;
+    background-color: var(--tertiary-theme-color);
+    border-radius: 20px;
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.3);
+    margin-top: -0.4rem;
+}
