@@ -39,6 +39,9 @@
 	transform-origin: 0 0;
     display: inline-flex;
     flex-direction: column;
+    &.insideIframe{
+        margin-top: -1.4rem;
+    }
     & th{
         background: var(--secondary-theme-color);
         border: none;
@@ -143,20 +146,20 @@ table#Table2[width]{
 .Nsb_table,.display{
     .thb_t_l{
         border-radius: 1rem 0 0 0;
+        &.thb_t_r{
+            border-radius: 1rem 1rem 0 0;
+        }
     }
     .thb_t_r{
         border-radius: 0 1rem 0 0;
     }
-    .thb_t_l.thb_t_r{
-        border-radius: 1rem 1rem 0 0;
-    }
     .thb_b_l{
         border-radius: 0 0 0 1rem;
+        &.thb_b_r{
+            border-radius: 0 0 1rem 1rem;
+        }
     }
     .thb_b_r{
         border-radius: 0 0 1rem 0;
-    }
-    .thb_b_l.thb_b_r{
-        border-radius: 0 0 1rem 1rem;
     }
 }

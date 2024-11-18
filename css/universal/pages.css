@@ -78,9 +78,6 @@
         transition-property: filter,transform,margin,margin-right,box-shadow;
     }
 }
-.hidden{
-	display: none;
-}
 
 .SimScalePanel{
 	display: flex;
