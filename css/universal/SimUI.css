@@ -59,19 +59,37 @@
 }
 iframe.SimWindow{
     position: absolute !important;
+    margin-top: 0!important;
     margin-bottom: 2rem;
     height: -webkit-fill-available!important;
     width: 86%!important;
     transition-duration: 0.3s;
     transition-timing-function: cubic-bezier(0.46, 0.03, 0.52, 0.96);
-    z-index:81;
+    z-index: 81;
     &.fullscreen{
         width: 96%!important;
         height: -webkit-fill-available!important;
         z-index: 1000!important;
-        margin-bottom: 1rem;
-        top: 30%;
-        margin-top: -245px !important;
+        margin: 1rem 0!important;
+        top: 0!important;
+    }
+}
+.weeklyTopBar{
+    display: flex;
+    flex-direction: row;
+    position: fixed;
+    top: 0;
+    & .cell{
+        background: var(--secondary-theme-color);
+        border: none;
+        color: #fff;
+        max-width: min-content;
+        line-height: initial;
+        font-size: 1rem;
+        padding: 0.5rem;
+        box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.3);
+        word-break: keep-all;
+        font-weight: bold;
     }
 }
 .pickPanel, .scorePanel{
