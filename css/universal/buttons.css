@@ -79,7 +79,7 @@ form .buttons{
 	display: inline-block;
 }
 
-.Nsb_r_list a[href]{
+.Nsb_r_list a[href]:not([target]){
 	background-color: var(--primary-theme-color);
 	border: var(--primary-theme-color);
 	border-radius: 20px;
