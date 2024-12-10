@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         WBUESPPlus
 // @namespace    http://tampermonkey.net/
-// @version      1.2.1
+// @version      1.2.5
 // @description  WBU教务平台Plus
 // @author       Simprole
 // @match        http://jw.wbu.edu.cn/jsxsd/*
@@ -92,15 +92,58 @@
             })
         }
     }</script>`));
+    if(document.documentURI.includes("xspj_list.do?")){
+        document.querySelectorAll("#dataList td a").forEach((e)=>{
+            if(e.innerText=="评价"){
+                e.addEventListener("click",()=>{
+                    window.sessionStorage.setItem("targetTeacher",e.parentElement.parentElement.children[2].innerText);
+                });
+            }
+        });
+    }
+    if(document.documentURI.includes("xspj_edit.do?")){
+        document.querySelector("td.toolstitle").innerText += " => "+window.sessionStorage.getItem("targetTeacher");
+        const unlimited = document.createElement("script");
+        unlimited.type = "text/javascript";
+        unlimited.innerHTML = `function saveData(obj, status){var pj06xhs = document.getElementsByName("pj06xh");var flag = true;for (let i = 0; i < pj06xhs.length; i++) {if(jQuery("input[name='pj0601id_"+ pj06xhs[i].value+"']:checked").length == 0) {flag = false;break;}}if (!flag) {alert("评价的每项指标都必须选择!");return false;}flag = false;var minZb = 0;for (let i = 0; i < pj06xhs.length; i++) {var pj0601s = document.getElementsByName("pj0601id_"+ pj06xhs[i].value);minZb = pj0601s.length;break;}for(let j = 0; j < minZb; j++) {var _ind = 0;for (let i = 0; i < pj06xhs.length; i++) {pj0601s = document.getElementsByName("pj0601id_"+ pj06xhs[i].value);if (j < pj0601s.length && pj0601s[j].checked) {_ind++;}}if (_ind == pj06xhs.length) {flag = true;break;}}status == "1" ? document.getElementById("issubmit").value = "1" : document.getElementById("issubmit").value = "0";if(status == "1" && !confirm("您是否确认提交当前评价,提交后不能修改！")) {} else {obj.disabled = true;document.getElementById("Form1").submit();}}`;
+        function autoClick(index){
+            document.querySelectorAll("#table1 tr td:not([align])").forEach((e) =>{
+                e.querySelectorAll("input[type=radio]")[index].click();
+            });
+        }
+        document.querySelectorAll("#table1 tr td:not([align])").forEach((e)=>{
+            e.querySelectorAll("input[type=radio]").forEach((i)=>{
+                i.addEventListener("dblclick",()=>{
+                    let index = i.id.slice(i.id.length-1);
+                    switch(index){
+                        case "1":autoClick(0);break;
+                        case "2":autoClick(1);break;
+                        case "3":autoClick(2);break;
+                        case "4":autoClick(3);break;
+                    }
+                })
+            })
+        });
+        document.querySelectorAll("form")[document.querySelectorAll("form").length-1].after(unlimited);
+    }
+    if(document.documentURI.includes("xspj_save.do")){
+        window.parent.parent.location.reload();
+    }
     //closeIframe code
     $("body").append($(`<script>function closeIframe(){
         if(!document.getElementById("SimPage")&&window.parent.document.getElementById("SimPage")){
             let parent = window.parent;
-            if(parent.document.getElementById("dataList")&&parent.document.querySelector(".icon_btn span").innerText=="列表显示"){
-                parent.document.getElementById("dataList").classList.remove("display_none");
-            }
-            if(parent.document.querySelector(".SimGrid")&&parent.document.querySelector(".icon_btn span").innerText=="网格显示"){
-                parent.document.querySelector(".SimGrid").classList.remove("display_none");
+            if(parent.document.getElementById("dataList")){
+                if(document.documentURI.includes("xspj_edit.do?")){
+                    parent.location.reload();
+                }else{
+                    if(parent.document.querySelector(".icon_btn span").innerText=="列表显示"){
+                        parent.document.getElementById("dataList").classList.remove("display_none");
+                    }
+                    if(parent.document.querySelector(".SimGrid")&&parent.document.querySelector(".icon_btn span").innerText=="网格显示"){
+                        parent.document.querySelector(".SimGrid").classList.remove("display_none");
+                    }
+                }
             }
             if(parent.document.getElementsByClassName("Nsb_r_list Nsb_table")[0].id!="dataList"){
                 parent.document.getElementsByClassName("Nsb_r_list Nsb_table")[0].classList.remove("display_none");
@@ -443,7 +486,7 @@
             }
         }
     }
-    if(document.location.href.includes("pscj_list.do")){
+    if(document.documentURI.includes("pscj_list.do")){
         document.querySelector(".toolstitle").innerText = "《"+window.sessionStorage.getItem("targetSubject") +"》"+ document.querySelector(".toolstitle").innerText;
         if(isNaN(window.sessionStorage.getItem("subjectStatus"))){
             document.querySelector(".thb_b_r").innerText = window.sessionStorage.getItem("subjectStatus");
