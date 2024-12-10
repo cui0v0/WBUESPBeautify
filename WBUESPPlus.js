@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         WBUESPPlus
 // @namespace    http://tampermonkey.net/
-// @version      1.2.5
+// @version      1.2.6
 // @description  WBU教务平台Plus
 // @author       Simprole
 // @match        http://jw.wbu.edu.cn/jsxsd/*
@@ -94,11 +94,9 @@
     }</script>`));
     if(document.documentURI.includes("xspj_list.do?")){
         document.querySelectorAll("#dataList td a").forEach((e)=>{
-            if(e.innerText=="评价"){
-                e.addEventListener("click",()=>{
-                    window.sessionStorage.setItem("targetTeacher",e.parentElement.parentElement.children[2].innerText);
-                });
-            }
+            e.addEventListener("click",()=>{
+                window.sessionStorage.setItem("targetTeacher",e.parentElement.parentElement.children[2].innerText);
+            });
         });
     }
     if(document.documentURI.includes("xspj_edit.do?")){
