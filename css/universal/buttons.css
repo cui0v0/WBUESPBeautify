@@ -16,6 +16,7 @@
 	height: min-content;
     transition: 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
     transition-property: filter,box-shadow,transform;
+    font-family: "HarmonyOS_Medium" !important;
     & .count{
         letter-spacing: 0;
     }

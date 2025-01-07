@@ -124,12 +124,49 @@ iframe.SimWindow{
     border-radius: 1rem;
     position: absolute;
     margin-left: 0.5rem;
-    z-index: 50;
-    background-color: var(--secondary-theme-color);
+    margin-top: -2rem;
+    /* background-color: var(--secondary-theme-color); */
     color: white;
-    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.4);
-    opacity: 50%;
-    transition: opacity 0.3s ease-out;
+    /* box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.4); */
+    transition: all 0.3s ease-out;
+    transform-origin: 0 0;
+    /* transition-property: opacity, transform, z-index, border-radius;
+    transition-duration: 0.3s, 0.3s, 0.2s, 0.3s;
+    transition-timing-function: ease-out; */
+    &:hover,&:focus{
+        opacity: 100%;
+    }
+    & .panel_body{
+        display: inline-flex;
+        flex-direction: column;
+        transform-origin: 0 0;
+        transition: all 0.3s ease-out;
+        background-color: var(--secondary-theme-color);
+        box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.4);
+        border-radius: 0 0 1rem 1rem;
+        z-index: 10;
+    }
+    & .back_btn{
+        transform-origin: left center;
+        transition: border-radius,width 0.3s,0.3s ease-out;
+        border-radius: 20px 20px 0 0;
+        width: var(--filter-panel-width) !important;
+        z-index: 10;
+        &.below{
+            z-index:-1;
+        }
+    }
+    &.folded {
+        border-radius: 10rem;
+        & .panel_body{
+            transform: scaleX(var(--fold-scale-ratio)) scaleY(0);
+            z-index: -1;
+        }
+        & .back_btn{
+            border-radius: 20px;
+            width: var(--filter-ui-btn-width) !important;
+        }
+    }
     & .inner{
         display: inline-flex;
         flex-direction: row;
@@ -140,9 +177,6 @@ iframe.SimWindow{
             padding: 0 0.2rem;;
             min-width: 6rem;
         }
-    }
-    &:hover,&:focus{
-        opacity: 100%;
     }
 }
 .noresult{
