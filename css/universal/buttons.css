@@ -43,7 +43,7 @@
     &.SimFullScreen{
         opacity: 0.4;
         transition: 0.3s cubic-bezier(0.39, 0.58, 0.57, 1) 1s;
-        transition-property: opacity;
+        transition-property: opacity, box-shadow, filter, transform;
         width: max-content !important;
         text-indent: 0;
         position: fixed;
@@ -54,7 +54,6 @@
         &:hover{
             opacity: 1;
             transition: 0.3s cubic-bezier(0.39, 0.58, 0.57, 1);
-            transition-property: opacity, box-shadow, filter, transform;
         }
     }
 }

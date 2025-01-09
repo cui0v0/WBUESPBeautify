@@ -6,6 +6,11 @@
 	--sidebar_width:10rem;
 	--title-extra-length:20rem;
 }
+body.spring_festival{
+	--primary-theme-color: #ca2019;
+    --secondary-theme-color: #f5b035;
+    --tertiary-theme-color: #9e0d00;
+}
 body,div,dl,dt,p,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,select,blockquote,th,td,a,span,div {
 	padding:0;
 	margin:0;
