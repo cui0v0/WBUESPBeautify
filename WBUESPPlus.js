@@ -1485,6 +1485,7 @@
         //name color reset
         document.getElementById("Top1_divLoginName").style="";
         document.getElementById("Top1_divLoginName").title = "点击切换个人信息展示";
+        document.querySelector("#TopTheme").removeAttribute("onclick");
         let name_top = document.getElementById("Top1_divLoginName");
         let origin_name_top = name_top.innerText;
         window.sessionStorage.setItem("userName",origin_name_top);
