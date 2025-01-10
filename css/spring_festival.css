@@ -1,0 +1,28 @@
+body.spring_festival{
+	--primary-theme-color: #ca2019;
+    --secondary-theme-color: #f5b035;
+    --tertiary-theme-color: #9e0d00;
+    .Nsb_menu_pw, .Nsb_top_menu{
+        border-top: 1.5px solid white;
+    }
+    .Nsb_menu a:hover{
+        box-shadow:inset 0px 3px 4px 2px var(--primary-theme-color), inset 0px 1px 20px 3px var(--secondary-theme-color);
+        filter: hue-rotate(7deg) brightness(1.15);
+    }
+    .Nsb_l_list a:hover {
+        background: var(--primary-theme-color);
+    }
+    .Nsb_l_list a:hover, .Nsb_r_list a:hover, .button:hover, center a[style][href]:hover, #dataView.dataTable td[class] a[style]:hover,.Nsb_r_list a[href]:hover{
+        box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.4), inset 0px 1px 4px 2px var(--primary-theme-color), inset 0px 0px 9px 4px var(--secondary-theme-color);
+        filter: hue-rotate(7deg) brightness(1.15);
+    }
+    .Nsb_pw.top{
+        background:linear-gradient(0deg, var(--primary-theme-color) -5%, var(--secondary-theme-color));
+        & .Nsb_top{
+            background:linear-gradient(0deg, var(--primary-theme-color) -5%, var(--secondary-theme-color));
+        }
+    }
+    .Nsb_top_menu_id, .Nsb_top_menu_style, .Nsb_top_menu_options, .Nsb_top_menu_exit, .Nsb_top_menu_lcn, .Nsb_top_menu_len{
+        filter: hue-rotate(193deg) brightness(1) contrast(1.1);
+    }
+}
