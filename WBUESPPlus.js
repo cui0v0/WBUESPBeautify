@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         WBUESPPlus
 // @namespace    http://tampermonkey.net/
-// @version      1.3.0
+// @version      1.3.1
 // @description  WBU教务平台Plus
 // @author       Simprole
 // @match        http://jw.wbu.edu.cn/jsxsd/*
@@ -355,6 +355,9 @@
                 window.sessionStorage.setItem("targetSubject",e.parentElement.previousElementSibling.innerText);
                 window.sessionStorage.setItem("subjectStatus",e.innerText);
             })
+            if(e.parentElement.parentElement.children[1].querySelector("a[href]")){
+                e.parentElement.parentElement.children[1].innerText = e.parentElement.parentElement.children[1].querySelector("a[href]").innerText;
+            }
             subject.title = e.parentElement.previousElementSibling.innerText;
             subject.id = e.parentElement.previousElementSibling.previousElementSibling.innerText;
             subject.score = e.innerText;
@@ -362,7 +365,7 @@
             subject.time = e.parentElement.nextElementSibling.nextElementSibling.innerText;
             subject.type = e.parentElement.parentElement.lastElementChild.previousElementSibling.innerText;
             subject.semester = e.parentElement.parentElement.children[1].innerText;
-            let JsModData = e.href.slice(e.href.indexOf("JsMod")+7,e.href.indexOf("%27"));
+            let JsModData = e.href.indexOf("%27") != -1 ? e.href.slice(e.href.indexOf("JsMod")+7,e.href.indexOf("%27")) : e.href.slice(e.href.indexOf("JsMod")+7,e.href.lastIndexOf("'"));
             if(!semester_list.includes(subject.semester)){
                 semester_list.push(subject.semester);
             }
