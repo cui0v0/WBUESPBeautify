@@ -122,7 +122,8 @@ iframe.SimWindow{
             margin-left: 0.5rem;
         }
         & svg.icon{
-            cursor:pointer;
+            cursor: pointer;
+            user-select: none;
         }
     }
 }
