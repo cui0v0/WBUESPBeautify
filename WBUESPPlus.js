@@ -24,7 +24,7 @@
     //root css
     $("body").append($('<style id="SimRootCSS">:root{--primary-theme-color: hsl(216.99deg 99.1% 56.67%);--secondary-theme-color: hsl(214.55deg 98.8% 67.25%);;--tertiary-theme-color:hsl(207 90% 60%);--hover_darken_color:brightness(0.75);--sidebar_width:10rem;--title-extra-length:20rem;}body,div,dl,dt,p,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,select,blockquote,th,td,a,span,div {padding:0;margin:0;font-size: 1rem;font-family: "HarmonyOS_Medium"!important;}html{scroll-behavior: smooth;}.display_none{display: none!important;}.mobile{padding: 0!important;}</style>'));
     //Spring Festival css
-    $("body").append($('<style id="SpringFestivalThemeCSS">body.spring_festival{--primary-theme-color: #ca2019;--secondary-theme-color: #f5b035;--tertiary-theme-color: #9e0d00;.Nsb_menu_pw, .Nsb_top_menu{border-top: 1.5px solid white;}.Nsb_menu a:hover{box-shadow:inset 0px 3px 4px 2px var(--primary-theme-color), inset 0px 1px 20px 3px var(--secondary-theme-color);filter: hue-rotate(7deg) brightness(1.15);}.Nsb_l_list a:hover {background: var(--primary-theme-color);}.Nsb_l_list a:hover, .Nsb_r_list a:hover, .button:hover, center a[style][href]:hover, #dataView.dataTable td[class] a[style]:hover,.Nsb_r_list a[href]:hover{box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.4), inset 0px 1px 4px 2px var(--primary-theme-color), inset 0px 0px 9px 4px var(--secondary-theme-color);filter: hue-rotate(7deg) brightness(1.15);}.Nsb_pw.top{background:linear-gradient(0deg, var(--primary-theme-color) -5%, var(--secondary-theme-color));& .Nsb_top{background:linear-gradient(0deg, var(--primary-theme-color) -5%, var(--secondary-theme-color));}}.Nsb_top_menu_id, .Nsb_top_menu_style, .Nsb_top_menu_options, .Nsb_top_menu_exit, .Nsb_top_menu_lcn, .Nsb_top_menu_len{filter: hue-rotate(193deg) brightness(1) contrast(1.1);}}</style>'));
+    $("body").append($('<style id="SpringFestivalThemeCSS">body.spring_festival{--primary-theme-color: #ca2019;--secondary-theme-color: #e8ad48;--tertiary-theme-color: #9e0d00;.Nsb_menu_pw, .Nsb_top_menu{border-top: 1.5px solid white;}.Nsb_menu a:hover{box-shadow:inset 0px 3px 4px 2px var(--primary-theme-color), inset 0px 1px 20px 3px var(--secondary-theme-color);filter: hue-rotate(7deg) brightness(1.15);}.Nsb_l_list a:hover {background: var(--primary-theme-color);}.Nsb_l_list a:hover, .Nsb_r_list a:hover, .button:hover, center a[style][href]:hover, #dataView.dataTable td[class] a[style]:hover,.Nsb_r_list a[href]:hover{box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.4), inset 0px 1px 4px 2px var(--primary-theme-color), inset 0px 0px 9px 4px var(--secondary-theme-color);filter: hue-rotate(7deg) brightness(1.15);}.Nsb_pw.top{background:linear-gradient(0deg, var(--primary-theme-color) -5%, var(--secondary-theme-color));& .Nsb_top{background:linear-gradient(0deg, var(--primary-theme-color) -5%, var(--secondary-theme-color));}}.Nsb_top_menu_id, .Nsb_top_menu_style, .Nsb_top_menu_options, .Nsb_top_menu_exit, .Nsb_top_menu_lcn, .Nsb_top_menu_len{filter: hue-rotate(193deg) brightness(1) contrast(1.1);}}</style>'));
     //universal buttons css
     $("body").append($('<style id="SimUniButtonsCSS">.button,center a[style][href],#dataView.dataTable td[class] a[style]{width: unset!important;font-size: 1rem;background-image: none;color: #fff!important;;background-color: var(--primary-theme-color);border: var(--primary-theme-color);border-radius: 20px;box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.4);padding: 5px 7px 5px 5px;position: relative;letter-spacing: 2px;text-indent: 5px;text-align: center;text-decoration:none!important;height: min-content;transition-duration: 0.3s;transition-timing-function: cubic-bezier(0.22, 0.61, 0.36, 1);transition-property: filter,box-shadow,transform;font-family: "HarmonyOS_Medium" !important;& .count{letter-spacing: 0;}&.disabled,&.disabled:hover{box-shadow: none;cursor: no-drop;filter: brightness(0.6);transform: none;}&.centerButton{left: 50%;translate: -50%;margin: -0.5rem 0 0.5rem 0;}&.SimScale{text-indent: 0;}&.icon_btn,&.calc_ui_btn,&.filter_ui_btn{display: inline-flex;font-size: 1rem;margin-left: 0.5rem;align-items: center;}&.SimFullScreen{opacity: 0.4;transition-duration: 0.3s;transition-timing-function: cubic-bezier(0.39, 0.58, 0.57, 1);transition-property: opacity, box-shadow, filter, transform;width: max-content !important;text-indent: 0;position: fixed;top: 0%;right: 0%;margin: 0.5rem;padding: 5px;&:hover{opacity: 1;}}}div .buttons{display: flex;justify-content: center;& .button{padding: 5px 7px 5px 5px!important;}}.Nsb_r_title div .button{left:0;margin: 0.5rem 0.5rem 0;}.Nsb_r_title button{left: 50%;transform: translateX(-50%);}form .buttons{left: 50%;transform: translateX(-50%);position: relative;display: inline-block;}.Nsb_r_list a[href]:not([target]){background-color: var(--primary-theme-color);border: var(--primary-theme-color);border-radius: 20px;box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.3);padding: 3px 0;position: relative;text-align: center;color: #fff;display: list-item;transition-duration: 0.3s;transition-timing-function: cubic-bezier(0.22, 0.61, 0.36, 1);transition-property: filter,box-shadow,transform;}.Nsb_r_list a:hover, .button:hover, center a[style][href]:hover,#dataView.dataTable td[class] a[style]:hover{text-decoration:none;filter: brightness(0.8);box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.7);transform: translateY(0.5px);transition-duration: 0.3s;transition-timing-function: cubic-bezier(0.22, 0.61, 0.36, 1);transition-property: filter,box-shadow,transform;}.Nsb_r_list_fy4 {background: none;& a {width: 3em;text-align: center;background: var(--primary-theme-color);margin: 0 0.1em;border-radius: 2em;color: #fff;font-weight: bold;box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);-webkit-user-select: none;user-select: none;}& .disabled {filter: brightness(0.6);box-shadow: none;cursor: no-drop;}&.dataTable .button#button1,&.dataTable .button#button2{left: 27%;}}.SimScale{font-size: 1.8rem;height: 1.6rem;width: 1.6rem!important;line-height: 0;border-radius: 100%;display: flex;align-items: center;justify-content: center;margin: 0.25rem;}input#SimBtn{width: unset!important;font-size: 1rem;background-image: none;color: #fff!important;;background-color: hsl(216.99deg 99.1% 56.67%);border: hsl(216.99deg 99.1% 56.67%);border-radius: 20px;box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.4);padding: 5px 10px;position: relative;letter-spacing: 2px;text-indent: 2px;text-align: center;text-decoration:none!important;height: min-content;transition-duration: 0.3s;transition-timing-function: cubic-bezier(0.22, 0.61, 0.36, 1);transition-property: filter,box-shadow,transform;&:hover{text-decoration:none;filter: brightness(0.8);box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.7);transform: translateY(0.5px);}}</style>'));
     //universal charts css
@@ -74,7 +74,15 @@
         if(!document.getElementById("SimPage")&&window.parent.document.getElementById("SimPage")){
         }else {
             $("body").append(Snow_Div);
-            $("body").append(DengLong);
+            if(now.getMonth()==0){
+                if(now.getDate()>=29){
+                    $("body").append(DengLong);
+                }
+            }else if(now.getMonth()==1){
+                if(now.getDate()<=12){
+                    $("body").append(DengLong);
+                }
+            }
             if(window.parent.document.getElementById("fcenter")&&document.querySelector("#kbtable")){
                 document.querySelector(".snow-container").classList.add("display_none");
                 document.querySelector(".Denglong").classList.add("display_none");
@@ -363,14 +371,14 @@
             subject.score = e.innerText;
             subject.credit = e.parentElement.nextElementSibling.innerText;
             subject.time = e.parentElement.nextElementSibling.nextElementSibling.innerText;
-            subject.type = e.parentElement.parentElement.lastElementChild.previousElementSibling.innerText;
+            subject.type = e.parentElement.parentElement.lastElementChild.innerText;
             subject.semester = e.parentElement.parentElement.children[1].innerText;
             let JsModData = e.href.indexOf("%27") != -1 ? e.href.slice(e.href.indexOf("JsMod")+7,e.href.indexOf("%27")) : e.href.slice(e.href.indexOf("JsMod")+7,e.href.lastIndexOf("'"));
             if(!semester_list.includes(subject.semester)){
                 semester_list.push(subject.semester);
             }
             tr.classList.add("s"+subject.semester);
-            tr.classList.add(subject.type);
+            subject.id.includes("BGX") ? tr.classList.add("公选") : tr.classList.add("必修");
             subject_info.push(subject);
             simGrid.appendChild(create_grid(subject.title,subject.score,subject.time,subject.id,subject.credit,subject.type,subject.semester,JsModData));
         });
@@ -413,7 +421,7 @@
         let filter_ui_btn = create_special_button("filter_ui_btn");
         filter_ui_btn.innerHTML = `<svg class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="8534" width="20" height="20" style="margin-left:3px">`+filter_empty_icon+"</svg><span>筛选</span>";
         let filter_panel = special_div_create("filter_panel folded","");
-        let panel_body = special_div_create("panel_body init","");
+        let panel_body = special_div_create("panel_body","");
         let panel_inner = special_div_create("inner","");
         let semester_picker_panel = special_div_create("pickPanel","<span>学期</span>");
         semester_list.forEach((e)=>{
@@ -611,7 +619,7 @@
             };
         }
         grid_item.classList.add("s"+semester);
-        grid_item.classList.add(type);
+        id.includes("BGX") ? grid_item.classList.add("公选") : grid_item.classList.add("必修");
         grid_item.appendChild(top);
         grid_item.appendChild(bottom);
         grid_item.addEventListener("click",()=>{
