@@ -14,11 +14,8 @@
  对原有的`学期理论课表、班级课表查询、课程成绩查询`等功能进行了针对性优化；<br>
  增加`按学期筛选课程成绩、一键评优、综测成绩计算器`等实用功能。
 
-<<<<<<< HEAD
 ---
 
-=======
->>>>>>> 62c5107a9dc7354b07fbcbbfd5e9516e332b665f
 ## 📦 脚本安装教程
 
 ### <div><img width="20" src="./image/edge.svg"> Microsoft Edge 浏览器 — Windows / Linux / macOS 系统</div>
