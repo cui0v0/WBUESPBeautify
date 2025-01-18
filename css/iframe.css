@@ -9,6 +9,7 @@ div#SimPageOutline{
     left: 50%;
     position: relative;
     transform: translateX(-50%);
+    margin-top: 0.5rem;
 }
 iframe#SimPage{
 	display: block;
