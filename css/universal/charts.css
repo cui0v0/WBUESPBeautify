@@ -42,6 +42,9 @@
     &.insideIframe{
         margin-top: -1.4rem;
     }
+    & tr.noon{
+        background-color: var(--secondary-theme-color);
+    }
     & th{
         background: var(--secondary-theme-color);
         border: none;
