@@ -9,12 +9,14 @@
     & .heart{
         color: #ff0081;
     }
+    & a{
+        color: var(--primary-theme-color);
+        text-decoration: none;
+    }
 }
 #Footer1_divCopyright{
 	text-align: center;
-    position: absolute;
     display: inline-flex;
     width: inherit;
-    bottom: 0;
     flex-direction: column;
 }

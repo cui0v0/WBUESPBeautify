@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         WBUESPPlus
-// @namespace    http://tampermonkey.net/
-// @version      1.3.1
+// @namespace    https://gitee.com/dmaker/WBUESPPlus
+// @version      1.3.2
 // @description  WBU教务平台Plus
 // @author       Simprole
 // @match        http://jw.wbu.edu.cn/jsxsd/*
@@ -11,7 +11,6 @@
 // @resource css https://s1.hdslb.com/bfs/static/jinkela/long/font/medium.css
 // @resource icon https://gitee.com/dmaker/simpage/raw/master/iconfont.css
 // @require      https://libs.baidu.com/jquery/2.0.0/jquery.min.js
-// @require      https://gitee.com/dmaker/simpage/raw/master/js.cookie.min.js
 // @grant        unsafeWindow
 // @grant        GM_addStyle
 // @grant        GM_getResourceText
@@ -32,7 +31,7 @@
     //universal pages css
     $("body").append($('<style id="SimUniPagesCSS">.Nsb_pw, .Nsb_pw_main {width: inherit;.Nsb_r_title {font-size: 1.4rem;font-weight: bold;color: #000;height: max-content;line-height: 1.5em;letter-spacing: 0.1rem;margin: 0.5rem 0 0.5rem 0;text-align: center;}}.Nsb_pw{& .Nsb_top{height: 6rem;}}.Nsb_pw_main{display: flex;flex-direction: row;align-items: baseline;justify-content: center;margin: 0.5rem auto;height: inherit;max-width: 1280px;&.mobile{margin: 1rem auto!important;}}.Nsb_pw_page {width: inherit;display: flex;flex-direction: row;align-items: flex-start;justify-content: space-evenly;}#SimInfo{position: relative;left: 50%;transform: translateX(-50%);margin-top: 0.5rem;text-align: center;}.SimStack{transition: 0.3s cubic-bezier(0.39, 0.58, 0.57, 1);transition-property: opacity;&[stacked=true]{opacity: 0%;transition: 0.3s cubic-bezier(0.39, 0.58, 0.57, 1);transition-property: opacity;}&[stacked=false]{opacity: 100%;transition: 0.3s cubic-bezier(0.39, 0.58, 0.57, 1);transition-property: opacity;}}#SimStackTop{cursor: pointer;transition: 0.3s cubic-bezier(0.39, 0.58, 0.57, 1);transition-property: filter,transform,margin,margin-right,box-shadow;&:hover{transform: translateY(0.75px);filter: brightness(0.7);transition: 0.3s cubic-bezier(0.39, 0.58, 0.57, 1);transition-property: filter,transform,margin,margin-right,box-shadow;}&[stacked=true]{margin: 0px 7px 12px 0;transition: 0.3s cubic-bezier(0.39, 0.58, 0.57, 1);transition-property: filter,transform,margin,margin-right,box-shadow;}&[stacked=false]{margin-right: 0;transition: 0.3s cubic-bezier(0.39, 0.58, 0.57, 1);transition-property: filter,transform,margin,margin-right,box-shadow;}}.SimScalePanel{display: flex;position: fixed;align-items: center;justify-content: center;flex-direction: row;right: 0;bottom: 0;opacity: 0.2;transition: 0.3s cubic-bezier(0.39, 0.58, 0.57, 1) 1s;transition-property: opacity,transform;&.rightPage{opacity: 1;position: relative;margin-top: -1rem;.SimScaleText{opacity: 1;transform: 0;font-size:1rem;transform: none;}}.SimScaleText{opacity: 0;user-select: none;font-size: 1.3rem;transform: translateX(50%);transition: 0.3s cubic-bezier(0.39, 0.58, 0.57, 1) 1s;transition-property: opacity,transform;}&:hover{opacity: 1.0;transition: 0.3s cubic-bezier(0.39, 0.58, 0.57, 1);transition-property: opacity,transform;.SimScaleText{opacity: 1;transform: translateX(0%);transition: 0.3s cubic-bezier(0.39, 0.58, 0.57, 1);transition-property: opacity,transform;}}}.SimSelect{text-align: center;font-size: 1rem;border: 2px solid var(--secondary-theme-color);border-radius: 1rem;height: 1.7rem;width: 203px!important;margin: 0.125rem 0;box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.3);transition: 0.3s cubic-bezier(0.39, 0.58, 0.57, 1);transition-property: border,box-shadow;&.Slim{width: 125px!important;}&:hover,&:focus-visible{outline:none;border: 2px solid var(--primary-theme-color);box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.3),inset 0px 2px 6px 0px var(--secondary-theme-color);transition: 0.3s cubic-bezier(0.39, 0.58, 0.57, 1);transition-property: border,box-shadow;}}input.SimScaleInput.SimInput{width: 4.5rem!important;font-size: 1.3rem;height: 1.4rem;box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);}input.SimInput,.inputnormal{width: 200px!important;text-align: center;border: 2px solid var(--primary-theme-color);border-radius: 1.5em;background-color: var(--tertiary-theme-color);text-shadow: 0px 0px 4px rgba(0,0,0,0.7);color: #fff;font-size: 1rem;height: 1.5rem;margin: 0.125rem 0;transition: 0.3s cubic-bezier(0.39, 0.58, 0.57, 1);transition-property: transform,background-color,border,color;}.SimInput.Slim{width: 130px!important;}input.SimInput{&:hover,&:focus-visible{outline: none;border: 2px solid var(--primary-theme-color);background-color:var(--secondary-theme-color);transform: scale(1.02);transition: 0.3s cubic-bezier(0.39, 0.58, 0.57, 1);transition-property: transform,background-color,border,color;}&.disabled,.disabled:hover{background-color: var(--secondary-theme-color);border: 2px solid var(--primary-theme-color);text-shadow: none;outline: none;cursor: no-drop;transform: none;filter: brightness(0.5);}&[readonly]{&:hover{outline: 0px;}&:focus-visible{outline: 0px;}}}#SimTop{position: fixed;right: 0.5rem;bottom: 0.5rem;font-size: 1rem;background-image: none;background-color: var(--primary-theme-color);border-radius: 20px;box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);color: #fff;}.SimGrid{display: grid;grid-template-columns: repeat(3, 1fr);margin-top: 0.5rem;position: relative;padding: 0 2rem;gap: 0.8rem;font-size: 1rem!important;color: white;justify-content: center;grid-auto-flow: dense;&.mobile{grid-template-columns: repeat(2, 1fr);justify-content: start;}& .grid{background-color: var(--secondary-theme-color);box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.3);border-radius: 1rem;padding: 0.5rem 1rem;transition-duration: 0.3s;transition-property: transform,background-color,box-shadow;transition-timing-function: ease-out;& .top{display: inline-flex;flex-direction: row;justify-content: space-between;align-items: center;width: -webkit-fill-available;margin-bottom: 0.5rem;font-size: 1.3rem!important;overflow: hidden;& .title{font-size: 1.3rem;white-space: nowrap;max-width: 20rem;&.wide{position: relative;transition-duration: 0.5s;transform: translateX(0px);transition-property: transform,margin-left;transition-timing-function: linear;margin-left: 0;}}& .score{font-size: 1.3rem;z-index: 2;padding-left: 0.5rem;background-color: var(--secondary-theme-color);transition-property: background-color;transition-duration: 0.3s;transition-timing-function: ease-out;}}&.hover,&:hover{cursor: pointer;transform: scale(1.035);background-color: var(--primary-theme-color);box-shadow: 0px 3px 8px 1px rgb(0 0 0 / 35%);& .top .title.wide{transform: translateX(var(--title-extra-length));margin-left:-100%;}& .top .score{background-color: var(--primary-theme-color);}}& .bottom{display: inline-grid;justify-content: space-between;align-items: center;width: -webkit-fill-available;align-content: center;grid-template-columns: repeat(2, 1fr);justify-items: stretch;gap: 0.3rem 1rem;& div.sub{display: inline-grid;align-items: center;width: -webkit-fill-available;grid-template-columns: repeat(2, 1fr);& .text{font-size: 1rem;word-break: keep-all;&:last-child{text-align: right;margin-left: 0.5rem;}}}}}}body.SimHalf{display: flex;flex-direction: column;}.SimName{color: white;padding: 0.2rem;}.SimNameDisplay{display: flex;flex-direction: row;background-color: var(--tertiary-theme-color);border-radius: 20px;box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.3);margin-top: -0.4rem;}</style>'));
     //footer css
-    $("body").append($('<style id="SimFooterCSS">.Nsb_rights {height: max-content;line-height: normal;width: inherit;}.info{text-align: center;color: #000;& .heart{color: #ff0081;}}#Footer1_divCopyright{text-align: center;display: inline-flex;width: inherit;bottom: 0;flex-direction: column;}</style>'));
+    $("body").append($('<style id="SimFooterCSS">.Nsb_rights {height: max-content;line-height: normal;width: inherit;}.info{text-align: center;color: #000;& .heart{color: #ff0081;}& a{color: var(--primary-theme-color);text-decoration: none;}}#Footer1_divCopyright{text-align: center;display: inline-flex;width: inherit;flex-direction: column;}</style>'));
     //home page css
     $("body").append($('<style id="SimHomePageCSS">.iconfont {position: absolute;font-size: 75px;left: 50%;transform: translateX(-50%);top: 15px;}.icon-xuanke,.icon-yonghu {font-size: 75px;top: 80px;}.icon-yonghu{left: 22.5%!important;position: absolute;transform: translateX(-240%);cursor: pointer;transition: all 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);&:hover{filter: brightness(0.75);transform: translate(-240%,1px);transition-duration: 0.3s;transition: all 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);}}.block1,.block2,.block3,.block4,.block5,.block6,.block7,.block8,.block9,.block10,.block11,.block12{box-shadow: 0px 4px 4px rgba(0,0,0,0.3);border-radius: 0.5rem;transition: 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);transition-property: filter,transform,box-shadow;}.block1text{width:auto;height: auto;position: relative;text-align: center;left: 50%;top: 42%;color:#fff;transform: translate(-30%,-90%);}.block1tex,.block2tex{-webkit-user-select: none;user-select: none;left:0px;position: relative;top: 75%;text-align: center;color:#fff;}.block3tex,.block4tex,.block5tex,.block6tex{left:50%;position: absolute;top: 75%;text-align: center;transform: translateX(-50%);}.block7tex,.block8tex,.block9tex,.block10tex,.block11tex,.block12tex{left:50%;transform: translateX(-50%);position: absolute;top: 75%;text-align: center;width: max-content;}.block2:hover,.block3:hover,.block4:hover,.block5:hover,.block6:hover,.block7:hover,.block8:hover,.block9:hover,.block10:hover,.block11:hover,.block12:hover{box-shadow: 0px 1px 2px rgba(0,0,0,0.7);transform: translateY(2px);filter: brightness(0.75);transition: 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);transition-property: filter,transform,box-shadow;}.block1 img,.block2 img,.block3 img,.block4 img,.block5 img,.block6 img,.block7 img,.block8 img,.block9 img,.block10 img,.block11 img,.block12 img,.block1app,.block1pc{visibility: hidden;}</style>'));
     //iframe css
@@ -693,6 +692,12 @@
         div.className = className;
         div.innerHTML = innerHTML;
         return div;
+    }
+    function special_span_create(className,innerHTML){
+        let span = document.createElement("span");
+        span.className = className;
+        innerHTML ? span.innerHTML = innerHTML : "";
+        return span;
     }
     function create_special_button(speical_class){
         let button = document.createElement("button");
@@ -1439,33 +1444,21 @@
     //setup homepage icons
     if(document.getElementsByClassName("block1")[0]){
         GM_addStyle(GM_getResourceText("icon"));
-        let icon1 = document.createElement("span");
-        let icon2 = document.createElement("span");
-        let icon3 = document.createElement("span");
-        let icon4 = document.createElement("span");
-        let icon5 = document.createElement("span");
-        let icon6 = document.createElement("span");
-        let icon7 = document.createElement("span");
-        let icon8 = document.createElement("span");
-        let icon9 = document.createElement("span");
-        let icon10 = document.createElement("span");
-        let icon11 = document.createElement("span");
-        let icon12 = document.createElement("span");
-        icon1.className = "iconfont icon-yonghu";
-        icon2.className = "iconfont icon-xuanke";
-        icon3.className = "iconfont icon-pingjiao";
-        icon4.className = "iconfont icon-jiejuefangan";
-        icon5.className = "iconfont icon-icon-test";
-        icon6.className = "iconfont icon-gonggao-xianxing";
-        icon7.className = "iconfont icon-chengji";
-        icon8.className = "iconfont icon-rili";
-        icon9.className = "iconfont icon-jihua";
-        icon10.className = "iconfont icon-chengji";
-        icon11.className = "iconfont icon-xuejiyidongguanli";
-        icon12.className = "iconfont icon-zaixianbaoming";
+        const icon1 = special_span_create("iconfont icon-yonghu");
+        const icon2 = special_span_create("iconfont icon-xuanke");
+        const icon3 = special_span_create("iconfont icon-pingjiao");
+        const icon4 = special_span_create("iconfont icon-jiejuefangan");
+        const icon5 = special_span_create("iconfont icon-icon-test");
+        const icon6 = special_span_create("iconfont icon-gonggao-xianxing");
+        const icon7 = special_span_create("iconfont icon-chengji");
+        const icon8 = special_span_create("iconfont icon-rili");
+        const icon9 = special_span_create("iconfont icon-jihua");
+        const icon10 = special_span_create("iconfont icon-chengji");
+        const icon11 = special_span_create("iconfont icon-xuejiyidongguanli");
+        const icon12 = special_span_create("iconfont icon-zaixianbaoming");
     //fix missing block6
         if(!document.getElementsByClassName("block6")[0]){
-            let block6 = document.createElement("div");
+            const block6 = document.createElement("div");
             block6.innerHTML = document.getElementsByClassName("wap")[0].getElementsByTagName("a")[4].innerHTML;
             block6.className = "block6";
             document.getElementsByClassName("wap")[0].getElementsByTagName("a")[4].innerHTML = "";
@@ -1497,53 +1490,27 @@
         document.getElementById("Top1_divLoginName").style="";
         document.getElementById("Top1_divLoginName").title = "点击切换个人信息展示";
         document.querySelector("#TopTheme").removeAttribute("onclick");
-        let name_top = document.getElementById("Top1_divLoginName");
-        let origin_name_top = name_top.innerText;
+        const name_top = document.getElementById("Top1_divLoginName");
+        const origin_name_top = name_top.innerText;
         window.sessionStorage.setItem("userName",origin_name_top);
-        if(Cookies.get("name_top")=="hidden"){
-            name_top.innerHTML = "个人信息已隐藏";
-        }
-        let name_inner;
-        let origin_name_inner;
+        window.sessionStorage.getItem("name_hide")=="true" ? name_top.innerHTML = "个人信息已隐藏" : "";
+        let name_inner,origin_name_inner;
+        const version_info = "WBUESPPlus版本:<br>"+GM_info.script.version;
         if(document.getElementsByClassName("block1text")[0]){
             name_inner = document.getElementsByClassName("block1text")[0];
             origin_name_inner= name_inner.innerHTML;
-            if(Cookies.get("name_inner")=="hidden"){
-                name_inner.innerHTML = "个人信息已隐藏";
-            }
-            document.getElementsByClassName("icon-yonghu")[0].addEventListener("click", name_hide);
+            window.sessionStorage.getItem("name_hide")=="true" ? name_inner.innerHTML = version_info : "";
+            document.getElementsByClassName("icon-yonghu")[0].addEventListener("click", name_hide_func);
         }
-        function name_hide_top(){
-            if(origin_name_top==name_top.innerHTML){
-                name_top.innerHTML = "个人信息已隐藏";
-                Cookies.set('name_top', 'hidden', {path:'/'});
-                Cookies.set('name_inner', 'hidden', {path:'/'});
-            }else{
-                name_top.innerHTML = origin_name_top;
-                Cookies.remove('name_top', {path:'/'});
-                Cookies.remove('name_inner', {path:'/'});
-            }
-        }
-        function name_hide_inner(){
-            if(origin_name_inner==name_inner.innerHTML){
-                name_inner.innerHTML = "个人信息已隐藏";
-                Cookies.set('name_top', 'hidden', {path:'/'});
-                Cookies.set('name_inner', 'hidden', {path:'/'});
-            }else{
-                name_inner.innerHTML = origin_name_inner;
-                Cookies.remove('name_top', {path:'/'});
-                Cookies.remove('name_inner', {path:'/'});
-            }
-        }
-        function name_hide(){
+        function name_hide_func(){
+            origin_name_top==name_top.innerHTML ? window.sessionStorage.setItem('name_hide',"true") : window.sessionStorage.removeItem('name_hide');
+            origin_name_top==name_top.innerHTML ? name_top.innerHTML = "个人信息已隐藏" : name_top.innerHTML = origin_name_top;
             if(document.getElementsByClassName("block1text")[0]){
-                name_hide_top();
-                name_hide_inner();
-            }else{
-                name_hide_top();
+                origin_name_inner==name_inner.innerHTML ? window.sessionStorage.setItem('name_hide',"true") : window.sessionStorage.removeItem('name_hide');
+                origin_name_inner==name_inner.innerHTML ? name_inner.innerHTML = version_info : name_inner.innerHTML = origin_name_inner;
             }
         }
-        name_top.addEventListener("click", name_hide);
+        name_top.addEventListener("click", name_hide_func);
     }
     foolsdayFunc();
     //add title for hide names func
@@ -1551,10 +1518,8 @@
         let footer = document.getElementById("Footer1_divCopyright");
         footer.className = "";
         footer.style = "";
-        // let info = document.createElement("div");
-        // info.innerHTML = "Beautified with <span class='heart'>❤</span><span class='info'> by Simprole</span>"
-        // info.className = "info";
-        // footer.appendChild(info);
+        let info = special_div_create("div info","Beautified with <span class='heart'>❤</span><span class='info'> by Simprole</span><br><span class='info'>了解更多：<a href='https://gitee.com/dmaker/WBUESPPlus' target='_blank;'>https://gitee.com/dmaker/WBUESPPlus</a></span>");
+        footer.appendChild(info);
     }
     //form btn style
     if(document.getElementsByTagName("Form")[1]&&document.getElementsByTagName("input")[0]){
