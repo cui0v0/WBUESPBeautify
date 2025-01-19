@@ -43,3 +43,10 @@
 - （4）点击`拓展`管理界面右上角`⚙`齿轮按钮，启用`开发人员模式`<br>
 - （5）最后[点击安装最新版脚本](https://gitee.com/dmaker/WBUESPPlus/raw/main/WBUESPPlus.user.js)，在新弹出的网页中点击`安装`，完成后页面会自动关闭，随后即可使用本脚本
 > 注意：脚本安装完成后不可卸载`篡改猴`拓展插件，卸载后将无法使用脚本
+
+---
+<div align="center" style="font-weight:bold">
+
+#### **如果觉得此脚本还不错，请为我点个`⭐ Star`，感谢支持~**
+
+</div>
