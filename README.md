@@ -47,6 +47,6 @@
 ---
 <div align="center" style="font-weight:bold">
 
-#### **如果觉得此脚本还不错，请为我点个`⭐ Star`，感谢支持~**
+#### **如果觉得脚本还不错，请为我点个`⭐ Star`，感谢你的支持~**
 
 </div>

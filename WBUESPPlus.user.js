@@ -381,8 +381,8 @@
         let buttonsDiv = document.createElement("div");
         buttonsDiv.classList.add("buttons");
         buttonsDiv.appendChild(document.querySelector(".button#btn_back"));
-        let icon_btn = create_special_button("icon_btn");
-        let noresult_tip = special_div_create("noresult display_none","无符合筛选条件的结果");
+        let icon_btn = create_specific_element("button","","icon_btn","button");
+        let noresult_tip = create_specific_element("div","无符合筛选条件的结果","noresult","display_none");
         icon_btn.innerHTML = `<svg t="1720352304894" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="6160" width="22" height="22" style="margin-left: 3px;">`+list_display_icon+`</svg><span style="font-size: 1rem;">列表显示</span>`;
         icon_btn.addEventListener("click",()=>{
             if(icon_btn.querySelector("span").innerText == "网格显示"){
@@ -403,8 +403,7 @@
                 noresult_tip.classList.add("grid_form");
             }
         });
-        let calc_ui_btn = create_special_button("calc_ui_btn");
-        calc_ui_btn.innerHTML=`<svg t="1720522001969" class="icon" style="margin-left: 5px;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="10291" width="20" height="20">`+calc_ui_icon+`</svg><span style="font-size: 1rem;">综测成绩计算器</span>`;
+        let calc_ui_btn = create_specific_element("button",`<svg t="1720522001969" class="icon" style="margin-left: 5px;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="10291" width="20" height="20">`+calc_ui_icon+`</svg><span style="font-size: 1rem;">综测成绩计算器</span>`,"calc_ui_btn","button");
         calc_ui_btn.addEventListener("click",async ()=>{
             document.querySelector("#SimUI").classList.remove("display_none");
             document.querySelector(".mask").classList.remove("display_none");
@@ -414,25 +413,23 @@
             document.querySelector("#SimUI").classList.remove("hidden");
         });
         let filter_outer_div = document.createElement("div");
-        let filter_ui_btn = create_special_button("filter_ui_btn");
-        filter_ui_btn.innerHTML = `<svg class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="8534" width="20" height="20" style="margin-left:3px">`+filter_empty_icon+"</svg><span>筛选</span>";
-        let filter_panel = special_div_create("filter_panel folded","");
-        let panel_body = special_div_create("panel_body","");
-        let panel_inner = special_div_create("inner","");
-        let semester_picker_panel = special_div_create("pickPanel","<span>学期</span>");
+        let filter_ui_btn = create_specific_element("div",`<svg class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="8534" width="20" height="20" style="margin-left:3px">`+filter_empty_icon+"</svg><span>筛选</span>","filter_ui_btn","button");
+        let filter_panel = create_specific_element("div","","filter_panel","folded");
+        let panel_body = create_specific_element("div","","panel_body");
+        let panel_inner = create_specific_element("div","","inner");
+        let semester_picker_panel = create_specific_element("div","<span>学期</span>","pickPanel");
         semester_list.forEach((e)=>{
             let picker_option = create_picker_option("picker_option","text",e);
             picker_option.classList.add("filter_semester");
             semester_picker_panel.appendChild(picker_option);
         });
-        let lesson_type_picker_panel = special_div_create("pickPanel","<span>课程属性</span>");
+        let lesson_type_picker_panel = create_specific_element("div","<span>课程属性</span>","pickPanel");
         lesson_type_picker_panel.appendChild(create_picker_option("picker_option","text","必修"));
         lesson_type_picker_panel.appendChild(create_picker_option("picker_option","text","公选"));
         lesson_type_picker_panel.querySelectorAll(".picker_option").forEach((e)=>{
             e.classList.add("filter_lesson_type");
         })
-        let filter_btn = create_special_button("filter_btn");
-        filter_btn.innerText = "筛选";
+        let filter_btn = create_specific_element("button","筛选","filter_btn","button");
         filter_btn.addEventListener("click",()=>{
             filter_panel.querySelectorAll(".picker_option").forEach((e)=>{
                 filter_function(e.querySelector("svg.icon"),e.querySelector(".text").innerText);
@@ -460,12 +457,12 @@
                 noresult_tip.classList.remove("grid_form");
             }
             filter_ui_btn.querySelector(".count") ? filter_ui_btn.querySelector(".count").remove() : "";
-            let count = special_div_create("count","("+document.querySelectorAll(".grid:not(.display_none)").length+")")
+            let count = create_specific_element("div","("+document.querySelectorAll(".grid:not(.display_none)").length+")","count")
             filter_ui_btn.querySelector("span").after(count);
             document.documentElement.style.setProperty("--filter-ui-btn-width",filter_ui_btn.clientWidth+"px");
             document.documentElement.style.setProperty("--fold-scale-ratio",filter_ui_btn.clientWidth/filter_panel.clientWidth);
         });
-        let back_btn = create_special_button("back_btn");
+        let back_btn = create_specific_element("button","","back_btn","button");
         back_btn.innerText = "收起";
         back_btn.classList.add("below");
         back_btn.addEventListener("click",()=>{
@@ -518,12 +515,12 @@
         // });
         // document.body.appendChild(weeklyTopBar);
         if(!document.querySelector(".SimFullScreen")){
-            let SimFullScreenBtn = special_div_create("button SimFullScreen",zoom_in_icon);
+            let SimFullScreenBtn = create_specific_element("div",zoom_in_icon,"button","SimFullScreen",);
             SimFullScreenBtn.onclick = SimWindowActions;
             document.body.appendChild(SimFullScreenBtn);
         }
         if(!window.parent.document.querySelector(".mask")){
-            let SimMask = special_div_create("mask display_none hidden","");
+            let SimMask = create_specific_element("div","","mask","display_none","hidden");
             window.parent.document.body.appendChild(SimMask);
         }
     }
@@ -626,20 +623,17 @@
         return grid_item;
     }
     function setup_SimUI(){
-        let SimUI = special_div_create("display_none hidden","");
+        let SimUI = create_specific_element("div","","display_none","hidden");
         SimUI.id = "SimUI";
         SimUI.innerHTML = `<div class="top"><div class="title">综测成绩计算器</div><button class="close_btn button">×</button></div><div class="desc">用于计算选定学期的综测分数</div>`;
-        let pickPanel = special_div_create("pickPanel","<span>请勾选需要进行计算的学期</span>");
+        let pickPanel = create_specific_element("div","<span>请勾选需要进行计算的学期</span>","pickPanel");
         SimUI.appendChild(pickPanel);
         semester_list.forEach((e)=>{
             pickPanel.appendChild(create_picker_option("picker_option","text",e));
         });
-        let mask = special_div_create("mask display_none hidden","");
-        let scorePanel = document.createElement("div");
-        scorePanel.className = "scorePanel";
-        let calc_btn = document.createElement("button");
-        calc_btn.innerText = "计算";
-        calc_btn.className = "button";
+        let mask = create_specific_element("div","","mask","display_none","hidden");
+        let scorePanel = create_specific_element("","","scorePanel");
+        let calc_btn = create_specific_element("button","计算","button");
         calc_btn.addEventListener("click",()=>{
             if(!pickPanel.querySelector("svg.checked")){
                 window.alert("请选择要计算的学期！");
@@ -684,23 +678,18 @@
         document.querySelector(".SimGrid").after(SimUI);
         SimUI.after(mask);
     }
-    function special_div_create(className,innerHTML){
-        let div = document.createElement("div");
-        div.className = className;
-        div.innerHTML = innerHTML;
-        return div;
-    }
-    function special_span_create(className,innerHTML){
-        let span = document.createElement("span");
-        span.className = className;
-        innerHTML ? span.innerHTML = innerHTML : "";
-        return span;
-    }
-    function create_special_button(speical_class){
-        let button = document.createElement("button");
-        button.classList.add("button");
-        button.classList.add(speical_class);
-        return button;
+    function create_specific_element(tagName,innerHTML,...classListItems){
+        tagName!=="" ? tagName : tagName = "div";
+        let ele = document.createElement(tagName);
+        if(classListItems.length==1){
+            ele.className = classListItems[0];
+        }else{
+            classListItems.forEach((e)=>{
+                ele.classList.add(e);
+            });
+        }
+        innerHTML!=="" ? ele.innerHTML = innerHTML : "";
+        return ele;
     }
     function create_picker_option(option_class,text_class,text){
         let option = document.createElement("div");
@@ -1441,18 +1430,18 @@
     //setup homepage icons
     if(document.getElementsByClassName("block1")[0]){
         GM_addStyle(GM_getResourceText("icon"));
-        const icon1 = special_span_create("iconfont icon-yonghu");
-        const icon2 = special_span_create("iconfont icon-xuanke");
-        const icon3 = special_span_create("iconfont icon-pingjiao");
-        const icon4 = special_span_create("iconfont icon-jiejuefangan");
-        const icon5 = special_span_create("iconfont icon-icon-test");
-        const icon6 = special_span_create("iconfont icon-gonggao-xianxing");
-        const icon7 = special_span_create("iconfont icon-chengji");
-        const icon8 = special_span_create("iconfont icon-rili");
-        const icon9 = special_span_create("iconfont icon-jihua");
-        const icon10 = special_span_create("iconfont icon-chengji");
-        const icon11 = special_span_create("iconfont icon-xuejiyidongguanli");
-        const icon12 = special_span_create("iconfont icon-zaixianbaoming");
+        const icon1 = create_specific_element("span","","iconfont icon-yonghu");
+        const icon2 = create_specific_element("span","","iconfont icon-xuanke");
+        const icon3 = create_specific_element("span","","iconfont icon-pingjiao");
+        const icon4 = create_specific_element("span","","iconfont icon-jiejuefangan");
+        const icon5 = create_specific_element("span","","iconfont icon-icon-test");
+        const icon6 = create_specific_element("span","","iconfont icon-gonggao-xianxing");
+        const icon7 = create_specific_element("span","","iconfont icon-chengji");
+        const icon8 = create_specific_element("span","","iconfont icon-rili");
+        const icon9 = create_specific_element("span","","iconfont icon-jihua");
+        const icon10 = create_specific_element("span","","iconfont icon-chengji");
+        const icon11 = create_specific_element("span","","iconfont icon-xuejiyidongguanli");
+        const icon12 = create_specific_element("span","","iconfont icon-zaixianbaoming");
     //fix missing block6
         if(!document.getElementsByClassName("block6")[0]){
             const block6 = document.createElement("div");
@@ -1515,7 +1504,7 @@
         let footer = document.getElementById("Footer1_divCopyright");
         footer.className = "";
         footer.style = "";
-        let info = special_div_create("div info","Beautified with <span class='heart'>❤</span><span class='info'> by Simprole</span><br><span class='info'>了解更多：<a href='https://gitee.com/dmaker/WBUESPPlus' target='_blank;'>https://gitee.com/dmaker/WBUESPPlus</a></span>");
+        let info = create_specific_element("div","Beautified with <span class='heart'>❤</span><span class='info'> by Simprole</span><br><span class='info'>了解更多：<a href='https://gitee.com/dmaker/WBUESPPlus' target='_blank;'>https://gitee.com/dmaker/WBUESPPlus</a></span>","info");
         footer.appendChild(info);
     }
     //form btn style
