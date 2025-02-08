@@ -2,7 +2,7 @@
 
 <div align="center" style="font-weight:bold">
 
-**基于`userScripts API`的WBU教学一体化服务平台美化 + 功能拓展脚本**
+**基于`userScripts API`的武汉商学院教学一体化服务平台美化 + 功能拓展脚本**
 
 </div>
 
