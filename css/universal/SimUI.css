@@ -217,8 +217,43 @@ iframe.SimWindow{
     top: 0;
     z-index: 99;
     opacity: .85 !important;
-    transition: 0.3s opacity cubic-bezier(0.46, 0.03, 0.52, 0.96);;
+    transition: 0.3s opacity cubic-bezier(0.46, 0.03, 0.52, 0.96);
     &.hidden{
         opacity: 0!important;
+    }
+}
+.detail_desc{
+    position: fixed;
+    background-color: var(--tertiary-theme-color);
+    bottom: 0;
+    left: 50%;
+    translate: -50% 0;
+    padding-bottom: 5px;
+    border-radius: 1rem;
+    color: white;
+    margin: 0.5rem;
+    user-select: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 15rem;
+    opacity: 0.9;
+    pointer-events: none;
+    transform-origin: center bottom;
+    backdrop-filter: blur(10px);
+    transition: opacity 0.3s cubic-bezier(0.46, 0.03, 0.52, 0.96);
+    &.hidden{
+        opacity: 0;
+    }
+    & span{
+        padding: 0 5px;
+        &.header{
+            display: inline-flex;
+            width: -webkit-fill-available;
+            justify-content: center;
+            background-color: var(--primary-theme-color);
+            border-radius: 1rem 1rem 0 0;
+            padding: 3px 5px;
+        }
     }
 }
