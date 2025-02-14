@@ -1,7 +1,9 @@
 :root{
 	--primary-theme-color: hsl(216.99deg 99.1% 56.67%);
+	--primary-theme-color-bg: hsl(216.99deg 99.1% 56.67% / 80%);
 	--secondary-theme-color: hsl(214.55deg 98.8% 67.25%);;
     --tertiary-theme-color:hsl(207 90% 60%);
+	--tertiary-theme-color-bg:hsl(207deg 90% 60% / 70%);;
     --hover_darken_color:brightness(0.75);
 	--sidebar_width:10rem;
 	--title-extra-length:20rem;

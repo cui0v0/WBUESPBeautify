@@ -224,7 +224,7 @@ iframe.SimWindow{
 }
 .detail_desc{
     position: fixed;
-    background-color: var(--tertiary-theme-color);
+    background-color: var(--tertiary-theme-color-bg);
     bottom: 0;
     left: 50%;
     translate: -50% 0;
@@ -237,10 +237,9 @@ iframe.SimWindow{
     flex-direction: column;
     align-items: center;
     min-width: 15rem;
-    opacity: 0.9;
     pointer-events: none;
     transform-origin: center bottom;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(5px);
     transition: opacity 0.3s cubic-bezier(0.46, 0.03, 0.52, 0.96);
     &.hidden{
         opacity: 0;
@@ -251,7 +250,7 @@ iframe.SimWindow{
             display: inline-flex;
             width: -webkit-fill-available;
             justify-content: center;
-            background-color: var(--primary-theme-color);
+            background-color: var(--primary-theme-color-bg);
             border-radius: 1rem 1rem 0 0;
             padding: 3px 5px;
         }
