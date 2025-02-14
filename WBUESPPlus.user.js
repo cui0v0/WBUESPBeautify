@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         WBUESPPlus
 // @namespace    https://gitee.com/dmaker/WBUESPPlus
-// @version      1.3.3-beta
+// @version      1.3.4-beta
 // @description  WBU教务平台Plus
 // @author       Simprole
 // @match        http://jw.wbu.edu.cn/jsxsd/*
@@ -501,8 +501,70 @@
         document.documentElement.style.setProperty("--filter-ui-btn-width",filter_ui_btn.clientWidth+"px");
         document.documentElement.style.setProperty("--fold-scale-ratio",filter_ui_btn.clientWidth/filter_panel.clientWidth);
     }
+    if(document.location.href.endsWith("kbxx_xzb") || document.location.href.endsWith("kbxx_teacher") || document.location.href.endsWith("kbxx_classroom") || document.location.href.endsWith("kbxx_kc")){
+        var selection_data = window.localStorage.getItem("selection_data") ? JSON.parse(window.localStorage.getItem("selection_data")) : {};
+    }
+    if(document.location.href.endsWith("kbxx_xzb")){
+        if(selection_data["kbxx_xzb"]){
+            document.getElementById("skyx").value = selection_data.kbxx_xzb.skyx;
+            document.getElementById("sknj").value = selection_data.kbxx_xzb.sknj;
+            onchangeYxOrKsnd(document.getElementById("sknj"));
+            document.getElementById("skzy").value = selection_data.kbxx_xzb.skzy;
+        }
+    }
+    if(document.location.href.endsWith("kbxx_teacher")){
+        if(selection_data["kbxx_teacher"]){
+            document.getElementById("skyx").value = selection_data.kbxx_teacher.skyx;
+            document.getElementById("jszc").value = selection_data.kbxx_teacher.jszc;
+        }
+    }
+    if(document.location.href.endsWith("kbxx_classroom")){
+        if(selection_data["kbxx_classroom"]){
+            document.getElementById("skyx").value = selection_data.kbxx_classroom.skyx;
+            document.getElementById("xqid").value = selection_data.kbxx_classroom.xqid;
+            onChangeXq(document.getElementById("xqid"));
+            document.getElementById("jzwid").value = selection_data.kbxx_classroom.jzwid;
+        }
+    }
+    if(document.location.href.endsWith("kbxx_kc")){
+        if(selection_data["kbxx_kc"]){
+            document.getElementById("skyx").value = selection_data.kbxx_kc.skyx;
+            document.getElementById("zzdKcSX").value = selection_data.kbxx_kc.zzdKcSX;
+            document.getElementById("kkyx").value = selection_data.kbxx_kc.kkyx;
+        }
+    }
     if(document.querySelector("#kbtable")&&window.parent.document.querySelector("iframe#fcenter")){
         window.parent.document.querySelector("table#Table2").style.height = "";
+        var selection_data = window.localStorage.getItem("selection_data") ? JSON.parse(window.localStorage.getItem("selection_data")) : {};
+        if(window.parent.document.location.href.endsWith("kbxx_xzb")){
+            let kbxx_xzb = {};
+            kbxx_xzb.skyx = window.parent.document.getElementById("skyx").value;
+            kbxx_xzb.sknj = window.parent.document.getElementById("sknj").value;
+            kbxx_xzb.skzy = window.parent.document.getElementById("skzy").value;
+            selection_data.kbxx_xzb = kbxx_xzb;
+        }
+        if(window.parent.document.location.href.endsWith("kbxx_teacher")){
+            let kbxx_teacher = {};
+            kbxx_teacher.skyx = window.parent.document.getElementById("skyx").value;
+            kbxx_teacher.jszc = window.parent.document.getElementById("jszc").value;
+            selection_data.kbxx_teacher = kbxx_teacher;
+        }
+        if(window.parent.document.location.href.endsWith("kbxx_classroom")){
+            let kbxx_classroom = {};
+            kbxx_classroom.skyx = window.parent.document.getElementById("skyx").value;
+            kbxx_classroom.xqid = window.parent.document.getElementById("xqid").value;
+            kbxx_classroom.jzwid = window.parent.document.getElementById("jzwid").value;
+            selection_data.kbxx_classroom = kbxx_classroom;
+        }
+        if(window.parent.document.location.href.endsWith("kbxx_kc")){
+            let kbxx_kc = {};
+            kbxx_kc.skyx = window.parent.document.getElementById("skyx").value;
+            kbxx_kc.kkyx = window.parent.document.getElementById("kkyx").value;
+            kbxx_kc.zzdKcSX = window.parent.document.getElementById("zzdKcSX").value;
+            selection_data.kbxx_kc = kbxx_kc;
+        }
+        window.parent.document.location.href.endsWith("kbxx_xzb") || window.parent.document.location.href.endsWith("kbxx_teacher") || window.parent.document.location.href.endsWith("kbxx_classroom") || window.parent.document.location.href.endsWith("kbxx_kc") ? window.localStorage.setItem("selection_data",JSON.stringify(selection_data)) : "";
+        window.parent.document.querySelector("#Footer1_divCopyright").style.bottom = "0";
         window.parent.document.querySelector("#Footer1_divCopyright").style.position = "fixed";
         window.parent.document.querySelector("iframe#fcenter").classList.add("SimWindow");
         document.querySelector("#kbtable").classList.add("insideIframe");
