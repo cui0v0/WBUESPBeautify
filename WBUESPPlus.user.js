@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         WBUESPPlus
 // @namespace    https://gitee.com/dmaker/WBUESPPlus
-// @version      1.3.6
+// @version      1.3.7
 // @description  WBU教务平台Plus
 // @author       Simprole
 // @match        http://jw.wbu.edu.cn/jsxsd/*
@@ -1236,7 +1236,7 @@
                             detail_desc.classList.remove("hidden");
                         }           
                         detail_desc.querySelector(".class").innerText = tr[i-1].firstElementChild.innerText;
-                        detail_desc.querySelector(".section").innerText = tr[0].children[Math.ceil(this_td.cellIndex / 6)].innerText +" "+ tr[1].children[this_td.cellIndex].innerText;
+                        detail_desc.querySelector(".section").innerText = tr[0].children[Math.ceil(this_td.cellIndex / tr[0].querySelector("[colSpan]").colSpan)].innerText +" "+ tr[1].children[this_td.cellIndex].innerText;
                     });
                 }
             }
