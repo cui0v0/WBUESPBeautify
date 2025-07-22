@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         WBUESPPlus
 // @namespace    https://gitee.com/dmaker/WBUESPPlus
-// @version      1.3.7
+// @version      1.3.8
 // @description  WBU教务平台Plus
 // @author       Simprole
 // @match        http://jw.wbu.edu.cn/jsxsd/*
@@ -53,41 +53,57 @@
     const grid_display_icon = `<path d="M454.4 102.4H160a57.664 57.664 0 0 0-57.6 57.6v294.4a57.664 57.664 0 0 0 57.6 57.6h294.4a57.664 57.664 0 0 0 57.6-57.6V160a57.664 57.664 0 0 0-57.6-57.6z m6.4 352a6.4 6.4 0 0 1-6.4 6.4H160a6.4 6.4 0 0 1-6.4-6.4V160a6.4 6.4 0 0 1 6.4-6.4h294.4a6.4 6.4 0 0 1 6.4 6.4z m454.4-352H620.8a57.664 57.664 0 0 0-57.6 57.6v294.4a57.664 57.664 0 0 0 57.6 57.6h294.4a57.664 57.664 0 0 0 57.6-57.6V160a57.664 57.664 0 0 0-57.6-57.6z m6.4 352a6.4 6.4 0 0 1-6.4 6.4H620.8a6.4 6.4 0 0 1-6.4-6.4V160a6.4 6.4 0 0 1 6.4-6.4h294.4a6.4 6.4 0 0 1 6.4 6.4zM454.4 563.2H160a57.664 57.664 0 0 0-57.6 57.6v294.4a57.664 57.664 0 0 0 57.6 57.6h294.4a57.664 57.664 0 0 0 57.6-57.6V620.8a57.664 57.664 0 0 0-57.6-57.6z m6.4 352a6.4 6.4 0 0 1-6.4 6.4H160a6.4 6.4 0 0 1-6.4-6.4V620.8a6.4 6.4 0 0 1 6.4-6.4h294.4a6.4 6.4 0 0 1 6.4 6.4z m454.4-352H620.8a57.664 57.664 0 0 0-57.6 57.6v294.4a57.664 57.664 0 0 0 57.6 57.6h294.4a57.664 57.664 0 0 0 57.6-57.6V620.8a57.664 57.664 0 0 0-57.6-57.6z m6.4 352a6.4 6.4 0 0 1-6.4 6.4H620.8a6.4 6.4 0 0 1-6.4-6.4V620.8a6.4 6.4 0 0 1 6.4-6.4h294.4a6.4 6.4 0 0 1 6.4 6.4z" fill="#ffffff" p-id="4919"></path>`;
     const checkbox_icon = `<path d="M512 938.666667C276.352 938.666667 85.333333 747.648 85.333333 512S276.352 85.333333 512 85.333333s426.666667 191.018667 426.666667 426.666667-191.018667 426.666667-426.666667 426.666667z m0-85.333334a341.333333 341.333333 0 1 0 0-682.666666 341.333333 341.333333 0 0 0 0 682.666666z" p-id="4942" fill="#ffffff"></path>`;
     const calc_ui_icon = `<path d="M800.581818 1024H223.418182C97.745455 1024 0 926.254545 0 800.581818V223.418182C0 97.745455 97.745455 0 223.418182 0h581.818182C926.254545 0 1024 97.745455 1024 223.418182v581.818182c0 121.018182-97.745455 218.763636-223.418182 218.763636zM223.418182 69.818182C139.636364 69.818182 69.818182 139.636364 69.818182 223.418182v581.818182c0 83.781818 69.818182 148.945455 148.945454 148.945454h581.818182c83.781818 0 148.945455-69.818182 148.945455-148.945454V223.418182c0-83.781818-69.818182-148.945455-148.945455-148.945455H223.418182z" fill="#ffffff" p-id="10292"></path><path d="M423.563636 330.472727H335.127273V246.690909c0-13.963636-9.309091-27.927273-23.272728-27.927273h-4.654545c-13.963636 0-27.927273 13.963636-27.927273 27.927273v83.781818H195.490909c-13.963636 0-23.272727 9.309091-23.272727 23.272728v4.654545c0 13.963636 9.309091 23.272727 23.272727 23.272727H279.272727V465.454545c0 13.963636 9.309091 23.272727 23.272728 23.272728h4.654545c13.963636 0 23.272727-9.309091 23.272727-23.272728V386.327273h83.781818c13.963636 0 23.272727-9.309091 23.272728-23.272728v-4.654545c9.309091-13.963636 0-27.927273-13.963637-27.927273zM418.909091 586.472727c-13.963636-13.963636-27.927273-13.963636-37.236364-4.654545l-60.509091 60.509091-60.509091-60.509091c-9.309091-9.309091-27.927273-9.309091-37.236363 0l-4.654546 4.654545c-9.309091 9.309091-9.309091 27.927273 0 37.236364L279.272727 684.218182 218.763636 744.727273c-9.309091 9.309091-9.309091 27.927273 0 37.236363l4.654546 4.654546c9.309091 9.309091 27.927273 9.309091 37.236363 0l60.509091-60.509091 60.509091 60.509091c9.309091 9.309091 27.927273 9.309091 37.236364 0v-4.654546c9.309091-9.309091 9.309091-27.927273 0-37.236363l-60.509091-60.509091L418.909091 623.709091c13.963636-9.309091 13.963636-23.272727 0-37.236364zM823.854545 311.854545h-228.072727c-13.963636 0-23.272727 9.309091-23.272727 23.272728v4.654545c0 13.963636 9.309091 23.272727 23.272727 23.272727h228.072727c13.963636 0 23.272727-9.309091 23.272728-23.272727v-4.654545c0-13.963636-9.309091-23.272727-23.272728-23.272728zM823.854545 665.6h-228.072727c-13.963636 0-23.272727 9.309091-23.272727 23.272727v9.309091c0 13.963636 9.309091 23.272727 23.272727 23.272727h228.072727c13.963636 0 23.272727-9.309091 23.272728-23.272727v-4.654545c0-13.963636-9.309091-27.927273-23.272728-27.927273zM660.945455 614.4c0 18.618182 18.618182 37.236364 37.236363 37.236364s37.236364-18.618182 37.236364-37.236364-18.618182-37.236364-37.236364-37.236364c-23.272727 0-37.236364 18.618182-37.236363 37.236364zM660.945455 791.272727c0 18.618182 18.618182 37.236364 37.236363 37.236364s37.236364-18.618182 37.236364-37.236364-18.618182-37.236364-37.236364-37.236363c-23.272727 4.654545-37.236364 18.618182-37.236363 37.236363z" fill="#ffffff" p-id="10293"></path>`;
-    //iframe code
-    const now = new Date();
-    if(now.getMonth()==0){
-        if(now.getDate()>=10){
-            spring_festival();
-        }
-    }else if(now.getMonth()==1){
-        if(now.getDate()<=12){
-            spring_festival();
-        }
-    }
-    function spring_festival(){
-        document.body.classList.add("spring_festival");
-        $("body").append($(`<style id="SnowCSS">.snow-container {z-index:99;overflow: hidden;background-color: transparent; position: fixed; top: 0;left: 0;width: 100vw; height: 100vh; pointer-events: none; }.snow {position: absolute;width: 100%;height: 100%;margin: auto;transform: translate(0, -100%);animation: snowing infinite linear;pointer-events: none;}.foreground {animation-duration: 25s;background-image: url('https://dl6rt3mwcjzxg.cloudfront.net/assets/snow/snow-large-075d267ecbc42e3564c8ed43516dd557.png');}.foreground.layer {animation-delay: 12.5s; /* 推迟时间是总时间/2 */}.medium {animation-duration: 35s;background-image: url('https://dl6rt3mwcjzxg.cloudfront.net/assets/snow/snow-medium-0b8a5e0732315b68e1f54185be7a1ad9.png');}.medium.layer {animation-delay: 17.5s;}.background {animation-duration: 45s;background-image: url('https://dl6rt3mwcjzxg.cloudfront.net/assets/snow/snow-small-1ecd03b1fce08c24e064ff8c0a72c519.png');}.background.layer {animation-delay: 22.5s;}@keyframes snowing {100% {transform: translate(15%, 100%);}}</style>`));
-        $("body").append($(`<style id="DenglongCSS">.deng-box_1 {position: relative;z-index: 9999;pointer-events: none}.deng-box_2 {position: relative;;z-index: 9999;pointer-events: none}.deng-box_3 {position: relative;z-index: 9999;pointer-events: none;}.deng-box_4 {position: relative;z-index: 9999;pointer-events: none}.deng-box_4 .deng,.deng-box_1 .deng {position: relative;width: 120px;height: 90px;margin: 20px;background: #d8000f;background: rgba(216, 0, 15, .8);border-radius: 50% 50%;-webkit-transform-origin: 50% -100px;-webkit-animation: swing 5s infinite ease-in-out;box-shadow: -5px 5px 30px 4px #fc903d}.deng {position: relative;width: 120px;height: 90px;margin: 20px;background: #d8000f;background: rgba(216, 0, 15, .8);border-radius: 50% 50%;-webkit-transform-origin: 50% -100px;-webkit-animation: swing 3s infinite ease-in-out;box-shadow: -5px 5px 50px 4px #fa6c00}.deng-a {width: 100px;height: 90px;background: #d8000f;background: rgba(216, 0, 15, .1);margin: 12px 8px 8px 8px;border-radius: 50% 50%;border: 2px solid #dc8f03}.deng-b {width: 45px;height: 90px;background: #d8000f;background: rgba(216, 0, 15, .1);margin: -4px 8px 8px 26px;border-radius: 50% 50%;border: 2px solid #dc8f03}    .xian {position: absolute;top: -20px;left: 60px;width: 2px;height: 20px;background: #dc8f03}.shui-a {position: relative;width: 5px;height: 20px;margin: -5px 0 0 59px;-webkit-animation: swing 4s infinite ease-in-out;-webkit-transform-origin: 50% -45px;background: orange;border-radius: 0 0 5px 5px}.shui-b {position: absolute;top: 14px;left: -2px;width: 10px;height: 10px;background: #dc8f03;border-radius: 50%}.shui-c {position: absolute;top: 18px;left: -2px;width: 10px;height: 35px;background: orange;border-radius: 0 0 0 5px}.deng:before {position: absolute;top: -7px;left: 29px;height: 12px;width: 60px;content: " ";display: block;z-index: 999;border-radius: 5px 5px 0 0;border: solid 1px #dc8f03;background: orange;background: linear-gradient(to right, #dc8f03, orange, #dc8f03, orange, #dc8f03)}.deng:after {position: absolute;width: 60px;bottom: -7px;display: block;left: 10px;height: 12px;content: " ";margin-left: 20px;border-radius: 0 0 5px 5px;border: solid 1px #dc8f03;background: orange;background: linear-gradient(to right, #dc8f03, orange, #dc8f03, orange, #dc8f03)}.deng-t {font-family: 汉仪黑神话, Arial, Lucida Grande, Tahoma, sans-serif;font-size: 3.2rem;color: #dc8f03;font-weight: 700;line-height: 85px;text-align: center}.night .deng-box_4,.night .deng-box_2,.night .deng-t {background: 0 0 !important}@-moz-keyframes swing {0% {-moz-transform: rotate(-10deg)}50% {-moz-transform: rotate(10deg)}100% {-moz-transform: rotate(-10deg)}}@-webkit-keyframes swing {0% {-webkit-transform: rotate(-10deg)}50% {-webkit-transform: rotate(10deg)}100% {-webkit-transform: rotate(-10deg)}}</style>`));
-        var Snow_Div = '<div class="snow-container"><div class="snow foreground"></div><div class="snow foreground layer"></div><div class="snow medium"></div><div class="snow medium layer"></div><div class="snow background"></div><div class="snow background layer"></div></div>';
-        var DengLong = `<div class="Denglong" style="pointer-events: none;position: absolute;display: flex;z-index: 98;top: 138px;justify-content: space-between;width: -webkit-fill-available;align-items: center;"><div style="display: inline-flex;flex-direction: row;scale: 0.9;transform-origin: left top;"><div class="deng-box_1" id="denglong1"><div class="deng"><div class="xian"></div><div class="deng-a"><div class="deng-b"><div class="deng-t">新</div></div></div><div class="shui shui-a"><div class="shui-c"></div><div class="shui-b"></div></div></div></div><div class="deng-box_2" id="denglong2"><div class="deng"><div class="xian"></div><div class="deng-a"><div class="deng-b"><div class="deng-t">年</div></div></div><div class="shui shui-a"><div class="shui-c"></div><div class="shui-b"></div></div></div></div></div><div style="display: inline-flex;flex-direction: row;scale: 0.9;transform-origin: right top;"><div class="deng-box_3" id="denglong3"><div class="deng"><div class="xian"></div><div class="deng-a"><div class="deng-b"><div class="deng-t">快</div></div></div><div class="shui shui-a"><div class="shui-c"></div><div class="shui-b"></div></div></div></div><div class="deng-box_4" id="denglong4"><div class="deng"><div class="xian"></div><div class="deng-a"><div class="deng-b"><div class="deng-t">乐</div></div></div><div class="shui shui-a"><div class="shui-c"></div><div class="shui-b"></div></div></div></div></div></div>`;
-        if(!document.getElementById("SimPage")&&window.parent.document.getElementById("SimPage")){
-        }else {
-            $("body").append(Snow_Div);
+    const special_days = {
+        func_init: function () {
+            const now = new Date();
+            const day = now.getDay();
             if(now.getMonth()==0){
-                if(now.getDate()>=29){
-                    $("body").append(DengLong);
+                if(now.getDate()>=10){
+                    this.spring_festival();
                 }
             }else if(now.getMonth()==1){
                 if(now.getDate()<=12){
-                    $("body").append(DengLong);
+                    this.spring_festival();
+                }
+            }else if(now.getMonth()==3&&day==1){
+                this.aprilFoolsDay();
+            }
+        },
+        spring_festival : function (){
+            document.body.classList.add("spring_festival");
+            $("body").append($(`<style id="SnowCSS">.snow-container {z-index:99;overflow: hidden;background-color: transparent; position: fixed; top: 0;left: 0;width: 100vw; height: 100vh; pointer-events: none; }.snow {position: absolute;width: 100%;height: 100%;margin: auto;transform: translate(0, -100%);animation: snowing infinite linear;pointer-events: none;}.foreground {animation-duration: 25s;background-image: url('https://dl6rt3mwcjzxg.cloudfront.net/assets/snow/snow-large-075d267ecbc42e3564c8ed43516dd557.png');}.foreground.layer {animation-delay: 12.5s; /* 推迟时间是总时间/2 */}.medium {animation-duration: 35s;background-image: url('https://dl6rt3mwcjzxg.cloudfront.net/assets/snow/snow-medium-0b8a5e0732315b68e1f54185be7a1ad9.png');}.medium.layer {animation-delay: 17.5s;}.background {animation-duration: 45s;background-image: url('https://dl6rt3mwcjzxg.cloudfront.net/assets/snow/snow-small-1ecd03b1fce08c24e064ff8c0a72c519.png');}.background.layer {animation-delay: 22.5s;}@keyframes snowing {100% {transform: translate(15%, 100%);}}</style>`));
+            $("body").append($(`<style id="DenglongCSS">.deng-box_1 {position: relative;z-index: 9999;pointer-events: none}.deng-box_2 {position: relative;;z-index: 9999;pointer-events: none}.deng-box_3 {position: relative;z-index: 9999;pointer-events: none;}.deng-box_4 {position: relative;z-index: 9999;pointer-events: none}.deng-box_4 .deng,.deng-box_1 .deng {position: relative;width: 120px;height: 90px;margin: 20px;background: #d8000f;background: rgba(216, 0, 15, .8);border-radius: 50% 50%;-webkit-transform-origin: 50% -100px;-webkit-animation: swing 5s infinite ease-in-out;box-shadow: -5px 5px 30px 4px #fc903d}.deng {position: relative;width: 120px;height: 90px;margin: 20px;background: #d8000f;background: rgba(216, 0, 15, .8);border-radius: 50% 50%;-webkit-transform-origin: 50% -100px;-webkit-animation: swing 3s infinite ease-in-out;box-shadow: -5px 5px 50px 4px #fa6c00}.deng-a {width: 100px;height: 90px;background: #d8000f;background: rgba(216, 0, 15, .1);margin: 12px 8px 8px 8px;border-radius: 50% 50%;border: 2px solid #dc8f03}.deng-b {width: 45px;height: 90px;background: #d8000f;background: rgba(216, 0, 15, .1);margin: -4px 8px 8px 26px;border-radius: 50% 50%;border: 2px solid #dc8f03}    .xian {position: absolute;top: -20px;left: 60px;width: 2px;height: 20px;background: #dc8f03}.shui-a {position: relative;width: 5px;height: 20px;margin: -5px 0 0 59px;-webkit-animation: swing 4s infinite ease-in-out;-webkit-transform-origin: 50% -45px;background: orange;border-radius: 0 0 5px 5px}.shui-b {position: absolute;top: 14px;left: -2px;width: 10px;height: 10px;background: #dc8f03;border-radius: 50%}.shui-c {position: absolute;top: 18px;left: -2px;width: 10px;height: 35px;background: orange;border-radius: 0 0 0 5px}.deng:before {position: absolute;top: -7px;left: 29px;height: 12px;width: 60px;content: " ";display: block;z-index: 999;border-radius: 5px 5px 0 0;border: solid 1px #dc8f03;background: orange;background: linear-gradient(to right, #dc8f03, orange, #dc8f03, orange, #dc8f03)}.deng:after {position: absolute;width: 60px;bottom: -7px;display: block;left: 10px;height: 12px;content: " ";margin-left: 20px;border-radius: 0 0 5px 5px;border: solid 1px #dc8f03;background: orange;background: linear-gradient(to right, #dc8f03, orange, #dc8f03, orange, #dc8f03)}.deng-t {font-family: 汉仪黑神话, Arial, Lucida Grande, Tahoma, sans-serif;font-size: 3.2rem;color: #dc8f03;font-weight: 700;line-height: 85px;text-align: center}.night .deng-box_4,.night .deng-box_2,.night .deng-t {background: 0 0 !important}@-moz-keyframes swing {0% {-moz-transform: rotate(-10deg)}50% {-moz-transform: rotate(10deg)}100% {-moz-transform: rotate(-10deg)}}@-webkit-keyframes swing {0% {-webkit-transform: rotate(-10deg)}50% {-webkit-transform: rotate(10deg)}100% {-webkit-transform: rotate(-10deg)}}</style>`));
+            var Snow_Div = '<div class="snow-container"><div class="snow foreground"></div><div class="snow foreground layer"></div><div class="snow medium"></div><div class="snow medium layer"></div><div class="snow background"></div><div class="snow background layer"></div></div>';
+            var DengLong = `<div class="Denglong" style="pointer-events: none;position: absolute;display: flex;z-index: 98;top: 138px;justify-content: space-between;width: -webkit-fill-available;align-items: center;"><div style="display: inline-flex;flex-direction: row;scale: 0.9;transform-origin: left top;"><div class="deng-box_1" id="denglong1"><div class="deng"><div class="xian"></div><div class="deng-a"><div class="deng-b"><div class="deng-t">新</div></div></div><div class="shui shui-a"><div class="shui-c"></div><div class="shui-b"></div></div></div></div><div class="deng-box_2" id="denglong2"><div class="deng"><div class="xian"></div><div class="deng-a"><div class="deng-b"><div class="deng-t">年</div></div></div><div class="shui shui-a"><div class="shui-c"></div><div class="shui-b"></div></div></div></div></div><div style="display: inline-flex;flex-direction: row;scale: 0.9;transform-origin: right top;"><div class="deng-box_3" id="denglong3"><div class="deng"><div class="xian"></div><div class="deng-a"><div class="deng-b"><div class="deng-t">快</div></div></div><div class="shui shui-a"><div class="shui-c"></div><div class="shui-b"></div></div></div></div><div class="deng-box_4" id="denglong4"><div class="deng"><div class="xian"></div><div class="deng-a"><div class="deng-b"><div class="deng-t">乐</div></div></div><div class="shui shui-a"><div class="shui-c"></div><div class="shui-b"></div></div></div></div></div></div>`;
+            if(!document.getElementById("SimPage")&&window.parent.document.getElementById("SimPage")){
+            }else {
+                $("body").append(Snow_Div);
+                if(now.getMonth()==0){
+                    if(now.getDate()>=29){
+                        $("body").append(DengLong);
+                    }
+                }else if(now.getMonth()==1){
+                    if(now.getDate()<=12){
+                        $("body").append(DengLong);
+                    }
+                }
+                if(window.parent.document.getElementById("fcenter")&&document.querySelector("#kbtable")){
+                    document.querySelector(".snow-container").classList.add("display_none");
+                    document.querySelector(".Denglong") ? document.querySelector(".Denglong").classList.add("display_none") : "";
                 }
             }
-            if(window.parent.document.getElementById("fcenter")&&document.querySelector("#kbtable")){
-                document.querySelector(".snow-container").classList.add("display_none");
-                document.querySelector(".Denglong") ? document.querySelector(".Denglong").classList.add("display_none") : "";
+        },
+        aprilFoolsDay : function (){
+            const year = new Date().getFullYear();
+            const studentNum = "2"+year.toString()+"0401";
+            document.querySelector("div#Top1_divLoginName").innerText = "喻仁洁("+studentNum+")";
+            if(document.querySelector(".block1text")){
+                document.querySelector(".block1text").innerText = "姓名：喻仁洁\n学号："+studentNum+"\n";
             }
         }
-    }
+    };
+    special_days.func_init();
+    //iframe code
     $("body").append($(`<script>function JsMod(htmlurl,tmpWidth,tmpHeight){
         let inPage = document.createElement("iframe");
         inPage.id = "SimPage";
@@ -126,7 +142,201 @@
                 }
             })
         }
+    }
+    window.showModalDialog = function (url, args, options) {
+        window.open(url, "_blank");
+    }
+    </script>`));
+    //closeIframe code
+    $("body").append($(`<script>function closeIframe(){
+        if(!document.getElementById("SimPage")&&window.parent.document.getElementById("SimPage")){
+            let parent = window.parent;
+            if(parent.document.getElementById("dataList")){
+                if(document.documentURI.includes("xspj_edit.do?")){
+                    parent.location.reload();
+                }else{
+                    if(parent.document.querySelector(".icon_btn span").innerText=="列表显示"){
+                        parent.document.getElementById("dataList").classList.remove("display_none");
+                    }
+                    if(parent.document.querySelector(".SimGrid")&&parent.document.querySelector(".icon_btn span").innerText=="网格显示"){
+                        parent.document.querySelector(".SimGrid").classList.remove("display_none");
+                    }
+                }
+            }
+            if(parent.document.getElementsByClassName("Nsb_r_list Nsb_table")[0].id!="dataList"){
+                parent.document.getElementsByClassName("Nsb_r_list Nsb_table")[0].classList.remove("display_none");
+            }
+            parent.document.getElementById("SimPageOutline").remove();
+        }else if(document.getElementsByClassName("Nsb_r_list Nsb_table")[0]&&document.getElementById("SimPage")){
+            if(document.getElementById("dataList")&&document.querySelector(".icon_btn span")){
+                if(document.getElementById("dataList")&&document.querySelector(".icon_btn span").innerText=="列表显示"){
+                    document.getElementById("dataList").classList.remove("display_none");
+                }
+                if(document.querySelector(".SimGrid")&&document.querySelector(".icon_btn span").innerText=="网格显示"){
+                    document.querySelector(".SimGrid").classList.remove("display_none");
+                }
+            }else if(document.getElementById("dataList")){
+                document.getElementById("dataList").classList.remove("display_none");
+            }
+            if(document.getElementsByClassName("Nsb_r_list Nsb_table")[0].id!="dataList"){
+                document.getElementsByClassName("Nsb_r_list Nsb_table")[0].classList.remove("display_none");
+            }
+            document.getElementById("SimPageOutline").remove();
+        }
     }</script>`));
+    //redefine window.showModalDialog
+    const rateOptimization = {
+        resizeRate: function (){
+            let scale = document.querySelector("div#divFirstMenuClass ul").clientWidth/document.querySelector("body div.wap").clientWidth;
+            if(scale>1.35){
+                scale = 1.35;
+            }
+            document.querySelector("body div.wap").style.zoom = scale;
+        },
+        mobileAdjust: function (selector){
+            if(document.querySelector(selector)){
+                document.querySelector(selector).classList.add("mobile");
+            }
+        },
+        mobileRecover: function (selector){
+            if(document.querySelector(selector)){
+                document.querySelector(selector).classList.remove("mobile");
+            }
+        },
+        globalResize: function (){
+            const self = rateOptimization;
+            if(document.querySelector("div#divFirstMenuClass").clientWidth<=1000){
+                document.querySelector("div#divFirstMenuClass ul").classList.add("mobile");
+                if(document.querySelector("#LeftMenu1_divChildMenu")){
+                    self.leftMenuWidthOptimize();
+                    document.querySelector(".Nsb_pw_main").classList.add("mobile");
+                }else{
+                    self.mobileAdjust("table#dataList");
+                    self.mobileAdjust(".noresult");
+                };
+                self.mobileAdjust(".SimGrid");
+            }else{
+                document.querySelector("div#divFirstMenuClass ul").classList.remove("mobile");
+                if(document.querySelector("#LeftMenu1_divChildMenu")){
+                    document.querySelector(".Nsb_pw_main").classList.remove("mobile");
+                }else{
+                    self.mobileRecover("table#dataList");
+                    self.mobileRecover(".noresult");
+                }
+                self.mobileRecover(".SimGrid");
+            }
+            if(document.querySelector("#LeftMenu1_divChildMenu")){
+                if(document.querySelector("#LeftMenu1_divChildMenu").clientWidth<=100){
+                    self.leftMenuWidthOptimize();
+                }
+            }
+            if(document.querySelector("iframe#fcenter.SimWindow")){
+            document.querySelector(".SimWindow").style.top = document.body.clientHeight+"px";
+            }
+        },
+        leftMenuWidthOptimize: function (){
+            const leftMenu = document.querySelector("#LeftMenu1_divChildMenu");
+            leftMenu.classList.add("sidebar");
+            if(!document.querySelector("div.arrow")){
+                let arrow = document.createElement("div");
+                let arrow_text = document.createElement("div");
+                arrow.classList.add("arrow");
+                arrow_text.innerText = "<";
+                arrow_text.classList.add("text");
+                arrow.appendChild(arrow_text);
+                arrow.style.left = document.querySelector("#LeftMenu1_divChildMenu.sidebar").clientWidth+"px";
+                document.documentElement.style.setProperty("--sidebar-shrink-width",-leftMenu.clientWidth+"px")
+                leftMenu.appendChild(arrow);
+                arrow.addEventListener("click",SimUIFunctions.leftSidebarActions);
+            }
+            document.querySelector(".Nsb_pw_main").style["justify-content"] = "center";
+        },
+        kbtableRateOptimize: function (){
+            let actualWidth = document.querySelector("#kbtable tbody").clientWidth;
+            let kbtableWidth = document.querySelector("#kbtable").clientWidth;
+            let rate = kbtableWidth/actualWidth;
+            if(rate<1){
+                if(rate<=0.65){
+                    document.querySelector("#kbtable").style.zoom = 0.6;
+                }else{
+                    document.querySelector("#kbtable").style.zoom = rate.toFixed(2)-0.05;
+                }
+            }
+        },
+        homePageSizeOptimizer: function (){
+            window.addEventListener("resize",rateOptimization.resizeRate);
+        }
+    }
+    const SimUIFunctions = {
+        leftSidebarActions: function (){
+            const arrow_text = document.querySelector("#LeftMenu1_divChildMenu.sidebar .arrow .text");
+            const sidebar = document.querySelector("#LeftMenu1_divChildMenu.sidebar");
+            sidebar.classList.toggle("folded");
+            arrow_text.classList.toggle("reverted");
+        },
+        SimStacked: function (input){
+            switch(input.getAttribute('stacked')){
+                case 'true':{
+                    setTimeout(function(){
+                        input.classList.add('display_none');
+                    }, 200);
+                    break;
+                }
+                case 'false':{
+                    input.classList.remove('display_none');
+                    break;
+                }
+            }
+        },
+        SimStackActions: function (){
+            let SimStack = this.parentElement.getElementsByClassName('SimStack');
+            let length = SimStack.length;
+            let tempJson;
+            if(!this.childNodes[0].data){
+                tempJson = kbsort[kbsort[this.firstChild.innerHTML]];
+            }else{
+                tempJson = kbsort[this.childNodes[0].data];
+            }
+            let hslDarker = "hsl(" + tempJson.hue + ", " + tempJson.sat + "%, " + (tempJson.light - 8) + "%)";
+            let hslDarker2 = "hsl(" + tempJson.hue + ", " + tempJson.sat + "%, " + (tempJson.light - 16) + "%)";
+            for(let i=1;i<=length;i++){
+                if(this.getAttribute('stacked')=='true'){
+                    this.style.removeProperty('box-shadow');
+                    SimStack[i-1].setAttribute('stacked','false');
+                    SimUIFunctions.SimStacked(SimStack[i-1]);
+                }else if(this.getAttribute('stacked')=='false'){
+                    this.style.cssText += "box-shadow: 3px 3px 0px 1px "+hslDarker+", 7px 7px 0px 1px "+hslDarker2;
+                    SimStack[i-1].setAttribute('stacked','true');
+                    SimUIFunctions.SimStacked(SimStack[i-1]);
+                }
+                if(i==length){
+                    if(SimStack[length-1].getAttribute('stacked')=='true'){
+                        this.setAttribute('stacked','true');
+                    }else if(SimStack[length-1].getAttribute('stacked')=='false'){
+                        this.setAttribute('stacked','false');
+                    }
+                }
+            }
+        },
+        SimWindowActions: async function (){
+            let SimWindow = window.parent.document.querySelector(".SimWindow");
+            SimWindow.style.top = window.parent.document.body.clientHeight+"px";
+            let SimMask = window.parent.document.querySelector(".mask");
+            if(SimWindow.classList.contains("fullscreen")){
+                SimMask.classList.add("hidden");
+                SimWindow.classList.remove("fullscreen");
+                document.querySelector(".SimFullScreen").innerHTML = zoom_in_icon;
+                await asyncSleep(300);
+                SimMask.classList.add("display_none");
+            }else{
+                SimMask.classList.remove("display_none");
+                document.querySelector(".SimFullScreen").innerHTML = zoom_out_icon;
+                await asyncSleep(10);
+                SimMask.classList.remove("hidden");
+                SimWindow.classList.add("fullscreen");  
+            }
+        },
+    }
     if(document.documentURI.includes("xspj_list.do?")){
         document.querySelectorAll("#dataList td a").forEach((e)=>{
             e.addEventListener("click",()=>{
@@ -170,43 +380,6 @@
     if(document.documentURI.includes("xspj_save.do")){
         window.parent.parent.location.reload();
     }
-    //closeIframe code
-    $("body").append($(`<script>function closeIframe(){
-        if(!document.getElementById("SimPage")&&window.parent.document.getElementById("SimPage")){
-            let parent = window.parent;
-            if(parent.document.getElementById("dataList")){
-                if(document.documentURI.includes("xspj_edit.do?")){
-                    parent.location.reload();
-                }else{
-                    if(parent.document.querySelector(".icon_btn span").innerText=="列表显示"){
-                        parent.document.getElementById("dataList").classList.remove("display_none");
-                    }
-                    if(parent.document.querySelector(".SimGrid")&&parent.document.querySelector(".icon_btn span").innerText=="网格显示"){
-                        parent.document.querySelector(".SimGrid").classList.remove("display_none");
-                    }
-                }
-            }
-            if(parent.document.getElementsByClassName("Nsb_r_list Nsb_table")[0].id!="dataList"){
-                parent.document.getElementsByClassName("Nsb_r_list Nsb_table")[0].classList.remove("display_none");
-            }
-            parent.document.getElementById("SimPageOutline").remove();
-        }else if(document.getElementsByClassName("Nsb_r_list Nsb_table")[0]&&document.getElementById("SimPage")){
-            if(document.getElementById("dataList")&&document.querySelector(".icon_btn span")){
-                if(document.getElementById("dataList")&&document.querySelector(".icon_btn span").innerText=="列表显示"){
-                    document.getElementById("dataList").classList.remove("display_none");
-                }
-                if(document.querySelector(".SimGrid")&&document.querySelector(".icon_btn span").innerText=="网格显示"){
-                    document.querySelector(".SimGrid").classList.remove("display_none");
-                }
-            }else if(document.getElementById("dataList")){
-                document.getElementById("dataList").classList.remove("display_none");
-            }
-            if(document.getElementsByClassName("Nsb_r_list Nsb_table")[0].id!="dataList"){
-                document.getElementsByClassName("Nsb_r_list Nsb_table")[0].classList.remove("display_none");
-            }
-            document.getElementById("SimPageOutline").remove();
-        }
-    }</script>`));
     document.getElementById("kc") ? document.getElementById("kc").remove() : "";
     if(document.querySelector(".Nsb_r_title")){
         if(document.querySelector(".Nsb_r_title").parentElement.classList.contains("Nsb_pw")){
@@ -217,15 +390,15 @@
         let leftMenu = document.querySelector("#LeftMenu1_divChildMenu");
         leftMenu.parentElement.classList.replace("Nsb_pw","Nsb_pw_main");
         if(leftMenu.clientWidth<=90){
-            leftMenuWidthOptimize();
+            rateOptimization.leftMenuWidthOptimize();
         }
     }
     if(document.querySelector(".Nsb_menu_pw")){
         document.querySelectorAll(".Nsb_pw")[document.querySelectorAll(".Nsb_pw").length-1].style.setProperty("max-width","1280px");
     }
     if(document.querySelector("div#divFirstMenuClass")||document.querySelector("iframe#fcenter")){
-        globalResize();
-        window.addEventListener("resize",globalResize);
+        rateOptimization.globalResize();
+        window.addEventListener("resize",rateOptimization.globalResize);
     }
     if(document.location.href.includes("comeXkjglb")||document.location.href.includes("comeInXxxk")){
         if(document.body.clientHeight <= document.body.scrollHeight){
@@ -250,95 +423,6 @@
         name.classList.add("SimName");
         exitBtn.before(name);
         exitBtn.parentElement.classList.add("SimNameDisplay")
-    }
-    function mobile_adjust(selector){
-        if(document.querySelector(selector)){
-            document.querySelector(selector).classList.add("mobile");
-        }
-    }
-    function mobile_recover(selector){
-        if(document.querySelector(selector)){
-            document.querySelector(selector).classList.remove("mobile");
-        }
-    }
-    function globalResize(){
-        if(document.querySelector("div#divFirstMenuClass").clientWidth<=1000){
-            document.querySelector("div#divFirstMenuClass ul").classList.add("mobile");
-            if(document.querySelector("#LeftMenu1_divChildMenu")){
-                leftMenuWidthOptimize();
-                document.querySelector(".Nsb_pw_main").classList.add("mobile");
-            }else{
-                mobile_adjust("table#dataList");
-                mobile_adjust(".noresult");
-            };
-            mobile_adjust(".SimGrid");  
-        }else{
-            document.querySelector("div#divFirstMenuClass ul").classList.remove("mobile");
-            if(document.querySelector("#LeftMenu1_divChildMenu")){
-                document.querySelector(".Nsb_pw_main").classList.remove("mobile");
-            }else{
-                mobile_recover("table#dataList");
-                mobile_recover(".noresult");
-            }
-            mobile_recover(".SimGrid");
-        }
-        if(document.querySelector("#LeftMenu1_divChildMenu")){
-            if(document.querySelector("#LeftMenu1_divChildMenu").clientWidth<=100){
-                leftMenuWidthOptimize();
-            }
-        }
-        if(document.querySelector("iframe#fcenter.SimWindow")){
-           document.querySelector(".SimWindow").style.top = document.body.clientHeight+"px";
-        }
-    }
-    function sidebarActions(){
-        let arrow_text = document.querySelector("#LeftMenu1_divChildMenu.sidebar .arrow .text");
-        let sidebar = document.querySelector("#LeftMenu1_divChildMenu.sidebar");
-        sidebar.classList.toggle("folded");
-        arrow_text.classList.toggle("reverted")
-    }
-    function leftMenuWidthOptimize(){
-        const leftMenu = document.querySelector("#LeftMenu1_divChildMenu");
-        leftMenu.classList.add("sidebar");
-        if(!document.querySelector("div.arrow")){
-            let arrow = document.createElement("div");
-            let arrow_text = document.createElement("div");
-            arrow.classList.add("arrow");
-            arrow_text.innerText = "<";
-            arrow_text.classList.add("text");
-            arrow.appendChild(arrow_text);
-            arrow.style.left = document.querySelector("#LeftMenu1_divChildMenu.sidebar").clientWidth+"px";
-            document.documentElement.style.setProperty("--sidebar-shrink-width",-leftMenu.clientWidth+"px")
-            leftMenu.appendChild(arrow);
-            arrow.addEventListener("click",sidebarActions);
-        }
-        document.querySelector(".Nsb_pw_main").style["justify-content"] = "center";
-    }
-    function svgReplacement(table){
-        if(table.querySelector("img[src='../framework/images/rq.png']")){
-            let imgRq = table.querySelector("img[src='../framework/images/rq.png']");
-            imgRq.parentElement.innerHTML += `<svg width="290" height="195" style="zoom: 0.15;">
-                <g>
-                    <path stroke="#ffffff" d="m288.05409,190.21429l-288.42856,-189.85714" opacity="undefined" stroke-linecap="undefined" stroke-linejoin="undefined" stroke-width="8" fill="#ffffff"></path>
-                    <text transform="matrix(2.91303 0 0 2.95454 -511.662 -850.012)" stroke="#000" xml:space="preserve" text-anchor="start" font-family="" font-size="24" y="349.22051" x="175.81206" stroke-width="0" fill="#ffffff">周次</text>
-                    <text transform="matrix(3.33333 0 0 3.33333 -581 -986.627)" stroke="#ffffff" xml:space="preserve" text-anchor="start" font-size="24" y="316.28818" x="213.39049" stroke-width="0" fill="#ffffff">星期</text>
-                </g>
-            </svg>`;
-            table.querySelector("img[src='../framework/images/rq.png']").style.display = "none";
-        }
-    }
-    function rateOptimize(){
-        let actualWidth = document.querySelector("#kbtable tbody").clientWidth;
-        let kbtableWidth = document.querySelector("#kbtable").clientWidth;
-        let rate = kbtableWidth/actualWidth;
-        if(rate<1){
-            if(rate<=0.65){
-                document.querySelector("#kbtable").style.zoom = 0.6;
-            }else{
-                document.querySelector("#kbtable").style.zoom = rate.toFixed(2)-0.05;
-            }
-        }
-        console.log(rate);
     }
     if(document.querySelector(".Nsb_top_logo")){
         document.querySelector(".Nsb_top").parentElement.classList.add("top");
@@ -578,7 +662,7 @@
         // document.body.appendChild(weeklyTopBar);
         if(!document.querySelector(".SimFullScreen")){
             let SimFullScreenBtn = create_specific_element("div",zoom_in_icon,"button","SimFullScreen",);
-            SimFullScreenBtn.onclick = SimWindowActions;
+            SimFullScreenBtn.onclick = SimUIFunctions.SimWindowActions;
             document.body.appendChild(SimFullScreenBtn);
         }
         if(!window.parent.document.querySelector(".mask")){
@@ -616,24 +700,6 @@
         if(isNaN(window.sessionStorage.getItem("subjectStatus"))){
             document.querySelector(".thb_b_r").innerText = window.sessionStorage.getItem("subjectStatus");
         } 
-    }
-    async function SimWindowActions(){
-        let SimWindow = window.parent.document.querySelector(".SimWindow");
-        SimWindow.style.top = window.parent.document.body.clientHeight+"px";
-        let SimMask = window.parent.document.querySelector(".mask");
-        if(SimWindow.classList.contains("fullscreen")){
-            SimMask.classList.add("hidden");
-            SimWindow.classList.remove("fullscreen");
-            document.querySelector(".SimFullScreen").innerHTML = zoom_in_icon;
-            await asyncSleep(300);
-            SimMask.classList.add("display_none");
-        }else{
-            SimMask.classList.remove("display_none");
-            document.querySelector(".SimFullScreen").innerHTML = zoom_out_icon;
-            await asyncSleep(10);
-            SimMask.classList.remove("hidden");
-            SimWindow.classList.add("fullscreen");  
-        }
     }
     function asyncSleep(time) {
         return new Promise((resolve) => setTimeout(resolve, time));
@@ -865,19 +931,6 @@
             }
         }
     }
-    function foolsdayFunc(){
-        const now = new Date();
-        const year = now.getFullYear();
-        const month = now.getMonth()+1;
-        const day = now.getDay();
-        const studentNum = "2"+year.toString()+"0401";
-        if(month==4&&day==1){
-            document.querySelector("div#Top1_divLoginName").innerText = "喻仁洁("+studentNum+")";
-            if(document.querySelector(".block1text")){
-                document.querySelector(".block1text").innerText = "姓名：喻仁洁\n学号："+studentNum+"\n";
-            }
-        }
-    }
     //class schedule random color
     function getRandomIntInclusive(min, max) {
         return (Math.random() * (max - min + 1) + min).toFixed(2);
@@ -906,50 +959,6 @@
             let kbcontent = td[i-1].getElementsByClassName(type);
             if(kbcontent.length!=0){
                 kbcontent[kbcontent.length-1].style.margin = "0px";
-            }
-        }
-    }
-    function SimStacked(input){
-        switch(input.getAttribute('stacked')){
-            case 'true':{
-                setTimeout(function(){
-                    input.classList.add('display_none');
-                }, 200);
-                break;
-            }
-            case 'false':{
-                input.classList.remove('display_none');
-                break;
-            }
-        }
-    }
-    function SimStackActions(){
-        let SimStack = this.parentElement.getElementsByClassName('SimStack');
-        let length = SimStack.length;
-        let tempJson;
-        if(!this.childNodes[0].data){
-            tempJson = kbsort[kbsort[this.firstChild.innerHTML]];
-        }else{
-            tempJson = kbsort[this.childNodes[0].data];
-        }
-        let hslDarker = "hsl(" + tempJson.hue + ", " + tempJson.sat + "%, " + (tempJson.light - 8) + "%)";
-        let hslDarker2 = "hsl(" + tempJson.hue + ", " + tempJson.sat + "%, " + (tempJson.light - 16) + "%)";
-        for(let i=1;i<=length;i++){
-            if(this.getAttribute('stacked')=='true'){
-                this.style.removeProperty('box-shadow');
-                SimStack[i-1].setAttribute('stacked','false');
-                SimStacked(SimStack[i-1]);
-            }else if(this.getAttribute('stacked')=='false'){
-                this.style.cssText += "box-shadow: 3px 3px 0px 1px "+hslDarker+", 7px 7px 0px 1px "+hslDarker2;
-                SimStack[i-1].setAttribute('stacked','true');
-                SimStacked(SimStack[i-1]);
-            }
-            if(i==length){
-                if(SimStack[length-1].getAttribute('stacked')=='true'){
-                    this.setAttribute('stacked','true');
-                }else if(SimStack[length-1].getAttribute('stacked')=='false'){
-                    this.setAttribute('stacked','false');
-                }
             }
         }
     }
@@ -1174,12 +1183,12 @@
                             if(similarClass==kbc1Children[o-1].firstChild.data){
                                 kbc1Children[o-1].classList.add('SimStack');
                                 kbc1Children[o-1].setAttribute("stacked","true");
-                                SimStacked(kbc1Children[o-1]);
+                                SimUIFunctions.SimStacked(kbc1Children[o-1]);
                             }
                         }
                         kbc1Children[initalIndex].setAttribute("stacked","true");
                         kbc1Children[initalIndex].style.cssText += "box-shadow: 3px 3px 0px 1px "+hslDarker+", 7px 7px 0px 1px "+hslDarker2;
-                        kbc1Children[initalIndex].addEventListener("click", SimStackActions);
+                        kbc1Children[initalIndex].addEventListener("click", SimUIFunctions.SimStackActions);
                     }
                 }
                 tempJson = kbsort[kbcontent1.childNodes[0].data];
@@ -1493,16 +1502,6 @@
             if(document.querySelector(targetSelector)) break;
         }
     }
-    function homePageSizeOptimizer(){
-        window.addEventListener("resize",resizeRate);
-    }
-    function resizeRate(){
-        let scale = document.querySelector("div#divFirstMenuClass ul").clientWidth/document.querySelector("body div.wap").clientWidth;
-        if(scale>1.35){
-            scale = 1.35;
-        }
-        document.querySelector("body div.wap").style.zoom = scale;
-    }
     //setup homepage icons
     if(document.getElementsByClassName("block1")[0]){
         GM_addStyle(GM_getResourceText("icon"));
@@ -1543,8 +1542,8 @@
         apply_icons("block12",icon12);
         //add title for hide names func
         document.getElementsByClassName("icon-yonghu")[0].title="点击切换个人信息展示";
-        resizeRate();
-        homePageSizeOptimizer();
+        rateOptimization.resizeRate();
+        rateOptimization.homePageSizeOptimizer();
     }
     //hide personal info
     if(document.getElementById("Top1_divLoginName")){
@@ -1574,7 +1573,6 @@
         }
         name_top.addEventListener("click", name_hide_func);
     }
-    foolsdayFunc();
     //add title for hide names func
     if(document.getElementById("Footer1_divCopyright")){
         let footer = document.getElementById("Footer1_divCopyright");
@@ -1626,9 +1624,19 @@
         tr_c[0].className += " thb_b_l";
         tr_c[tr_c.length-1].className += " thb_b_r";
         if(table.parentElement.tagName!=="BODY"){
-            rateOptimize();
+            rateOptimization.kbtableRateOptimize();
         }
-        svgReplacement(table);
+        if(table.querySelector("img[src='../framework/images/rq.png']")){
+            let imgRq = table.querySelector("img[src='../framework/images/rq.png']");
+            imgRq.parentElement.innerHTML += `<svg width="290" height="195" style="zoom: 0.15;">
+                <g>
+                    <path stroke="#ffffff" d="m288.05409,190.21429l-288.42856,-189.85714" opacity="undefined" stroke-linecap="undefined" stroke-linejoin="undefined" stroke-width="8" fill="#ffffff"></path>
+                    <text transform="matrix(2.91303 0 0 2.95454 -511.662 -850.012)" stroke="#000" xml:space="preserve" text-anchor="start" font-family="" font-size="24" y="349.22051" x="175.81206" stroke-width="0" fill="#ffffff">周次</text>
+                    <text transform="matrix(3.33333 0 0 3.33333 -581 -986.627)" stroke="#ffffff" xml:space="preserve" text-anchor="start" font-size="24" y="316.28818" x="213.39049" stroke-width="0" fill="#ffffff">星期</text>
+                </g>
+            </svg>`;
+            table.querySelector("img[src='../framework/images/rq.png']").style.display = "none";
+        }
     }
     //fix a width
     if($("*[name='zyxzForm']")[0]){
