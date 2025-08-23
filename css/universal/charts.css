@@ -72,12 +72,6 @@
         word-break: keep-all;
         line-height: normal;
         transition: background-color 0.3s cubic-bezier(0.46, 0.03, 0.52, 0.96);
-        &[valign]{
-            cursor: pointer;
-        }
-        &.chosen{
-            background-color: var(--tertiary-theme-color);
-        }
     }
 }
 body{
