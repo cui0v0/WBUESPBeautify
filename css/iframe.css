@@ -136,3 +136,13 @@ textarea[style],textarea[type=text]{
         transition-property: box-shadow,outline;
     }
 }
+#kbtable.insideIframe{
+    & td{
+        &[valign]{
+            cursor: pointer;
+        }
+        &.chosen{
+            background-color: var(--tertiary-theme-color);
+        }
+    }
+}
