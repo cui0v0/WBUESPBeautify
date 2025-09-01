@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         WBUESPPlus
 // @namespace    https://gitee.com/dmaker/WBUESPPlus
-// @version      1.3.10
+// @version      1.3.11.1
 // @description  WBU教务平台Plus
 // @author       Simprole
 // @match        http://jw.wbu.edu.cn/jsxsd/*
@@ -384,7 +384,7 @@
     if(document.documentURI.includes("xspj_save.do")){
         window.parent.parent.location.reload();
     }
-    if(document.querySelector("pre")){
+    if(document.querySelector("pre")||document.querySelector("form[action='/jsxsd/xk/LoginToXk']#Form1")){
         const recovery_attempts = window.sessionStorage.getItem("recovery_attempts") ? parseInt(window.sessionStorage.getItem("recovery_attempts")) : 0;
         const SimNotification = recovery_attempts>4 ? create_specific_element("div",`WBUESPPlus无法恢复本页面，正在尝试回到首页。`,"SimNotification") : create_specific_element("div",`WBUESPPlus检测到网页加载失败，正在尝试恢复网页。<br>尝试次数：${recovery_attempts}次`,"SimNotification");
         document.body.firstElementChild.before(SimNotification);
@@ -477,7 +477,8 @@
             subject.score = e.innerText;
             subject.credit = e.parentElement.nextElementSibling.innerText;
             subject.time = e.parentElement.nextElementSibling.nextElementSibling.innerText;
-            subject.type = e.parentElement.parentElement.lastElementChild.innerText;
+            subject.attribute = e.parentElement.parentElement.lastElementChild.previousElementSibling.innerText;//课程属性
+            subject.type = e.parentElement.parentElement.lastElementChild.innerText;//课程性质
             subject.semester = e.parentElement.parentElement.children[1].innerText;
             let JsModData = e.href.indexOf("%27") != -1 ? e.href.slice(e.href.indexOf("JsMod")+7,e.href.indexOf("%27")) : e.href.slice(e.href.indexOf("JsMod")+7,e.href.lastIndexOf("'"));
             if(!semester_list.includes(subject.semester)){
@@ -488,6 +489,7 @@
             subject_info.push(subject);
             simGrid.appendChild(create_grid(subject.title,subject.score,subject.time,subject.id,subject.credit,subject.type,subject.semester,JsModData));
         });
+        console.log(subject_info);
         let buttonsDiv = document.createElement("div");
         buttonsDiv.classList.add("buttons");
         buttonsDiv.appendChild(document.querySelector(".button#btn_back"));
