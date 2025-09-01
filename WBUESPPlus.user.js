@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         WBUESPPlus
 // @namespace    https://gitee.com/dmaker/WBUESPPlus
-// @version      1.3.11.2
+// @version      1.3.11.3
 // @description  WBU教务平台Plus
 // @author       Simprole
 // @match        http://jw.wbu.edu.cn/jsxsd/*
@@ -31,7 +31,7 @@
     //universal pages css
     $("body").append($('<style id="SimUniPagesCSS">.Nsb_pw, .Nsb_pw_main {width: inherit;.Nsb_r_title {font-size: 1.4rem;font-weight: bold;color: #000;height: max-content;line-height: 1.5em;letter-spacing: 0.1rem;margin: 0.5rem 0 0.5rem 0;text-align: center;}}.Nsb_pw{& .Nsb_top{height: 6rem;}}.Nsb_pw_main{display: flex;flex-direction: row;align-items: baseline;justify-content: center;margin: 0.5rem auto;height: inherit;max-width: 1280px;&.mobile{margin: 1rem auto!important;}}.Nsb_pw_page {width: inherit;display: flex;flex-direction: row;align-items: flex-start;justify-content: space-evenly;}#SimInfo{position: relative;left: 50%;transform: translateX(-50%);margin-top: 0.5rem;text-align: center;}.SimStack{transition: 0.3s cubic-bezier(0.39, 0.58, 0.57, 1);transition-property: opacity;&[stacked=true]{opacity: 0%;transition: 0.3s cubic-bezier(0.39, 0.58, 0.57, 1);transition-property: opacity;}&[stacked=false]{opacity: 100%;transition: 0.3s cubic-bezier(0.39, 0.58, 0.57, 1);transition-property: opacity;}}#SimStackTop{cursor: pointer;transition: 0.3s cubic-bezier(0.39, 0.58, 0.57, 1);transition-property: filter,transform,margin,margin-right,box-shadow;&:hover{transform: translateY(0.75px);filter: brightness(0.7);transition: 0.3s cubic-bezier(0.39, 0.58, 0.57, 1);transition-property: filter,transform,margin,margin-right,box-shadow;}&[stacked=true]{margin: 0px 7px 12px 0;transition: 0.3s cubic-bezier(0.39, 0.58, 0.57, 1);transition-property: filter,transform,margin,margin-right,box-shadow;}&[stacked=false]{margin-right: 0;transition: 0.3s cubic-bezier(0.39, 0.58, 0.57, 1);transition-property: filter,transform,margin,margin-right,box-shadow;}}.SimScalePanel{display: flex;position: fixed;align-items: center;justify-content: center;flex-direction: row;right: 0;bottom: 0;opacity: 0.2;transition: 0.3s cubic-bezier(0.39, 0.58, 0.57, 1) 1s;transition-property: opacity,transform;&.rightPage{opacity: 1;position: relative;margin-top: -1rem;.SimScaleText{opacity: 1;transform: 0;font-size:1rem;transform: none;}}.SimScaleText{opacity: 0;user-select: none;font-size: 1.3rem;transform: translateX(50%);transition: 0.3s cubic-bezier(0.39, 0.58, 0.57, 1) 1s;transition-property: opacity,transform;}&:hover{opacity: 1.0;transition: 0.3s cubic-bezier(0.39, 0.58, 0.57, 1);transition-property: opacity,transform;.SimScaleText{opacity: 1;transform: translateX(0%);transition: 0.3s cubic-bezier(0.39, 0.58, 0.57, 1);transition-property: opacity,transform;}}}.SimSelect{text-align: center;font-size: 1rem;border: 2px solid var(--secondary-theme-color);border-radius: 1rem;height: 1.7rem;width: 203px!important;margin: 0.125rem 0;box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.3);transition: 0.3s cubic-bezier(0.39, 0.58, 0.57, 1);transition-property: border,box-shadow;&.Slim{width: 125px!important;}&:hover,&:focus-visible{outline:none;border: 2px solid var(--primary-theme-color);box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.3),inset 0px 2px 6px 0px var(--secondary-theme-color);transition: 0.3s cubic-bezier(0.39, 0.58, 0.57, 1);transition-property: border,box-shadow;}}input.SimScaleInput.SimInput{width: 4.5rem!important;font-size: 1.3rem;height: 1.4rem;box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);}input.SimInput,.inputnormal{width: 200px!important;text-align: center;border: 2px solid var(--primary-theme-color);border-radius: 1.5em;background-color: var(--tertiary-theme-color);text-shadow: 0px 0px 4px rgba(0,0,0,0.7);color: #fff;font-size: 1rem;height: 1.5rem;margin: 0.125rem 0;transition: 0.3s cubic-bezier(0.39, 0.58, 0.57, 1);transition-property: transform,background-color,border,color;}.SimInput.Slim{width: 130px!important;}input.SimInput{&:hover,&:focus-visible{outline: none;border: 2px solid var(--primary-theme-color);background-color:var(--secondary-theme-color);transform: scale(1.02);transition: 0.3s cubic-bezier(0.39, 0.58, 0.57, 1);transition-property: transform,background-color,border,color;}&.disabled,.disabled:hover{background-color: var(--secondary-theme-color);border: 2px solid var(--primary-theme-color);text-shadow: none;outline: none;cursor: no-drop;transform: none;filter: brightness(0.5);}&[readonly]{&:hover{outline: 0px;}&:focus-visible{outline: 0px;}}}#SimTop{position: fixed;right: 0.5rem;bottom: 0.5rem;font-size: 1rem;background-image: none;background-color: var(--primary-theme-color);border-radius: 20px;box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);color: #fff;}.SimGrid{display: grid;grid-template-columns: repeat(3, 1fr);margin-top: 0.5rem;position: relative;padding: 0 2rem;gap: 0.8rem;font-size: 1rem!important;color: white;justify-content: center;grid-auto-flow: dense;&.mobile{grid-template-columns: repeat(2, 1fr);justify-content: start;}& .grid{background-color: var(--secondary-theme-color);box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.3);border-radius: 1rem;padding: 0.5rem 1rem;transition-duration: 0.3s;transition-property: transform,background-color,box-shadow;transition-timing-function: ease-out;& .top{display: inline-flex;flex-direction: row;justify-content: space-between;align-items: center;width: -webkit-fill-available;margin-bottom: 0.5rem;font-size: 1.3rem!important;overflow: hidden;& .title{font-size: 1.3rem;white-space: nowrap;max-width: 20rem;&.wide{position: relative;transition-duration: 0.5s;transform: translateX(0px);transition-property: transform,margin-left;transition-timing-function: linear;margin-left: 0;}}& .score{font-size: 1.3rem;z-index: 2;padding-left: 0.5rem;background-color: var(--secondary-theme-color);transition-property: background-color;transition-duration: 0.3s;transition-timing-function: ease-out;}}&.hover,&:hover{cursor: pointer;transform: scale(1.035);background-color: var(--primary-theme-color);box-shadow: 0px 3px 8px 1px rgb(0 0 0 / 35%);& .top .title.wide{transform: translateX(var(--title-extra-length));margin-left:-100%;}& .top .score{background-color: var(--primary-theme-color);}}& .bottom{display: inline-grid;justify-content: space-between;align-items: center;width: -webkit-fill-available;align-content: center;grid-template-columns: repeat(2, 1fr);justify-items: stretch;gap: 0.3rem 1rem;& div.sub{display: inline-grid;align-items: center;width: -webkit-fill-available;grid-template-columns: repeat(2, 1fr);& .text{font-size: 1rem;word-break: keep-all;&:last-child{text-align: right;margin-left: 0.5rem;}}}}}}body.SimHalf{display: flex;flex-direction: column;}.SimName{color: white;padding: 0.2rem;}.SimNameDisplay{display: flex;flex-direction: row;background-color: var(--tertiary-theme-color);border-radius: 20px;box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.3);margin-top: -0.4rem;}</style>'));
     //footer css
-    $("body").append($('<style id="SimFooterCSS">.Nsb_rights {height: max-content;line-height: normal;width: inherit;}.info{text-align: center;color: #000;& .heart{color: #ff0081;}& a{color: var(--primary-theme-color);text-decoration: none;}}#Footer1_divCopyright{text-align: center;display: inline-flex;width: inherit;flex-direction: column;}</style>'));
+    $("body").append($('<style id="SimFooterCSS">.Nsb_rights {height: max-content;line-height: normal;width: inherit;}.info{text-align: center;color: #000;font-size: 12px;& .heart{color: #ff0081;font-size: 12px;}& a{color: var(--primary-theme-color);text-decoration: none;font-size: 12px;}}#Footer1_divCopyright{text-align: center;display: inline-flex;width: inherit;flex-direction: column;}</style>'));
     //home page css
     $("body").append($('<style id="SimHomePageCSS">.iconfont {position: absolute;font-size: 75px;left: 50%;transform: translateX(-50%);top: 15px;}.icon-xuanke,.icon-yonghu {font-size: 75px;top: 80px;}.icon-yonghu{left: 22.5%!important;position: absolute;transform: translateX(-240%);cursor: pointer;transition: all 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);&:hover{filter: brightness(0.75);transform: translate(-240%,1px);transition-duration: 0.3s;transition: all 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);}}.block1,.block2,.block3,.block4,.block5,.block6,.block7,.block8,.block9,.block10,.block11,.block12{box-shadow: 0px 4px 4px rgba(0,0,0,0.3);border-radius: 0.5rem;transition: 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);transition-property: filter,transform,box-shadow;}.block1text{width:auto;height: auto;position: relative;text-align: center;left: 50%;top: 42%;color:#fff;transform: translate(-30%,-90%);}.block1tex,.block2tex{-webkit-user-select: none;user-select: none;left:0px;position: relative;top: 75%;text-align: center;color:#fff;}.block3tex,.block4tex,.block5tex,.block6tex{left:50%;position: absolute;top: 75%;text-align: center;transform: translateX(-50%);}.block7tex,.block8tex,.block9tex,.block10tex,.block11tex,.block12tex{left:50%;transform: translateX(-50%);position: absolute;top: 75%;text-align: center;width: max-content;}.block2:hover,.block3:hover,.block4:hover,.block5:hover,.block6:hover,.block7:hover,.block8:hover,.block9:hover,.block10:hover,.block11:hover,.block12:hover{box-shadow: 0px 1px 2px rgba(0,0,0,0.7);transform: translateY(2px);filter: brightness(0.75);transition: 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);transition-property: filter,transform,box-shadow;}.block1 img,.block2 img,.block3 img,.block4 img,.block5 img,.block6 img,.block7 img,.block8 img,.block9 img,.block10 img,.block11 img,.block12 img,.block1app,.block1pc{visibility: hidden;}</style>'));
     //iframe css
@@ -197,7 +197,6 @@
             closeIframe();
         }
     });
-    
     const rateOptimization = {
         resizeRate: function (){
             let scale = document.querySelector("div#divFirstMenuClass ul").clientWidth/document.querySelector("body div.wap").clientWidth;
@@ -348,6 +347,59 @@
                 SimMask.classList.remove("hidden");
                 SimWindow.classList.add("fullscreen");  
             }
+        }
+    }
+    //setup table round corner
+    if(document.getElementsByClassName("Nsb_table")[0]){
+        let table = document.getElementsByClassName("Nsb_table");
+        let length = table.length;
+        if(!document.getElementById("kbtable")){
+            for(let i=1;i<=length;i++){
+                if(table[i-1].border == '1'){
+                    table[i-1].border = '0';
+                }
+                let tr = table[i-1].getElementsByTagName("tr");
+                let th = tr[0].children;
+                if(!document.getElementsByClassName("Nsb_r_list_thb")[0]&&th.length==1){
+                    th[0].classList.add("Nsb_r_list_thb");
+                }
+                th[0].classList.add("thb_t_l");
+                th[th.length-1].classList.add("thb_t_r");
+
+                let tr_c = tr[tr.length-1].children;
+                if(tr_c[0].tagName == "TD"){
+                    tr_c[0].classList.add("thb_b_l");
+                    tr_c[tr_c.length-1].classList.add("thb_b_r");
+                }
+            }
+        }
+    }
+    if(document.getElementById("kbtable")){
+        let table = document.getElementById("kbtable");
+        if(table.border == '1'){
+            table.border = '0';
+        }
+        let tr = table.getElementsByTagName("tr");
+        let th = tr[0].getElementsByTagName("th");
+        th[0].className += " thb_t_l";
+        th[th.length-1].className += " thb_t_r";
+
+        let tr_c = tr[tr.length-1].children;
+        tr_c[0].className += " thb_b_l";
+        tr_c[tr_c.length-1].className += " thb_b_r";
+        if(table.parentElement.tagName!=="BODY"){
+            rateOptimization.kbtableRateOptimize();
+        }
+        if(table.querySelector("img[src='../framework/images/rq.png']")){
+            let imgRq = table.querySelector("img[src='../framework/images/rq.png']");
+            imgRq.parentElement.innerHTML += `<svg width="290" height="195" style="zoom: 0.15;">
+                <g>
+                    <path stroke="#ffffff" d="m288.05409,190.21429l-288.42856,-189.85714" opacity="undefined" stroke-linecap="undefined" stroke-linejoin="undefined" stroke-width="8" fill="#ffffff"></path>
+                    <text transform="matrix(2.91303 0 0 2.95454 -511.662 -850.012)" stroke="#000" xml:space="preserve" text-anchor="start" font-family="" font-size="24" y="349.22051" x="175.81206" stroke-width="0" fill="#ffffff">周次</text>
+                    <text transform="matrix(3.33333 0 0 3.33333 -581 -986.627)" stroke="#ffffff" xml:space="preserve" text-anchor="start" font-size="24" y="316.28818" x="213.39049" stroke-width="0" fill="#ffffff">星期</text>
+                </g>
+            </svg>`;
+            table.querySelector("img[src='../framework/images/rq.png']").style.display = "none";
         }
     }
     if(document.querySelector("pre")||document.querySelector("form[action='/jsxsd/xk/LoginToXk']#Form1")){
@@ -715,31 +767,6 @@
         if(!window.parent.document.querySelector(".mask")){
             let SimMask = create_specific_element("div","","mask","display_none","hidden");
             window.parent.document.body.appendChild(SimMask);
-        }
-    }
-    //setup table round corner
-    if(document.getElementsByClassName("Nsb_table")[0]){
-        let table = document.getElementsByClassName("Nsb_table");
-        let length = table.length;
-        if(!document.getElementById("kbtable")){
-            for(let i=1;i<=length;i++){
-                if(table[i-1].border == '1'){
-                    table[i-1].border = '0';
-                }
-                let tr = table[i-1].getElementsByTagName("tr");
-                let th = tr[0].children;
-                if(!document.getElementsByClassName("Nsb_r_list_thb")[0]&&th.legnth==1){
-                    th[0].classList.add("Nsb_r_list_thb");
-                }
-                th[0].classList.add("thb_t_l");
-                th[th.length-1].classList.add("thb_t_r");
-
-                let tr_c = tr[tr.length-1].children;
-                if(tr_c[0].tagName == "TD"){
-                    tr_c[0].classList.add("thb_b_l");
-                    tr_c[tr_c.length-1].classList.add("thb_b_r");
-                }
-            }
         }
     }
     function asyncSleep(time) {
@@ -1641,34 +1668,6 @@
                     buttons.appendChild(btn[i-1]);
                 }
             }
-        }
-    }
-    if(document.getElementById("kbtable")){
-        let table = document.getElementById("kbtable");
-        if(table.border == '1'){
-            table.border = '0';
-        }
-        let tr = table.getElementsByTagName("tr");
-        let th = tr[0].getElementsByTagName("th");
-        th[0].className += " thb_t_l";
-        th[th.length-1].className += " thb_t_r";
-
-        let tr_c = tr[tr.length-1].children;
-        tr_c[0].className += " thb_b_l";
-        tr_c[tr_c.length-1].className += " thb_b_r";
-        if(table.parentElement.tagName!=="BODY"){
-            rateOptimization.kbtableRateOptimize();
-        }
-        if(table.querySelector("img[src='../framework/images/rq.png']")){
-            let imgRq = table.querySelector("img[src='../framework/images/rq.png']");
-            imgRq.parentElement.innerHTML += `<svg width="290" height="195" style="zoom: 0.15;">
-                <g>
-                    <path stroke="#ffffff" d="m288.05409,190.21429l-288.42856,-189.85714" opacity="undefined" stroke-linecap="undefined" stroke-linejoin="undefined" stroke-width="8" fill="#ffffff"></path>
-                    <text transform="matrix(2.91303 0 0 2.95454 -511.662 -850.012)" stroke="#000" xml:space="preserve" text-anchor="start" font-family="" font-size="24" y="349.22051" x="175.81206" stroke-width="0" fill="#ffffff">周次</text>
-                    <text transform="matrix(3.33333 0 0 3.33333 -581 -986.627)" stroke="#ffffff" xml:space="preserve" text-anchor="start" font-size="24" y="316.28818" x="213.39049" stroke-width="0" fill="#ffffff">星期</text>
-                </g>
-            </svg>`;
-            table.querySelector("img[src='../framework/images/rq.png']").style.display = "none";
         }
     }
     //fix a width
