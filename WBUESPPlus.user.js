@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         WBUESPPlus
 // @namespace    https://gitee.com/dmaker/WBUESPPlus
-// @version      1.3.11.3
+// @version      1.3.11.4
 // @description  WBU教务平台Plus
 // @author       Simprole
 // @match        http://jw.wbu.edu.cn/jsxsd/*
