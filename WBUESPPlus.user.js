@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         WBUESPPlus
 // @namespace    https://gitee.com/dmaker/WBUESPPlus
-// @version      1.3.11.4
+// @version      1.3.11.5
 // @description  WBU教务平台Plus
 // @author       Simprole
 // @match        http://jw.wbu.edu.cn/jsxsd/*
@@ -17,6 +17,7 @@
 // ==/UserScript==
 
 (function(){
+    const channel_num = 0;
     $(document).ready(function(){
     //import HarmonyOS font
     GM_addStyle(GM_getResourceText("css"));
@@ -1620,7 +1621,7 @@
         window.sessionStorage.setItem("userName",origin_name_top);
         window.sessionStorage.getItem("name_hide")=="true" ? name_top.innerHTML = "个人信息已隐藏" : "";
         let name_inner,origin_name_inner;
-        const version_info = "WBUESPPlus版本:<br>"+GM_info.script.version;
+        const version_info = channel_num === 0 ? "WBUESPPlus版本:<br>"+`${GM_info.script.version} Beta` : "WBUESPPlus版本:<br>"+`${GM_info.script.version.slice(0,GM_info.script.version.lastIndexOf("."))} 正式版<br>`+`<span style="font-size:0.75rem;line-height:0.9rem">(${GM_info.script.version})</span>`;
         if(document.getElementsByClassName("block1text")[0]){
             name_inner = document.getElementsByClassName("block1text")[0];
             origin_name_inner= name_inner.innerHTML;
