@@ -277,6 +277,9 @@
         },
         homePageSizeOptimizer: function (){
             window.addEventListener("resize",rateOptimization.resizeRate);
+        },
+        cjcx_resize: function (filter_panel){
+            document.documentElement.style.setProperty("--filter-panel-width",filter_panel.clientWidth+"px");
         }
     }
     const SimUIFunctions = {
@@ -644,6 +647,7 @@
             }
             setup_SimUI();
             document.documentElement.style.setProperty("--filter-panel-width",filter_panel.clientWidth+"px");
+            window.addEventListener("resize",rateOptimization.cjcx_resize.bind(null,filter_panel));
             document.documentElement.style.setProperty("--filter-ui-btn-width",filter_ui_btn.clientWidth+"px");
             document.documentElement.style.setProperty("--fold-scale-ratio",filter_ui_btn.clientWidth/filter_panel.clientWidth);
         }
