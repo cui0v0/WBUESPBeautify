@@ -17,7 +17,7 @@
 // ==/UserScript==
 
 (function(){
-    const channel_num = 0;
+    const channel_num = 1;//0=>Beta,1=>正式版
     $(document).ready(function(){
     //import HarmonyOS font
     GM_addStyle(GM_getResourceText("css"));
