@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         WBUESPPlus
 // @namespace    https://gitee.com/dmaker/WBUESPPlus
-// @version      1.3.11.5
+// @version      1.3.12.0
 // @description  WBU教务平台Plus
 // @author       Simprole
 // @match        http://jw.wbu.edu.cn/jsxsd/*
@@ -425,6 +425,7 @@
                         window.location.reload();
                     }
                 }else if(SimIframe.contentWindow.location.href.includes("authserver/login?service=")){
+                    localStorage.setItem("last_record_url", location.href);
                     SimNotification.innerHTML = "WBUESPPlus检测到需要重新登录，正在跳转到登录页面。";
                     setTimeout(() => {
                         window.sessionStorage.removeItem("recovery_attempts");
@@ -855,8 +856,8 @@
                         semesters_text += "，";
                     }
                 }
-                console.log(semesters_text+"学期综测分数："+calculate(filtered_subjects));
-                scorePanel.innerHTML = "<span>"+semesters_text+"</span><span>学期综测分数：</span><div class='score'>"+Math.round(calculate(filtered_subjects)* 100) / 100..toFixed(2)+"</div>";
+                console.log(`${semesters_text}学期课程学习成绩：${calculate(filtered_subjects)[0]}，学期成绩平均分：${calculate(filtered_subjects)[1]}`);
+                scorePanel.innerHTML = `<span>${semesters_text}</span><span>学期课程学习成绩：</span><div class='score'>${Math.round((calculate(filtered_subjects)[0])* 100) / 100..toFixed(2)}</div><span>学期成绩平均分：</span><div class='score'>${Math.round((calculate(filtered_subjects)[1])* 100) / 100..toFixed(2)}</div>`;
                 calc_btn.classList.add("display_none");
                 pickPanel.classList.add("display_none");
                 SimUI.appendChild(scorePanel);
@@ -927,15 +928,18 @@
         return score;
     }
     function calculate(data){
-        let temp = 0,result = 0,totalCredits= 0;
+        let temp = 0,zongce_result = 0,avg_result=0,totalCredits= 0,totalScores = 0,subjectsCount = 0;
         for(var num in data){
-            if(parseFloat(data[num].credit)!=0){
+            if(parseFloat(data[num].credit)!=0&&scoreProcess(data[num].score)!=0){
                 totalCredits += parseFloat(data[num].credit);
+                totalScores += scoreProcess(data[num].score);
                 temp += parseFloat(data[num].credit)*scoreProcess(data[num].score);
+                subjectsCount++;
             }
         }
-        result = (temp/totalCredits)*0.7;
-        return result;
+        zongce_result = (temp/totalCredits)*0.7;
+        avg_result = totalScores/subjectsCount;
+        return [zongce_result, avg_result];
     }
     const filter_hidden_options = ["filter_semester","filter_lesson_type"];
     //checkbox -> checkbox,filter_by -> 筛选条件
@@ -1609,6 +1613,11 @@
         document.getElementsByClassName("icon-yonghu")[0].title="点击切换个人信息展示";
         rateOptimization.resizeRate();
         rateOptimization.homePageSizeOptimizer();
+        if(localStorage.getItem("last_record_url")&&localStorage.getItem("last_record_url")!="null"){
+            const last_record_url = localStorage.getItem("last_record_url");
+            localStorage.removeItem("last_record_url");
+            location.href = last_record_url;
+        }
     }
     //hide personal info
     if(document.getElementById("Top1_divLoginName")){
