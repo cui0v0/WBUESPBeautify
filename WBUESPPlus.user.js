@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         WBUESPPlus
 // @namespace    https://gitee.com/dmaker/WBUESPPlus
-// @version      1.3.12.0
+// @version      1.3.12.2
 // @description  WBU教务平台Plus
 // @author       Simprole
 // @match        http://jw.wbu.edu.cn/jsxsd/*
@@ -10,7 +10,7 @@
 // @run-at       document-start
 // @resource css https://s1.hdslb.com/bfs/static/jinkela/long/font/medium.css
 // @resource icon https://gitee.com/dmaker/simpage/raw/master/iconfont.css
-// @require      https://libs.baidu.com/jquery/2.0.0/jquery.min.js
+// @require      https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js
 // @grant        unsafeWindow
 // @grant        GM_addStyle
 // @grant        GM_getResourceText
@@ -524,9 +524,9 @@
                     semester_list.push(subject.semester);
                 }
                 tr.classList.add("s"+subject.semester);
-                subject.id.includes("BGX") ? tr.classList.add("公选") : tr.classList.add("必修");
+                subject.attribute === "公选" ? tr.classList.add("公选") : subject.attribute === "必修" ? tr.classList.add("必修") : subject.attribute === "专选" ? tr.classList.add("专选") : "";
                 subject_info.push(subject);
-                simGrid.appendChild(create_grid(subject.title,subject.score,subject.time,subject.id,subject.credit,subject.type,subject.semester,JsModData));
+                simGrid.appendChild(create_grid(subject.title,subject.score,subject.time,subject.id,subject.credit,subject.type,subject.semester,subject.attribute,JsModData));
             });
             console.log(subject_info);
             let buttonsDiv = document.createElement("div");
@@ -577,6 +577,7 @@
             let lesson_type_picker_panel = create_specific_element("div","<span>课程属性</span>","pickPanel");
             lesson_type_picker_panel.appendChild(create_picker_option("picker_option","text","必修"));
             lesson_type_picker_panel.appendChild(create_picker_option("picker_option","text","公选"));
+            lesson_type_picker_panel.appendChild(create_picker_option("picker_option","text","专选"));
             lesson_type_picker_panel.querySelectorAll(".picker_option").forEach((e)=>{
                 e.classList.add("filter_lesson_type");
             })
@@ -778,7 +779,7 @@
     function asyncSleep(time) {
         return new Promise((resolve) => setTimeout(resolve, time));
     }
-    function create_grid(title,score,time,id,credit,type,semester,JsModData){
+    function create_grid(title,score,time,id,credit,type,semester,attribute,JsModData){
         let grid_item = document.createElement("div");
         grid_item.className = "grid";
         let top = document.createElement("div");
@@ -814,7 +815,7 @@
             };
         }
         grid_item.classList.add("s"+semester);
-        id.includes("BGX") ? grid_item.classList.add("公选") : grid_item.classList.add("必修");
+        attribute === "公选" ? grid_item.classList.add("公选") : attribute === "必修" ? grid_item.classList.add("必修") : attribute === "专选" ? grid_item.classList.add("专选") : "";
         grid_item.appendChild(top);
         grid_item.appendChild(bottom);
         grid_item.addEventListener("click",()=>{
@@ -937,9 +938,10 @@
                 subjectsCount++;
             }
         }
-        zongce_result = (temp/totalCredits)*0.7;
+        xuenian_avg_result = temp/totalCredits;
+        zongce_result = xuenian_avg_result*0.7;
         avg_result = totalScores/subjectsCount;
-        return [zongce_result, avg_result];
+        return [zongce_result, xuenian_avg_result, avg_result];
     }
     const filter_hidden_options = ["filter_semester","filter_lesson_type"];
     //checkbox -> checkbox,filter_by -> 筛选条件
